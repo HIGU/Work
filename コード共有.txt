@@ -1,0 +1,8 @@
+uint8 cbToCoNet_u8HwInt(uint32 u32DeviceId, uint32 u32ItemBitmap) {
+    Serial << "DBG:Debug:END" << mwx::crlf << mwx::flush;
+    switch (u32DeviceId) {
+	case E_AHI_DEVICE_SYSCTRL:
+    //Serial << "Debug" << mwx::crlf << mwx::flush;
+    }
+    return TRUE;
+}
