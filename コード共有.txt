@@ -6,3 +6,11 @@ uint8 cbToCoNet_u8HwInt(uint32 u32DeviceId, uint32 u32ItemBitmap) {
     }
     return TRUE;
 }
+
+I2C
+2045(SI5351A)
+SN74HC00N
+
+超音波
+MA40S4S
+TC4467CPD
