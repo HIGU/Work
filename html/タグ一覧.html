@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script>
+            function Calc(){
+                var a = document.getElementById("ID1").value;
+                var b = 10;
+                var res = a * b;
+                document.getElementById("result").textContent = res.toString();
+            }
+        </script>
+    </head>
+    <body>
+        <h1>ヘッダー</h1>
+        <h2>タグ一覧</h2>
+        <p>
+            段落。上下に空白が表示される。
+        </p>
+        <p>
+            ulは箇条書き(番号無し)、olは番号付きのリスト、liはリストの項目
+        </p>
+        <p><br><br><br>brは改行<br><br><br></p>
+        <ul>
+            <li><a href="https://www.tagindex.com/html_tag/elements/">参考ページ</a></li>
+        </ul>
+        <ol>
+            <li>一番</li>
+            <li>二番</li>
+        </ol>
+        <button onclick="Calc()">10倍するボタン</button>
+        <input id="ID1" value="数字入力">
+        <p id="result"></p>
+        <p>
+            表の作成。trは行(table row)、tdはセル(table data)<br>
+            borderで表の枠線の太さを変えられる。<br>
+            colspanは行方向(右向き)の結合、rowspanは列方向の結合（下向きに作成されるため、次の行は1列分減らす）
+        </p>
+        <table border="5">
+            <tr>
+                <td>表</td>
+                <td>は</td>
+                <td>行</td>
+                <td>か</td>
+                <td>ら</td>
+                <td>列</td>
+                <td>方</td>
+            </tr>
+            <tr>
+                <td>向</td>
+                <td>に</td>
+                <td>作</td>
+                <td>成</td>
+                <td>す</td>
+                <td>る</td>
+                <td>。</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td colspan="3">3つ分</td>
+                <td>1</td>
+                <td rowspan="2">2</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </table>
+        <img src="test_image.jpg">
+    </body>
+</html>

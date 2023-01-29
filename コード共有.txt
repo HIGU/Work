@@ -9,6 +9,7 @@ uint8 cbToCoNet_u8HwInt(uint32 u32DeviceId, uint32 u32ItemBitmap) {
 
 I2C
 2045(SI5351A)
+https://gsmcustomeffects.hatenablog.com/entry/2017/04/03/023111
 SN74HC00N
 
 超音波
