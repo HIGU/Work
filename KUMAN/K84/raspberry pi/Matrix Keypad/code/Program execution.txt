@@ -1,0 +1,7 @@
+In the directory where the code file is located, execute the following command
+C£º
+gcc MatrixKeypad.cpp Keypad.cpp Key.cpp -o MatrixKeypad -lwiringPi 
+sudo ./MatrixKeypad
+
+Python:
+python MatrixKeypad.py

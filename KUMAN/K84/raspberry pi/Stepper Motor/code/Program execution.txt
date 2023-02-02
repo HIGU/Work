@@ -1,0 +1,6 @@
+C£º
+gcc -Wall -o SteppingMotor SteppingMotor.c -lwiringPi
+sudo ./SteppingMotor
+
+Python:
+python SteppingMotor.py

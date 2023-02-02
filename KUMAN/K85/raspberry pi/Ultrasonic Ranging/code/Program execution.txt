@@ -1,0 +1,6 @@
+C£º
+gcc -Wall -o UltrasonicRanging UltrasonicRanging.c -lwiringPi
+sudo ./UltrasonicRanging
+
+Python:
+python UltrasonicRanging.py

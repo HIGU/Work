@@ -1,0 +1,7 @@
+In the directory where the code file is located, execute the following command
+C£º
+gcc -Wall -o Joystick Joystick.c -lwiringPi
+sudo ./Joystick
+
+Python:
+python Joystick.py

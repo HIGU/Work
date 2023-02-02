@@ -1,0 +1,7 @@
+In the directory where the code file is located, execute the following command
+C£º
+gcc MPU6050RAW.cpp MPU6050.cpp I2Cdev.cpp -o MPU6050RAW
+sudo ./MPU6050RAW
+
+python£º
+python MPU6050RAW.py

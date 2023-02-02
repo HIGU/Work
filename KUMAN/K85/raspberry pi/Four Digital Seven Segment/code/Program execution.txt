@@ -1,0 +1,6 @@
+C£º
+gcc -Wall -o 4digitLEDdisplay 4digitLEDdisplay.c -lwiringPi
+sudo ./4digitLEDdisplay
+
+Python:
+python 4digitLEDdisplay.py

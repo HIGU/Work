@@ -1,0 +1,13 @@
+In the directory where the code file is located, execute the following command
+C£º
+The address is 3F.
+gcc -Wall -o I2CLCD1602A I2CLCD1602A.c -lwiringPi -lwiringPiDev
+sudo ./I2CLCD1602A
+
+The address is 27.
+gcc -Wall -o I2CLCD1602B I2CLCD1602B.c -lwiringPi -lwiringPiDev
+sudo ./I2CLCD1602B
+
+
+Python:
+python I2CLCD1602.py

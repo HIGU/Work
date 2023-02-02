@@ -1,0 +1,4 @@
+In the directory where the code file is located, execute the following command
+chmod 777 ./build.sh
+sudo ./build.sh
+sudo ./RFID
