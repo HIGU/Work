@@ -21,3 +21,12 @@ https://take44444.github.io/Algorithm-Book/index.html
 
 競技プログラマの名前で呼ばれるアルゴルズムたち
 https://hackmd.io/@AymkShhZRFeX98HUU2MuHQ/Hk3hLVlWz?type=view
+
+競プロのための標準C++
+https://zenn.dev/reputeless/books/standard-cpp-for-competitive-programming/viewer/library-vector
+
+C++標準ライブラリヘッダ
+https://ja.cppreference.com/w/cpp/header
+
+Javascript
+https://developer.mozilla.org/ja/docs/Web/JavaScript
