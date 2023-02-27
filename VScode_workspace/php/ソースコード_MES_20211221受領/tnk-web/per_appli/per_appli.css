@@ -1,0 +1,169 @@
+/****************************************************************************/
+/* per_appli_menu.php CSS file TNK Web System                               */
+/* Copyright (C) 2014-2014 Norihisa.Ohya norihisa_ooya@nitto-kohki.co.jp    */
+/* Changed history                                                          */
+/* 2014/09/19 Created  per_appli.css                                        */
+/****************************************************************************/
+
+.pt8 {
+    font-size:   8pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt9 {
+    font-size:   9pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10 {
+    font-size:   10pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10b {
+    font-size:   10pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt11b {
+    font-size:   11pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt12b {
+    font-size:   12pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+div {
+    font-size:   16pt;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+table.layout { /* テーブルタグ共通スタイル */
+        font-size : 14px;
+        font-family : "ＭＳ ゴシック";
+        border-collapse : collapse;
+        background-color : floralwhite;
+        border-bottom-width : 1px;
+        border-bottom-width : 1px;
+        border-right-width : 1px;
+        border-bottom-style : solid;
+        border-right-style : solid;
+        border-color :#000000;
+        padding : 2px;
+        margin  : 2px;
+}
+tr.layout { /* テーブル行共通スタイル */
+        font-size : 14px;
+        font-family : "ＭＳ ゴシック";
+        border-collapse : collapse;
+        background-color : floralwhite;
+        border-bottom-width : 1px;
+        border-right-width : 1px;
+        border-bottom-style : solid;
+        border-right-style : solid;
+        border-color :#333333;
+        padding : 2px;
+        margin  : 2px;
+}
+td.layout { /* テーブル行共通スタイル */
+        font-size :             13px;
+        font-family :           "ＭＳ ゴシック";
+        border-collapse :       collapse;
+        background-color :      #FFFFFF;
+        border-top-width :      1px;
+        border-bottom-width :   1px;
+        border-left-width :     1px;
+        border-right-width :    1px;
+        border-top-style :      solid;
+        border-bottom-style :   solid;
+        border-left-style :     solid;
+        border-right-style :    solid;
+        border-color :          #333333;
+        padding :               10px;
+        margin  :               10px;
+}
+td.layoutt { /* テーブル行表題行共通スタイル */
+        font-size :             18px;
+        font-family :           "ＭＳ ゴシック";
+        border-collapse :       collapse;
+        background-color :      #ceffce;
+        border-top-width :      1px;
+        border-bottom-width :   1px;
+        border-left-width :     1px;
+        border-right-width :    1px;
+        border-top-style :      solid;
+        border-bottom-style :   solid;
+        border-left-style :     solid;
+        border-right-style :    solid;
+        border-color :          #333333;
+        padding :               10px;
+        margin  :               10px;
+}
+td.layoutg { /* テーブル行タイトル行共通スタイル */
+        font-size :             13px;
+        font-family :           "ＭＳ ゴシック";
+        border-collapse :       collapse;
+        background-color :      #ceffce;
+        border-top-width :      1px;
+        border-bottom-width :   1px;
+        border-left-width :     1px;
+        border-right-width :    1px;
+        border-top-style :      solid;
+        border-bottom-style :   solid;
+        border-left-style :     solid;
+        border-right-style :    solid;
+        border-color :          #333333;
+        padding :               10px;
+        margin  :               10px;
+}
+td.layoutb { /* テーブル行提出書類共通スタイル */
+        font-size :             13px;
+        font-family :           "ＭＳ ゴシック";
+        border-collapse :       collapse;
+        background-color :      #E0FFFF;
+        border-top-width :      1px;
+        border-bottom-width :   1px;
+        border-left-width :     1px;
+        border-right-width :    1px;
+        border-top-style :      solid;
+        border-bottom-style :   solid;
+        border-left-style :     solid;
+        border-right-style :    solid;
+        border-color :          #333333;
+        padding :               10px;
+        margin  :               10px;
+}
+td.layouty { /* テーブル行注釈共通スタイル */
+        font-size :             13px;
+        font-family :           "ＭＳ ゴシック";
+        border-collapse :       collapse;
+        background-color :      #ffffc6;
+        border-top-width :      1px;
+        border-bottom-width :   1px;
+        border-left-width :     1px;
+        border-right-width :    1px;
+        border-top-style :      solid;
+        border-bottom-style :   solid;
+        border-left-style :     solid;
+        border-right-style :    solid;
+        border-color :          #333333;
+        padding :               10px;
+        margin  :               10px;
+}
+body {
+    /* ここにbodyを指定すれば HTMLタグは必要ない */
+    background-image:       url(/img/t_nitto_logo4.png);
+    background-repeat:      no-repeat;
+    background-attachment:  fixed;
+    background-position:    right bottom;
+}
+a:hover {
+    background-color:       blue;
+    color:                  white;
+}
+a {
+    color:                  blue;
+}
+

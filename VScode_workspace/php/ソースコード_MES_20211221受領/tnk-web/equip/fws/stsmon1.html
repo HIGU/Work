@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/css; charset=EUC-JP">
+<LINK HREF="/css/style1.css" REL="stylesheet" TYPE="text/css">
+<LINK REL="SHORTCUT ICON" HREF="/favicon.ico">
+<META HTTP-EQUIV="Refresh" CONTENT="60;URL=/cgi-bin/mon.cgi?argHtmlFile=stsmon1.html">
+<style type="text/css">
+<!--
+.ret_font {
+    font-size:   12pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+.title_font {
+    font-size:   13.5pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+.today_font {
+    font-size: 10.5pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+-->
+</style>
+<SCRIPT LANGUAGE="JavaScript" SRC="/dispgif.js"></SCRIPT>
+<script language='JavaScript'>
+<!--
+function get_dateTime(today) {
+    var yyyy = today.getFullYear();
+    var mm   = (today.getMonth() + 1);          // getMonth()は実際月より 1 小さい値を返す
+    var dd   = today.getDate();
+    var h    = (today.getHours()   + "");       // 文字列変数に変換 下で.lengthが使えない
+    var m    = (today.getMinutes() + "");
+    var s    = (today.getSeconds() + "");
+    if (h.length == 1) h = ("0" + h);           // 桁数を2桁にそろえる
+    if (m.length == 1) m = ("0" + m);
+    if (s.length == 1) s = ("0" + s);
+    return yyyy+'/'+mm+'/'+dd+' '+h+':'+m+':'+s;
+}
+// -->
+</script>
+<TITLE>FWS1モニター</TITLE>
+</HEAD>
+<BODY>
+
+<!-- 背景画像の設置 -->
+<P>
+    <SPAN STYLE="position: absolute; left: 180; top: 200; z-index: -1">
+        <!-- <IMG border="0" SRC="/images/kikai.jpg" WIDTH="547" HEIGHT="387"> -->
+        <img border='0' src='/images/kikai.jpg' width='440' height='300'>
+    </SPAN>
+</P>
+
+<!-- <HR> -->
+
+<CENTER>
+    <div style='position: absolute; top: 0; left: 0;'>
+        <!----------------- ここは タイトルを表示する ------------------->
+        <table width='100%' bgcolor='#d6d3ce'  cellspacing='0' cellpadding='1' border='1'>
+            <tr><td> <!----------- ダミー(デザイン用) ------------>
+        <table width='100%' bordercolordark='white' bordercolorlight='#bdaa90' bgcolor='#d6d3ce' cellspacing='0' cellpadding='1' border='1'>
+            <tr>
+                <form name='return_form' method='post' action='http://masterst/equip/equip_menu.php'>
+                    <td width='60' bgcolor='blue' align='center' valign='center'>
+                        <input class='ret_font' type='submit' name='return' value='戻る'>
+                    </td>
+                </form>
+                <td class='title_font' colspan='1' bgcolor='#d6d3ce' align='center'>
+                    FWS1 モニター (４工場 設備稼働状況)
+                </td>
+                <td class='today_font' colspan='1' bgcolor='#d6d3ce' align='center' width='140'>
+                    <!--#exec cmd="/cgi-bin/date_html.cgi"-->
+                    <script language='JavaScript'>
+                        <!--
+                        document.writeln( get_dateTime(new Date()) );
+                        // -->
+                    </script>
+                </td>
+            </tr>
+        </table>
+            </td></tr>
+        </table> <!----------------- ダミーEnd ------------------>
+    </div>
+<!-- <H1>４工場 設備稼働状況</H1> -->
+
+<HR WIDTH="80%">
+
+$MES_SYSTEM_STS_MON$
+<BR>
+<!-- <A HREF="../menu.html">メニューに戻る</A> -->
+
+</CENTER>
+
+<DIV STYLE="position: absolute; top: 220; left: 430; width: 400; height: 33">
+    <TABLE BORDER="1" WIDTH="180" BGCOLOR="black">
+        <!--
+        <TR>
+            <TD BGCOLOR="yellow"><FONT SIZE="3"><B>$AD0101_NAME$</B></FONT></TD>
+            <TD BGCOLOR="white" ><FONT SIZE="3"><B>$AD0101$</B></FONT></TD>
+        </TR>
+        <TR>
+            <TD BGCOLOR="yellow"><FONT SIZE="3"><B>$AD0102_NAME$</B></FONT></TD>
+            <TD BGCOLOR="white" ><FONT SIZE="3"><B>$AD0102$</B></FONT></TD>
+        </TR>
+        <TR>
+            <TD BGCOLOR="yellow"><FONT SIZE="3"><B>$AD0103_NAME$</B></FONT></TD>
+            <TD BGCOLOR="white" ><FONT SIZE="3"><B>$AD0103$</B></FONT></TD>
+        </TR>
+        -->
+    </TABLE>
+</DIV>
+
+<DIV STYLE="position: absolute; top: 80; left: 7; width: 185; height: 31">
+    <TABLE BGCOLOR="#CCCCCC" >
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                    disp_gif("$IN0105$");
+                -->
+                </SCRIPT>
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                <I>$IN0105 NAME$</I>
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                    disp_gif("$IN0106$");
+                -->
+                </SCRIPT>
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                <I>$IN0106 NAME$</I>
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                    disp_gif("$IN0107$");
+                -->
+                </SCRIPT>
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                <I>$IN0107 NAME$</I>
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                　<!-- ブランク -->
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                　
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                    disp_gif("$IN0205$");
+                -->
+                </SCRIPT>
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                <I>$IN0205 NAME$</I>
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                    disp_gif("$IN0206$");
+                -->
+                </SCRIPT>
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                <I>$IN0206 NAME$</I>
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                    disp_gif("$IN0207$");
+                -->
+                </SCRIPT>
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                <I>$IN0207 NAME$</I>
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                　<!-- ブランク -->
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                　
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                    disp_gif("$IN0305$");
+                -->
+                </SCRIPT>
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                <I>$IN0305 NAME$</I>
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                    disp_gif("$IN0306$");
+                -->
+                </SCRIPT>
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                <I>$IN0306 NAME$</I>
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                    disp_gif("$IN0307$");
+                -->
+                </SCRIPT>
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                <I>$IN0307 NAME$</I>
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                　<!-- ブランク -->
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                　
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                    disp_gif("$IN0405$");
+                -->
+                </SCRIPT>
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                <I>$IN0405 NAME$</I>
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                    disp_gif("$IN0406$");
+                -->
+                </SCRIPT>
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                <I>$IN0406 NAME$</I>
+            </TD>
+        </TR>
+        <TR BGCOLOR="#FFFFCC">
+            <TD ALIGN="center" VALIGN="middle">
+                <SCRIPT LANGUAGE="JavaScript">
+                <!--
+                    disp_gif("$IN0407$");
+                -->
+                </SCRIPT>
+            </TD>
+            <TD ALIGN="center" VALIGN="middle">
+                <I>$IN0407 NAME$</I>
+            </TD>
+        </TR>
+    </TABLE>
+</DIV>
+
+<!-- <div STYLE="position: absolute; top: 80; left: 740; width: 351; height: 66"> -->
+<div style='position: absolute; top: 80; left: 640; width: 351; height: 66'>
+    <!--
+    <FONT SIZE="+3"><B>$CN0101_NAME$：$CN0101$</B></FONT><BR>
+    -->
+    <FONT SIZE="+1"><B>$IN0101_NAME$：$IN0101$</B></FONT><br>
+    <FONT SIZE="+1"><B>$IN0102_NAME$：$IN0102$</B></FONT><br>
+    <FONT SIZE="+1"><B>$IN0103_NAME$：$IN0103$</B></FONT><br>
+    <FONT SIZE="+1"><B>$IN0104_NAME$：$IN0104$</B></FONT><br>
+    <br>
+    <FONT SIZE="+1"><B>$IN0201_NAME$：$IN0201$</B></FONT><br>
+    <FONT SIZE="+1"><B>$IN0202_NAME$：$IN0202$</B></FONT><br>
+    <FONT SIZE="+1"><B>$IN0203_NAME$：$IN0203$</B></FONT><br>
+    <FONT SIZE="+1"><B>$IN0204_NAME$：$IN0204$</B></FONT><br>
+    <br>
+    <FONT SIZE="+1"><B>$IN0301_NAME$：$IN0301$</B></FONT><br>
+    <FONT SIZE="+1"><B>$IN0302_NAME$：$IN0302$</B></FONT><br>
+    <FONT SIZE="+1"><B>$IN0303_NAME$：$IN0303$</B></FONT><br>
+    <FONT SIZE="+1"><B>$IN0304_NAME$：$IN0304$</B></FONT><br>
+    <br>
+    <FONT SIZE="+1"><B>$IN0401_NAME$：$IN0401$</B></FONT><br>
+    <FONT SIZE="+1"><B>$IN0402_NAME$：$IN0402$</B></FONT><br>
+    <FONT SIZE="+1"><B>$IN0403_NAME$：$IN0403$</B></FONT><br>
+    <FONT SIZE="+1"><B>$IN0404_NAME$：$IN0404$</B></FONT><br>
+</div>
+
+<DIV STYLE="position: absolute; top: 380; left: 190; width: 491; height: 48">
+    <TABLE BGCOLOR="white" BORDER="0" WIDTH="300">
+        <!--
+        <TR>
+            <TD BGCOLOR="blue" WIDTH="200"><FONT SIZE="5" COLOR="white">$AD0101_NAME$</FONT></TD>
+            <TD ALIGN="center" WIDTH="100"><FONT SIZE="5"><B>$AD0101$</B></FONT></TD>
+        </TR>
+        -->
+    </TABLE>
+</DIV>
+
+</BODY>
+
+</HTML>
+
+
+

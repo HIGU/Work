@@ -1,0 +1,50 @@
+/****************************************************************************/
+/* 全社共有 打合せ(会議)スケジュール表の照会・メンテ MVC View 部 (CSS file) */
+/* Copyright (C) 2005-2005 Kazuhiro.Kobayashi tnksys@nitto-kohki.co.jp      */
+/* Changed history                                                          */
+/* 2005/11/02 Created  meeting_schedule.css                                 */
+/****************************************************************************/
+
+/*Radioのみ*/
+label.radio {
+	position      : relative;
+	display       : inline-block;
+	width         : 15px;
+	height        : 15px;
+	border        : 1px solid #666;
+	border-radius : 100%;
+	overflow      : hidden;
+	cursor        : pointer;
+}
+label.radio:before {
+	content          : '';
+	display          : block;
+	width            : 11px;
+	height           : 11px;
+	border-radius    : 100%;
+	position         : absolute;
+	top              : 2px;
+	left             : 2px;
+	z-index          : 1;
+	background-color : #D65; 
+}
+label.radio input[type="radio"] {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	margin     : 0px;
+	position   : absolute;
+	z-index    : 2;
+	top        : -2px;
+	left       : -23px;
+	width      : 20px;
+	height     : 20px;
+	display    : block;
+	box-shadow : 20px 0px #FFF;
+}
+label.radio input[type="radio"]:checked {
+	box-shadow : none;
+}
+label.radio input[type="radio"]:focus {
+	box-shadow : 20px 0px #FFF;
+	opacity    : 0.2;
+}

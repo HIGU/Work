@@ -1,0 +1,133 @@
+/****************************************************************************/
+/* 部品売上げの材料費(購入費)の 照会  (ベース)  MVC View 部 (CSS file)      */
+/* Copyright (C) 2006-2006 Kazuhiro.Kobayashi tnksys@nitto-kohki.co.jp      */
+/* Changed history                                                          */
+/* 2006/02/15 Created  parts_material_show.css                              */
+/****************************************************************************/
+
+input.bg {
+    /* background-image: url(/img/border_silver_button.gif); */
+    background-image: url(/img/border_silver_retButton.gif);
+    background-repeat: repeat;
+}
+.pt8 {
+    font-size:   8pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt9 {
+    font-size:   9pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10 {
+    font-size:   10pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10b {
+    font-size:   10pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt11b {
+    font-size:   11pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt12b {
+    font-size:   12pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt12b-dred {
+    font-size:   12pt;
+    font-weight: bold;
+    font-family: monospace;
+    color:       darkred;
+}
+.pt14b {
+    font-size:   14pt;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+th {
+    font-size:          11pt;
+    font-weight:        bold;
+    color:              white;
+    background-color:   teal;
+}
+td {
+    font-size:          11pt;
+    font-weight:        normal;
+}
+caption {
+    font-size:          11pt;
+    font-weight:        bold;
+}
+.caption_font {
+    font-size:          11pt;
+    font-weight:        bold;
+    font-family:        monospace;
+    background-color:   blue;
+    color:              white;
+}
+.caption2_font {
+    font-size:          11pt;
+    font-weight:        bold;
+    font-family:        monospace;
+    background-color:   yellow;
+    color:              blue;
+}
+.note1_font {
+    font-size:          10pt;
+    font-weight:        bold;
+    background-color:   yellow;
+    color:              blue;
+}
+.note2_font {
+    font-size:          10pt;
+    font-weight:        bold;
+    background-color:   blue;
+    color:              white;
+}
+input {
+    font-size:          11pt;
+    font-weight:        bold;
+}
+select {
+    background-color:   lightblue;
+    color:              black;
+    font-size:          11pt;
+    font-weight:        bold;
+}
+.TimeEdit select {
+    background-color:   lightblue;
+    color:              black;
+    font-size:          14pt;
+    font-weight:        bold;
+}
+.center {
+    text-align:         center;
+}
+.right {
+    text-align:         right;
+}
+.left {
+    text-align:         left;
+}
+body {
+    /* ここにbodyを指定すれば HTMLタグは必要ない */
+    background-image:       url(/img/t_nitto_logo4.png);
+    background-repeat:      no-repeat;
+    background-attachment:  fixed;
+    background-position:    right bottom;
+}
+a {
+    color:                  blue;
+}
+a:hover {
+    background-color:       blue;
+    color:                  white;
+}
+

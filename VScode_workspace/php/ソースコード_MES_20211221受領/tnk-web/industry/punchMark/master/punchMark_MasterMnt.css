@@ -1,0 +1,188 @@
+/****************************************************************************/
+/* 刻印管理マスターメンテナンス                                   (CSS file)*/
+/* Copyright (C) 2007      Norihisa.Ohya      usoumu@nitto-kohki.co.jp      */
+/* Changed history                                                          */
+/* 2007/07/12 Created   punchMark_MasterMnt.css                             */
+/* 2007/10/18 sortButton クラスを追加  小林                                 */
+/* 2007/10/19 棚番順追加 デザイン変更(body, input, select, textarea)  小林  */
+/* 2007/10/23 thクラスの 0.80em → 0.95em へ変更                      小林  */
+/* 2007/11/09 readonlyクラスにborder:0px;を追加                       小林  */
+/****************************************************************************/
+
+.pt8 {
+    font-size:   0.6em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt9 {
+    font-size:   0.7em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10 {
+    font-size:   0.8em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10b {
+    font-size:   0.8em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt11 {
+    font-size:   0.9em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt11b {
+    font-size:   0.9em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt11br {
+    font-size:   0.9em;
+    font-weight: bold;
+    font-family: monospace;
+    color:       red;
+}
+.pt11bb {
+    font-size:   0.9em;
+    font-weight: bold;
+    font-family: monospace;
+    color:       blue;
+}
+.pt12 {
+    font-size:   1.0em;
+    font-family: monospace;
+}
+.pt12b {
+    font-size:   1.0em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt12br {
+    font-size:   1.0em;
+    font-weight: bold;
+    font-family: monospace;
+    color:       red;
+}
+.pt12bb {
+    font-size:   1.0em;
+    font-weight: bold;
+    font-family: monospace;
+    color:       blue;
+}
+.pt12bla {
+    font-size:   1.0em;
+    font-weight: bold;
+    font-family: monospace;
+    color:       black;
+}
+.pt13b {
+    font-size:   1.1em;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+.pt14b {
+    font-size:   1.2em;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+table.outside_field {
+    background-color:       #d6d3ce;
+}
+table.inside_field {
+    border-style:           solid;
+    border-width:           1px;
+    border-top-color:       #bdaa90;
+    border-left-color:      #bdaa90;
+    border-right-color:     #FFFFFF;
+    border-bottom-color:    #FFFFFF;
+    background-color:       #d6d3ce;
+}
+td.winbox_title {
+    border-style:           solid;
+    border-width:           1px;
+    border-top-color:       #FFFFFF;
+    border-left-color:      #FFFFFF;
+    border-right-color:     #bdaa90;
+    border-bottom-color:    #bdaa90;
+    background-color:       #ffffc6;
+}
+input.readonly {
+    background-color:   #d6d3ce;
+    font-weight:        bold;
+    border:             0px;
+}
+textarea.readonly {
+    background-color:   #d6d3ce;
+    font-weight:        bold;
+}
+th {
+    background-color:   blue;
+    color:              yellow;
+    font-size:          0.95em;
+    font-weight:        bold;
+    font-family:        monospace;
+}
+a.button {
+    text-decoration:    none;
+    text-align:         center;
+    background-color:   #F8F5EF;
+    color:              black;
+    display:            block;
+    padding:            2px; /* 3px */
+    border:             2px outset #DDDDDD;
+    font-size:          1.00em;
+    font-weight:        bold;
+    font-family:        monospace;
+}
+a.button:hover {
+    background-color:   blue;
+    color:              white;
+    font-size:          1.00em;
+}
+a {
+    color:              blue;
+    font-size:          1.05em;
+    font-weight:        bold;
+    display:            block;
+}
+a:hover {
+    background-color:   blue;
+    color:              white;
+    font-size:          3.00em;
+}
+a:active {
+    background-color:   gold;
+    color:              black;
+}
+p {
+    font-size:          11pt;
+    font-weight:        bold;
+    font-family:        monospace;
+}
+.sortButton {
+    font-size:          0.95em;
+    font-weight:        bold;
+    width:              80px;
+}
+body {
+    /* ここにbodyを指定すれば HTMLタグは必要ない */
+    background-image:       url(/img/t_nitto_logo4.png);
+    background-repeat:      no-repeat;
+    background-attachment:  fixed;
+    background-position:    right bottom;
+}
+input {
+    font-size:   1.05em;
+    font-weight: bold;
+}
+textarea {
+    font-size:   1.05em;
+    font-weight: bold;
+}
+select {
+    font-size:   0.95em;
+    font-weight: bold;
+}

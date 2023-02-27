@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<title>アイテムマスターの項目</title>
+<script type='text/javascript' src='/base_class.js'></script>
+<link rel='stylesheet' href='/menu_form.css' type='text/css' media='screen'>
+<link rel='stylesheet' href='item_name_search.css' type='text/css' media='screen'>
+<style type='text/css'>
+body {
+    background-image:none;
+}
+</style>
+<script type='text/javascript' src='item_name_search.js'></script>
+</head>
+<body onLoad='ItemNameSearch.highlight();'>
+<center>
+    <table width='100%' bgcolor='#d6d3ce' border='1' cellspacing='0' cellpadding='1'>
+        <tr><td> <!----------- ダミー(デザイン用) ------------>
+    <table class='winbox_field' width='100%' border='1' cellspacing='0' cellpadding='3'>
+        <tr>
+                <th class='winbox' width=' 5%'>No.</th>
+            <a href='item_name_search_Main.php?targetSortItem=parts' target='_parent' style='text-decoration:none;' onMouseover="status='部品番号 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='12%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='部品番号 順でソートします。' id='parts'>部品番号</th>
+            </a>
+            <a href='item_name_search_Main.php?targetSortItem=name' target='_parent' style='text-decoration:none;' onMouseover="status='部品名 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='41%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='部品名 順でソートします。' id='name'>部 品 名</th>
+            </a>
+            <a href='item_name_search_Main.php?targetSortItem=material' target='_parent' style='text-decoration:none;' onMouseover="status='材質 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='12%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='材質 順でソートします。' id='date'>材　質</th>
+            </a>
+            <a href='item_name_search_Main.php?targetSortItem=parent' target='_parent' style='text-decoration:none;' onMouseover="status='親機種名 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='18%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='親機種名 順でソートします。' id='in_pcs'>親機種名</th>
+            </a>
+            <a href='item_name_search_Main.php?targetSortItem=date' target='_parent' style='text-decoration:none;' onMouseover="status='更新日 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='12%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='更新日 順でソートします。' id='stock'>更新日</th>
+            </a>
+        </tr>
+    </table>
+        </td></tr>
+    </table> <!----------------- ダミーEnd ------------------>
+</center>
+</body>
+</html>

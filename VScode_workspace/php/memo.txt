@@ -1,0 +1,3 @@
+PHP Serverはインストール済み
+
+phpファイルを開き、右クリック→PHP Server: Serve Projectで開始

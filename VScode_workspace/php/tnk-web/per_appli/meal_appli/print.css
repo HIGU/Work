@@ -1,0 +1,47 @@
+/****************************************************************************/
+/* per_appli_menu.php CSS file TNK Web System                               */
+/* Copyright (C) 2021-2021 Ryota.Waki ryota_waki@nitto-kohki.co.jp          */
+/* Changed history                                                          */
+/* 2021/03/24 Created  per_appli.css -> monitoring.css                      */
+/* 2021/03/24 Release.                                                      */
+/****************************************************************************/
+
+/* 印刷しない */
+.no-print{
+    display: none;
+}
+
+.print_pages{
+    /* A4縦 */
+    /*width: 172mm;*/
+    /*height: 251mm;*/
+    /* A4横 */
+    /*width: 251mm;*/
+    /*height: 172mm;*/
+    margin: 0;
+    width: 172mm;
+    height: 251mm;
+    page-break-after: always;
+}
+
+/* 最後のページは改ページを入れない */
+.print_pages:last-child{
+    page-break-after: auto;
+}
+
+/* ヘッダー */
+.print_pages:before{
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: red;
+    /*content: "関係者外秘";*/
+}
+
+/* フッター */
+.print_pages:after{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    /*content: counter(page_count) "ページ";*/
+}

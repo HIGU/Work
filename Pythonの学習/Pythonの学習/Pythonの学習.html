@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pythonの学習.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+<link rel="stylesheet" href="file:///d%3A/01_%E6%8A%80%E8%A1%93%E9%83%A81%E8%AA%B2/03_%E4%BA%8B%E5%8B%99%E9%96%A2%E9%80%A3/style.css" type="text/css">
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="python%E3%81%AE%E5%AD%A6%E7%BF%92">Pythonの学習</h1>
+<div style="text-align: right;">
+作成日：2022/05/13
+</div>
+<p>Pythonを学習する上での学習手順や注意点についてまとめる。</p>
+<hr>
+<h3 id="1-%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89">1. <strong>環境構築</strong></h3>
+<p>Pythonプログラムを動かすために以下の手順で環境構築を行う。</p>
+<p>前提として使用するPCは<strong>Windows10 64bit版</strong>とする。</p>
+<p>Visual Studio Codeを用いる場合とVisual Studioを用いる場合の2パターンを紹介する。</p>
+<br>
+<h4 id="%E2%91%A0visual-studio-code%E3%82%92%E7%94%A8%E3%81%84%E3%82%8B%E5%A0%B4%E5%90%88">①.Visual Studio Codeを用いる場合</h4>
+<ol>
+<li><strong>Visual Studio Codeをインストールする。</strong>
+<ul>
+<li>以下のファイルに導入手順が書かれているので手順にしたがってインストールと初期設定等を行う。<pre class="hljs"><code><div>   \\192.168.4.92\private\●技術部1課共用\資料\VsCode関連\VSCode導入手順書.html
+</div></code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<br>
+<ol>
+<li>
+<p><strong>Pythonをインストールする。</strong></p>
+<ul>
+<li>pc4-soft内にある以下のインストーラからインストールする。<pre class="hljs"><code><div>   \\pc4-soft\アプリ\ソフトウェア事業部\104_Python\Python 3.9.5\python-3.9.5-amd64.exe
+</div></code></pre>
+</li>
+<li>インストール手順と正しくインストールできたかの確認は<a href="https://qiita.com/New_enpitsu_15/items/ee95bde0858e9f77acf0">こちらのサイト</a>を参考にする。<br>
+</br></li>
+</ul>
+</li>
+<li>
+<p><strong><a href="https://usimaru.net/vscode-python-helloworld/">参考記事</a>内の手順にしたがってVisual Studio Code上でコードを実行する。</strong></p>
+<ul>
+<li>記事内の「<strong>VSCodeでPythonを使えるようにしてみよう</strong>」と「<strong>VSCodeでPythonを動かしてみよう！</strong>」内の手順にしたがって進めることでPythonのコードを実行できる環境を作る。</li>
+<li>デバッグ実行方法については<a href="https://atmarkit.itmedia.co.jp/ait/articles/2107/16/news029.html">こちらのサイト</a>が参考となる。</li>
+</ul>
+</li>
+</ol>
+</br>
+<ol start="4">
+<li><strong>パッケージのインストール方法について理解しておく。</strong>
+<ul>
+<li>
+<p>Visual Studio Codeでのコンソール上で「<code>pip install</code>」コマンドを使ってパッケージをインストールする。</p>
+</li>
+<li>
+<p>Visual Studio Codeのコンソール上で以下のコマンドを入力することでインストールができる。</p>
+<blockquote>
+<p><strong>python -m pip install --user (ライブラリ名)</strong></p>
+</blockquote>
+<p>以下の2つのコマンドから「numpy」と「matplotlib」パッケージをインストールしてみる。</p>
+<blockquote>
+<p><strong>python -m pip install --user numpy</strong><br>
+<strong>python -m pip install --user matplotlib</strong></p>
+</blockquote>
+</li>
+<li>
+<p>インストールしたパッケージを使用して<a href="https://qiita.com/RinGoku/items/9a0e28ddac4663cd5b03">こちらのサイト</a>を参考にグラフを書いてみる。</p>
+</li>
+</ul>
+</li>
+</ol>
+<br>
+<h4 id="%E2%91%A1visual-studio%E3%82%92%E7%94%A8%E3%81%84%E3%82%8B%E5%A0%B4%E5%90%88">②.Visual Studioを用いる場合</h4>
+<ol>
+<li><strong>Visual Studio 2019をインストールする。</strong>
+<ul>
+<li>すでにインストールされている方はスキップしてよい</li>
+<li>インストールされていなければ、pc4-soft内にある以下のインストーラからインストールする<pre class="hljs"><code><div>   \\pc4-soft\アプリ\ソフトウェア事業部\vs_Community\vs_2019_Community\vs_Community.exe
+</div></code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<br>
+<ol>
+<li>
+<p><strong>Pythonをインストールする。</strong></p>
+<ul>
+<li>pc4-soft内にある以下のインストーラからインストールする。<pre class="hljs"><code><div>   \\pc4-soft\アプリ\ソフトウェア事業部\104_Python\Python 3.9.5\python-3.9.5-amd64.exe
+</div></code></pre>
+</li>
+<li>インストール手順と正しくインストールできたかの確認は<a href="https://qiita.com/New_enpitsu_15/items/ee95bde0858e9f77acf0">こちらのサイト</a>を参考にする。<br>
+<br></li>
+</ul>
+</li>
+<li>
+<p><strong><a href="https://docs.microsoft.com/ja-jp/visualstudio/python/tutorial-working-with-python-in-visual-studio-step-00-installation?view=vs-2019">Microsoft公式サイト内のチュートリアル</a>内の手順にしたがってVisual Studio上でコードを実行する。</strong></p>
+<ul>
+<li>チュートリアル内の<strong>0番から3番までの手順</strong>にしたがって進めることでPythonのコードを実行できる環境を作る。</li>
+<li><strong>手順2</strong>でコードを実装する際に、実行するPythonのバージョンが2.でインストールしたPythonのバージョンと異なる場合は、以下の手順で実行環境を変える必要がある。
+<ol>
+<li>ソリューションエクスプローラー上の [<strong>Python環境</strong>] を右クリックして [<strong>環境を追加</strong>] を選択する</li>
+<li>別画面が開くので画面右側の [<strong>既存の環境</strong>] を選択し、 [<strong>環境(E)</strong>] のドロップダウンメニューが [<strong>Python 3.9(64bit)</strong>] となっていることを確認して [<strong>追加</strong>] ボタンを押下する</li>
+<li>ソリューションエクスプローラー上の [<strong>Python環境</strong>] 下に [<strong>Python 3.9(64bit)</strong>] が追加されるので右クリックして [<strong>環境のアクティブ化</strong>] を選択する</li>
+</ol>
+</li>
+<li><strong>手順4</strong>はデバッガーでの実行方法が記載されている。<br>
+<br></li>
+</ul>
+</li>
+<li>
+<p><strong>パッケージのインストール方法について理解しておく。</strong></p>
+<ul>
+<li><strong>上記チュートリアルでの手順5</strong>にてパッケージのインストール方法が記載されている。</li>
+<li>「<code>pip install</code>」コマンドの代わりにウィンドウ上でパッケージをインストールすることができる。</li>
+</ul>
+</li>
+</ol>
+<br>
+<br>
+<hr>
+<h3 id="2-%E5%9F%BA%E7%A4%8E%E6%96%87%E6%B3%95%E3%82%92%E5%AD%A6%E3%81%B6">2. <strong>基礎文法を学ぶ</strong></h3>
+<p>基礎文法、標準ライブライリ、組み込み関数について以下の順番で学んでもらう。</p>
+<br>
+<h4 id="1-python%E5%AD%A6%E7%BF%92%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AE%E5%85%A5%E9%96%80%E7%B7%A8%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E5%AD%A6%E7%BF%92%E3%81%99%E3%82%8B">1. Python学習サイトの入門編を使って学習する。</h4>
+<ul>
+<li><a href="https://www.python.ambitious-engineer.com/introduction-index">PythonエンジニアによるPython3学習サイトの入門編</a>にある13項目について学ぶ。</li>
+<li>同サイトにて「Pythonとは？」や「Pythonのメリット・デメリット」についても記載されており、そこから知りたい方は<a href="https://www.python.ambitious-engineer.com/archives/3034">こちら</a>から。</li>
+<li><strong>ページ内には演習問題等は用意されていないため、自身でサンプルコードをコーディングして動作を確認しながら学習してほしい。</strong></li>
+</ul>
+<br>
+<h4 id="2-%E7%B7%B4%E7%BF%92%E5%95%8F%E9%A1%8C%E3%82%92%E5%AE%9F%E9%9A%9B%E3%81%AB%E8%A7%A3%E3%81%8F">2. 練習問題を実際に解く。</h4>
+<p>以下の3つのサイトが用意する練習問題を実際にプログラミングして基本文法や標準ライブラリについて理解を深めてもらう。</p>
+<ul>
+<li>(1) <a href="http://yay.cla.kobe-u.ac.jp/~jm/edu/2016/PB/python3/python3ex01.html">Python3練習問題18問</a>
+<ul>
+<li>解答の一例については各問題の右下に表示された「...」ボタンを押下すると表示される。</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>(2) <a href="https://gotutiyan.hatenablog.com/entry/2020/04/14/174007">練習問題55本ノック</a>での練習の問題
+<ul>
+<li>解答の一例はサイト内でも紹介されているが、<a href="https://gotutiyan.hatenablog.com/entry/2020/04/14/174030">こちら</a>からも見ることができる。</li>
+</ul>
+</li>
+</ul>
+<br>
+<ul>
+<li>(3) <a href="https://utokyo-ipp.github.io/index.html">東京大学情報教育センターPython学習ページ</a>での練習問題
+<ul>
+<li>「<strong>1-1.数値演算</strong>」から「<strong>6-3.クラス</strong>」までにある練習問題を解いてもらう。<br>
+(7章以降は機械学習などの応用的な内容が含まれてくるためここでは演習対象から外す)</li>
+<li>解答の一例については章末に記載がされている。</li>
+<li><strong>1.で学んだ学習サイトと比べると文法内容について網羅できていない部分もあるが、こちらも基礎文法についての説明があるので復習の意味も含めて説明を読みながら進めてほしい。</strong></li>
+</ul>
+</li>
+</ul>
+<br>
+<h4 id="%E8%A3%9C%E8%B6%B3%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AB%E5%9F%BA%E7%A4%8E%E6%96%87%E6%B3%95%E3%82%84%E6%A8%99%E6%BA%96%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%82%A4%E3%83%AA%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E5%8F%82%E8%80%83%E3%81%AB%E3%81%AA%E3%82%8B%E3%82%82%E3%81%AE">(補足)その他に基礎文法や標準ライブライリについて参考になるもの</h4>
+<ol>
+<li><strong><a href="https://docs.python.org/ja/3.10/tutorial/index.html">python公式サイト</a></strong>
+<ul>
+<li>日本語での翻訳切替できるが直訳された部分の解釈は注意が必要となる。</li>
+<li>Pythonのバージョンを選択できるので、バージョンによって文法やライブライリ内容が異なる場合には便利である。</li>
+</ul>
+</li>
+</ol>
+<br>
+<ol>
+<li><strong>社内共有のPython教育用資料</strong>
+<ul>
+<li>以下の技術部サーバ内にPython教育用で使用された資料がある。<pre class="hljs"><code><div>   \\192.168.4.92\private\●技術部共用\新人教育\pythonの教材
+</div></code></pre>
+</li>
+<li>基本文法からPythonでの<strong>データベース開発</strong>や<strong>Web開発</strong>といった応用編までいくつかの資料があるのでこちらも活用できる。</li>
+</ul>
+</li>
+</ol>
+<br>
+<br>
+<hr>
+<h3 id="3-ai%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E8%A9%A6%E3%81%99">3. <strong>AIについて試す</strong></h3>
+<p>Pythonでできる事の事例として、AI(機械学習・深層学習)が挙げられる。</p>
+<p>以下の技術部サーバ内にある外部研修での資料を読み進めることで試すことでができる。</p>
+<p>(<strong>※資料中のJupyter Notebookがなくとも問題ない</strong>)</p>
+<pre class="hljs"><code><div>\\192.168.4.92\ideabox\研修記録\20220203-04_オープンソフトウェアライブラリを用いた人工知能(AI)活用技術\資料\オープンソフトウェアライブラリを用いた人工知能(AI)活用技術.pdf
+</div></code></pre>
+<br>
+<br>
+<hr>
+<h3 id="4-python%E9%96%8B%E7%99%BA%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E6%B3%A8%E6%84%8F%E7%82%B9">4. <strong>Python開発における注意点</strong></h3>
+<br>
+<h4 id="1-python%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E6%8C%87%E9%87%9D%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">1. <strong>Pythonコーディング指針について</strong></h4>
+<p>PythonはError・Warningを除去しなくても実行できる為、品質的に危険な側面がある。<br>
+一定の品質を保つ目的で、開発時は以下の指針に従うこと。</p>
+<pre class="hljs"><code><div>\\192.168.4.92\private\●技術部共用\部内ルール等\Pythonコーディング指針_1.0版_20200727.docx
+</div></code></pre>
+<br>
+<h4 id="2-pyinstaller%E3%81%A7exe%E5%8C%96%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">2. <strong>PyInstallerでexe化について</strong></h4>
+<p>Pythonについてexe化した場合、下記URLの様にトロイの木馬と誤認されるケースがある。<br>
+<a href="https://qiita.com/nobody_gonbe/items/5ffdd1a767c67256032e">こちらのサイト</a>を一読の上、作業時に記載のような手続きを取らないよう注意すること。</p>
+<br>
+<h4 id="3-%E3%82%B5%E3%82%A4%E3%83%88%E3%81%8B%E3%82%89%E3%81%AE%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">3. <strong>サイトからのダウンロードについて</strong></h4>
+<p>Pythonで参考になるコード(impacket)があったので、<a href="https://pypi.org/">Python Package Index</a>からダウンロードして解凍したところ、トロイの木馬型ウィルスを検出した。<br>
+上記サイトは、Pythonの世界では標準的に使われているが、悪意のあるコードもアップされていることがあるようだ。</p>
+<p>PythonやJavascriptなど、インタプリタ型の言語のソースはコンパイラなしで動くので、ソースだけでも危険な場合がある。<br>
+サンプルコードを参考にする際などでプレビュー等で済むものは済ます、どうしてもダウンロードしたい場合は、出どころや問題情報がないかチェックの上で使うようにし、ウィルス感染リスクを減らすよう徹底すること。</p>
+<hr>
+<div style="text-align: right;">
+以上
+</div>
+<style>
+h1 {
+background: #dfefff;
+box-shadow: 0px 0px 0px 5px #dfefff;
+border: dashed 2px white;
+padding: 0.2em 0.5em;
+}
+
+h2 {
+position: relative;
+padding: 0.6em;
+background: #e0edff;
+}
+
+h2:after {
+position: absolute;
+content: '';
+top: 100%;
+left: 30px;
+border: 15px solid transparent;
+border-top: 15px solid #e0edff;
+width: 0;
+height: 0;
+}
+h3 {
+background: linear-gradient(transparent 70%, #a7d6ff 70%);
+}
+h4 {
+border-bottom: solid 3px #cce4ff;
+position: relative;
+}
+
+h4:after {
+position: absolute;
+content: " ";
+display: block;
+border-bottom: solid 3px #5472cd;
+bottom: -3px;
+width: 20%;
+}
+h5 {
+border-bottom: solid 3px black;
+}
+p {
+font-size: 10pt;
+}
+li {
+font-size: 10pt;
+}
+
+@media print {
+.markdown-preview.markdown-preview {
+    font-family:  'Yu Gothic', YuGothic, 'ヒラギノ角ゴ Pro', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo', sans-serif;
+    font-size: 10pt;
+}
+}
+img{display:block;transform:rotate(0deg);width:60%;height:auto;margin-left:20%;margin-right:auto;}
+
+.page {
+  page-break-after: always;
+}
+</style>
+</body>
+</html>

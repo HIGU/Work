@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Shift_JIS">
+<TITLE>AddFont</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="fpdf.css">
+</HEAD>
+<BODY>
+<H2>AddFont</H2>
+<TT>AddFont(<B>string</B> family [, <B>string</B> style [, <B>string</B> file]])</TT>
+<H4 CLASS='st'>バージョン</H4>
+1.5
+<H4 CLASS='st'>説明</H4>
+TrueTypeフォントまたはType1フォントを取り込み、利用できるようにします。
+使いたいフォントが標準にないものの場合、
+先にフォントの定義ファイルをmakefont.phpスクリプトにて生成する必要があります。
+<BR>
+定義ファイル（と、埋め込みフォントの場合フォントファイルそのもの）はカレントディレクトリか、
+<TT>FPDF_FONTPATH</TT>定数を定義している場合、その指定ディレクトリに存在する必要があります。
+存在しない場合、"Could not include font definition file"というエラーが表示されます。
+<H4 CLASS='st'>パラメータ</H4>
+<TT><U>family</U></TT>
+<BLOCKQUOTE>
+任意のフォントファミリー(Font family)を指定します。
+標準のフォントファミリー(Font family)であれば、一致するフォントがセットされます。
+</BLOCKQUOTE>
+<TT><U>style</U></TT>
+<BLOCKQUOTE>
+フォントのスタイルを指定します。
+指定可能な値（完全一致する必要があります）：
+<UL>
+<LI>指定なし(空白): 標準(regular)
+<LI><TT>B</TT>: ボールド(bold)
+<LI><TT>I</TT>: イタリック(italic)
+<LI><TT>BI</TT> または <TT>IB</TT>: ボールドイタリック(bold italic)
+</UL>
+デフォルトの値は標準(regular)です。
+</BLOCKQUOTE>
+<TT><U>file</U></TT>
+<BLOCKQUOTE>
+フォント定義ファイル名。
+<BR>
+デフォルトでは、フォント定義ファイル名はファミリーとスタイルを空白なしの小文字で表現したものになります。
+</BLOCKQUOTE>
+<H4 CLASS='st'>例</H4>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+$pdf-&gt;AddFont('Comic','I');
+</TT>
+</TD></TR></TABLE><BR>
+これは、以下と同じ意味になります。
+<BR>
+<BR>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+$pdf-&gt;AddFont('Comic','I','comici.php');
+</TT>
+</TD></TR></TABLE><BR>
+<H4 CLASS='st'>参照</H4>
+<A HREF="setfont.htm">SetFont()</A>.
+<H6></H6>
+<HR>
+<DIV ALIGN="CENTER"><A HREF="index.htm">目次</A></DIV>
+</BODY>
+</HTML>

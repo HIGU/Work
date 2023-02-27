@@ -1,0 +1,227 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<title>損益予測照会</title>
+<script type='text/javascript' src='/base_class.js'></script>
+<link rel='stylesheet' href='/menu_form.css' type='text/css' media='screen'>
+<link rel='stylesheet' href='../profit_loss_estimate.css' type='text/css' media='screen'>
+<style type='text/css'>
+<!--
+body {
+    background-image:none;
+}
+-->
+</style>
+<script type='text/javascript' src='../profit_loss_estimate.js'></script>
+</head>
+<body style='background-color:#d6d3ce;'>  <!--  -->
+<center>
+<table width='100%' bgcolor='#d6d3ce' border='1' cellspacing='0' cellpadding='1'>
+    <tr><td> <!----------- ダミー(デザイン用) ------------>
+<table class='winbox_field' width='100%' border='1' cellspacing='0' cellpadding='3'>
+<tr>
+        <td colspan='3' width='200' align='center' class='pt10b' bgcolor='#ffffc6' nowrap>項　　　目</td>
+        <td align='center' class='pt10b' bgcolor='#ffffc6' nowrap>カ　プ　ラ</td>
+        <td align='center' class='pt10b' bgcolor='#ffffc6' nowrap>リ　ニ　ア</td>
+        <td align='center' class='pt10b' bgcolor='#ffffc6' nowrap>試験・修理</td>
+        <td align='center' class='pt10b' bgcolor='#ffffc6' nowrap>商品管理</td>
+        <td align='center' class='pt10b' bgcolor='#ffffc6' nowrap>合　　　計</td>
+        <td width='400' align='left' class='pt10b' bgcolor='#ffffc6' nowrap>計算方法(商管・試修はすべて過去１年間の平均)</td>
+    </tr>
+    <tr>
+        <td rowspan='11' width='10' align='center' valign='middle' class='pt10b' bgcolor='#ceffce'>営　業　損　益</td>
+        <td colspan='2' nowrap align='center' class='pt10b' bgcolor='#ceffce'>売　上　高</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='left'  class='pt10' bgcolor='#d6d3ce'>組立日程計画</td>
+    </tr>
+    <tr>
+        <td rowspan='6' width='10' align='center' valign='middle' class='pt10b' bgcolor='#ffffc6'>売上原価</td> <!-- 売上原価 -->
+        <td nowrap align='left' class='pt10b' bgcolor='white'>　期首材料仕掛品棚卸高</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='left'  class='pt10'>実際棚卸高</td>
+    </tr>
+    <tr>
+        <td nowrap align='left' class='pt10b' bgcolor='#e6e6e6'>　材料費(仕入高)</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='left'  class='pt10'>納入予定金額(買掛)</td>
+    </tr>
+    <tr>
+        <td nowrap align='left' class='pt10b' bgcolor='white'>　労　　務　　費</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='left'  class='pt10'>直近１年間の売上高比</td>
+    </tr>
+    <tr>
+        <td nowrap align='left' class='pt10b' bgcolor='#e6e6e6'>　経　　　　　費</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='left'  class='pt10'>直近１年間の売上高比</td>
+    </tr>
+    <tr>
+        <td nowrap align='left' class='pt10b' bgcolor='white'>　期末材料仕掛品棚卸高</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='left'  class='pt10'>最新総材料費より計算</td>
+    </tr>
+    <tr>
+        <td nowrap align='left' class='pt10b' bgcolor='#ffffc6'>　売　上　原　価</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='left'  class='pt10'>　</td>  <!-- 余白 -->
+    </tr>
+    <tr>
+        <td colspan='2' nowrap align='center' class='pt10b' bgcolor='#ceffce'>売　上　総　利　益</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='left'  class='pt10' bgcolor='#d6d3ce'>　</td>  <!-- 余白 -->
+    </tr>
+    <tr>
+        <td rowspan='3' width='10' align='center' valign='middle' class='pt10b' bgcolor='#ffffc6'></td> <!-- 販管費 -->
+        <td nowrap align='left' class='pt10b' bgcolor='#e6e6e6'>　人　　件　　費</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='left'  class='pt10'>直近１年間の売上高比</td>
+    </tr>
+    <tr>
+        <td nowrap align='left' class='pt10b' bgcolor='white'>　経　　　　　費</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='left'  class='pt10'>直近１年間の売上高比</td>
+    </tr>
+    <tr>
+        <td nowrap align='center' class='pt10b' bgcolor='#ffffc6'>販管費及び一般管理費計</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='left'  class='pt10'>　</td>  <!-- 余白 -->
+    </tr>
+    <tr>
+        <td colspan='3' nowrap align='center' class='pt10b' bgcolor='#ceffce'>営　　業　　利　　益</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='left'  class='pt10'>　</td>  <!-- 余白 -->
+    </tr>
+    <tr>
+        <td rowspan='7' align='center' valign='middle' class='pt10b' bgcolor='#ceffce'>営業外損益</td>
+        <td rowspan='4' align='center' class='pt10' bgcolor='#ffffc6'></td> <!-- 余白 -->
+        <td nowrap align='left' class='pt10b' bgcolor='white'>　業務委託収入</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='left'  class='pt10'>直近１年間の売上高比</td> <!-- 余白 -->
+    </tr>
+    <tr>
+        <td nowrap align='left' class='pt10b' bgcolor='#e6e6e6'>　仕　入　割　引</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='left'  class='pt10'>直近１年間の売上高比</td> <!-- 余白 -->
+    </tr>
+    <tr>
+        <td nowrap align='left' class='pt10b' bgcolor='white'>　そ　　の　　他</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='left'  class='pt10'>直近１年間の売上高比</td> <!-- 余白 -->
+    </tr>
+    <tr>
+        <td nowrap align='left' class='pt10b' bgcolor='#ffffc6'>　営業外収益 計</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='left'  class='pt10'>　</td> <!-- 余白 -->
+    </tr>
+    <tr>
+        <td rowspan='3' align='center' class='pt10' bgcolor='#ffffc6'></td> <!-- 余白 -->
+        <td nowrap align='left' class='pt10b' bgcolor='#e6e6e6'>　支　払　利　息</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#e6e6e6'>701</td>
+        <td nowrap align='left'  class='pt10'>直近１年間の売上高比</td> <!-- 余白 -->
+    </tr>
+    <tr>
+        <td nowrap align='left' class='pt10b' bgcolor='white'>　そ　　の　　他</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='white'>701</td>
+        <td nowrap align='left'  class='pt10'>直近１年間の売上高比</td> <!-- 余白 -->
+    </tr>
+    <tr>
+        <td nowrap align='left' class='pt10b' bgcolor='#ffffc6'>　営業外費用 計</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='right' class='pt10' bgcolor='#ffffc6'>701</td>
+        <td nowrap align='left'  class='pt10'>　</td> <!-- 余白 -->
+    </tr>
+    <tr>
+        <td colspan='3' nowrap align='center' class='pt10b' bgcolor='#ceffce'>経　　常　　利　　益</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='right' class='pt10b' bgcolor='#ceffce'>701</td>
+        <td nowrap align='left'  class='pt10'>　</td>  <!-- 余白 -->
+    </tr>
+</table>
+    </td></tr>
+</table> <!----------------- ダミーEnd ------------------>
+
+</center>
+</body>
+</html>

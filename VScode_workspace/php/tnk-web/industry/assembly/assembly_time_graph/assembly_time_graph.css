@@ -1,0 +1,140 @@
+/****************************************************************************/
+/* 組立のライン別工数 各種グラフ                   MVC View 部 (CSS file)   */
+/* Copyright (C) 2006-2006 Kazuhiro.Kobayashi tnksys@nitto-kohki.co.jp      */
+/* Changed history                                                          */
+/* 2006/05/12 Created  assembly_time_graph.css                              */
+/* 2007/11/08 td {font-family:monospace;} を追加 工程記号がバラつくため     */
+/****************************************************************************/
+
+input.bg {
+    /* background-image: url(/img/border_silver_button.gif); */
+    background-image: url(/img/border_silver_retButton.gif);
+    background-repeat: repeat;
+}
+.pt8 {
+    font-size:   8pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt9 {
+    font-size:   9pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10 {
+    font-size:   10pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10b {
+    font-size:   10pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt11b {
+    font-size:   11pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt12b {
+    font-size:   12pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt14b {
+    font-size:   14pt;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+th {
+    font-size:          12pt;
+    font-weight:        bold;
+    /* color:              white; */
+    /* background-color:   teal; */
+    color:              black;
+    /* background-color:   #ffffc6;  薄い黄色 */
+    background-color:   #ceffce; /* エメラルドグリーン */
+}
+td {
+    font-size:          12pt;
+    font-weight:        bold;
+    font-family:        monospace;
+}
+caption {
+    font-size:          12pt;
+    font-weight:        bold;
+}
+.caption_color {
+    font-family:        monospace;
+    background-color:   #ffffc6; /* 薄い黄色 */
+    color:              black;
+}
+input {
+    font-size:          11pt;
+    font-weight:        bold;
+}
+select {
+    background-color:   lightblue;
+    color:              black;
+    font-size:          11pt;
+    font-weight:        bold;
+}
+.TimeEdit select {
+    background-color:   lightblue;
+    color:              black;
+    font-size:          14pt;
+    font-weight:        bold;
+}
+.center {
+    text-align:         center;
+}
+.right {
+    text-align:         right;
+}
+.left {
+    text-align:         left;
+}
+.fc_yellow {
+    color:              yellow;
+    background-color:   blue;
+}
+.fc_red {
+    color:              red;
+    background-color:   blue;
+}
+.s_radio {
+    color:              white;
+    background-color:   blue;
+    font-size:          11pt;
+    font-weight:        bold;
+}
+.n_radio {
+    font-size:          11pt;
+}
+body {
+    /* ここにbodyを指定すれば HTMLタグは必要ない */
+    background-image:       url(/img/t_nitto_logo4.png);
+    background-repeat:      no-repeat;
+    background-attachment:  fixed;
+    background-position:    right bottom;
+}
+a {
+    color:                  blue;
+}
+a:hover {
+    background-color:       blue;
+    color:                  white;
+}
+input.pageButton 
+{
+    background-color:   #9CBACE;
+    border-color:       #9CBACE;
+    font-family:        ＭＳ Ｐゴシック;
+    font-size:          1.0em;
+    font-weight:        bold;
+    color:              blue;
+    padding:            0px;
+    width:              70px;
+    height:             23px;
+}
+

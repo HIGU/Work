@@ -1,0 +1,594 @@
+<patTemplate:tmpl name="page">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>{PAGE_TITLE}</TITLE>
+{PAGE_MENU_SITE_URL}
+
+<!--    ファイル指定の場合
+<script language='JavaScript' src='template.js?{PAGE_UNIQUE}'>
+</script>
+-->
+
+<script language="JavaScript">
+<!--
+/* 入力文字が数字かどうかチェック */
+function isDigit(str) {
+    var len=str.length;
+    var c;
+    for (i=1; i<len; i++) {
+        c = str.charAt(i);
+        if ((c < "0") || (c > "9")) {
+            return true;
+        }
+    }
+    return false;
+}
+/* 初期入力フォームのエレメントにフォーカスさせる */
+function set_focus(){
+//    document.form_name.element_name.focus();      // 初期入力フォームがある場合はコメントを外す
+//    document.form_name.element_name.select();
+}
+// -->
+</script>
+
+<!-- スタイルシートのファイル指定をコメント HTMLタグ コメントは入れ子に出来ない事に注意
+<link rel='stylesheet' href='template.css?{PAGE_UNIQUE}' type='text/css' media='screen'>
+-->
+
+<style type="text/css">
+<!--
+.pt8 {
+    font:normal 8pt;
+    font-family: monospace;
+}
+.pt10 {
+    font:normal 10pt;
+    font-family: monospace;
+}
+.pt10b {
+    font:bold 10pt;
+    font-family: monospace;
+}
+.pt11b {
+    font:bold 11pt;
+}
+.pt12b {
+    font:bold 12pt;
+    font-family: monospace;
+}
+.title_font {
+    font:bold 13.5pt;
+    font-family: monospace;
+}
+.today_font {
+    font-size: 10.5pt;
+    font-family: monospace;
+}
+.corporate_name {
+    font:bold 10pt;
+    font-family: monospace;
+}
+.margin0 {
+    margin:0%;
+}
+th {
+    background-color:#ffffc6;
+    color:blue;
+    font:bold 11pt;
+    font-family: monospace;
+}
+select {
+    background-color:gold;
+    color:black;
+}
+-->
+</style>
+</HEAD>
+<BODY class='margin0' onLoad='set_focus()'>
+    <center>
+        <!----------------- ここは タイトルを表示する ------------------->
+        <table width='100%' bgcolor='#d6d3ce'  cellspacing='0' cellpadding='1' border='1'>
+            <tr><td> <!----------- ダミー(デザイン用) ------------>
+        <table width='100%' bordercolordark='white' bordercolorlight='#bdaa90' bgcolor='#d6d3ce' cellspacing='0' cellpadding='1' border='1'>
+            <tr>
+                <form name='return_form' method='post' action='{PAGE_RETURN_URL}'>
+                    <td width='60' bgcolor='blue' align='center' valign='center'>
+                        <input class='pt12b' type='submit' name='return' value='戻る'>
+                    </td>
+                </form>
+                <td class='title_font' colspan='1' bgcolor='#d6d3ce' align='center'>
+                    {PAGE_HEADER_TITLE}
+                </td>
+                <form method='post' action='{PAGE_CURRENT_URL}'>
+                    <td nowrap width='305' bgcolor='#d6d3ce' align='right' class='pt10b'>
+                        単位
+                        <select name='comp_tani' class='pt10'>
+                             <option value='1'      {EN}>　　円</option>
+                             <option value='1000'   {SEN}>　千円</option>
+                             <option value='100000' {JYUMAN}>十万円</option>
+                             <option value='1000000'{MILLION}>百万円</option>
+                        </select>
+                        少数桁
+                        <select name='comp_keta' class='pt10'>
+                             <option value='0' {ZERO}>０桁</option>
+                             <option value='1' {ICHI}>１桁</option>
+                             <option value='3' {SAN}>３桁</option>
+                             <option value='6' {ROKU}>６桁</option>
+                        </select>
+                        <input class='pt10b' type='submit' name='return' value='単位変更'>
+                    </td>
+                </form>
+                <td class='today_font' colspan='1' bgcolor='#d6d3ce' align='center' width='140'>
+                    {PAGE_HEADER_TODAY}
+                </td>
+            </tr>
+        </table>
+            </td></tr>
+        </table> <!----------------- ダミーEnd ------------------>
+        
+        <!--------------- ここから本文の表を表示する -------------------->
+        <table width='100%' bgcolor='#d6d3ce' align='center' cellspacing="0" cellpadding="3" border='1'>
+            <tr><td> <!----------- ダミー(デザイン用) ------------>
+        <table width='100%' bordercolordark='white' bordercolorlight='#bdaa90' bgcolor='#d6d3ce' align='center' cellspacing="0" cellpadding="3" border='1'>
+            <THEAD>
+                <!-- テーブル ヘッダーの表示 -->
+            </THEAD>
+            <TFOOT>
+                <!-- 現在はフッターは何もない -->
+            </TFOOT>
+            <TBODY>
+                <patTemplate:tmpl name="tbody">
+                <tr>
+                    <td class='pt10b' align='center' colspan='3' rowspan='2' nowrap>栃木日東工器</td>
+                    <td class='pt10b' align='center' colspan='4'>カプラ</td>
+                    <td class='pt10b' align='center' colspan='4'>リニア</td>
+                    <td class='pt10b' align='center' colspan='4'>合　計</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td nowrap class='pt10b' align='center'>前期３月</td>
+                    <td nowrap class='pt10b' align='center'>{TBODY_MONTHP_C}</td>
+                    <td nowrap class='pt10b' align='center'>{TBODY_MONTH_C}</td>
+                    <td nowrap class='pt10b' align='center'>前月増減</td>
+                    <!-- リニア -->
+                    <td nowrap class='pt10b' align='center'>前期３月</td>
+                    <td nowrap class='pt10b' align='center'>{TBODY_MONTHP_L}</td>
+                    <td nowrap class='pt10b' align='center'>{TBODY_MONTH_L}</td>
+                    <td nowrap class='pt10b' align='center'>前月増減</td>
+                    <!-- 全　体 -->
+                    <td nowrap class='pt10b' align='center'>前期３月</td>
+                    <td nowrap class='pt10b' align='center'>{TBODY_MONTHP_A}</td>
+                    <td nowrap class='pt10b' align='center'>{TBODY_MONTH_A}</td>
+                    <td nowrap class='pt10b' align='center'>前月増減</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' rowspan='8' width='10' bgcolor='#c8ffc8'>在　　　庫</td>
+                    <td class='pt10b' align='left' colspan='2' nowrap bgcolor='#dcf0ff'>組立仕掛品</td>
+                    <!-- カプラ -->
+                    <td class='pt10'  align='right' bgcolor='#dcf0ff'>{TBODY_KUM3_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcf0ff'>{TBODY_KUMP_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcf0ff'>{TBODY_KUM_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcf0ff'>{TBODY_KUMZ_C}</td>
+                    <!-- リニア -->
+                    <td class='pt10'  align='right' bgcolor='#dcf0ff'>{TBODY_KUM3_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcf0ff'>{TBODY_KUMP_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcf0ff'>{TBODY_KUM_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcf0ff'>{TBODY_KUMZ_L}</td>
+                    <!-- 全　体 -->
+                    <td class='pt10'  align='right' bgcolor='#dcf0ff'>{TBODY_KUM3_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcf0ff'>{TBODY_KUMP_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcf0ff'>{TBODY_KUM_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcf0ff'>{TBODY_KUMZ_A}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' rowspan='6' width='10' bgcolor='#ffffd8'>部　　　品</td>
+                    <td class='pt10b' align='left' nowrap bgcolor='white'>資材部品</td>
+                    <!-- カプラ -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SIZ3_C}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SIZP_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#cac8ff'>{TBODY_SIZ_C}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SIZZ_C}</td>
+                    <!-- リニア -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SIZ3_L}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SIZP_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#cac8ff'>{TBODY_SIZ_L}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SIZZ_L}</td>
+                    <!-- 全　体 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SIZ3_A}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SIZP_A}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SIZ_A}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SIZZ_A}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap bgcolor='#dcdcdc'>原材料</td>
+                    <!-- カプラ -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_GEN3_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_GENP_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_GEN_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_GENZ_C}</td>
+                    <!-- リニア -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_GEN3_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_GENP_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_GEN_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_GENZ_L}</td>
+                    <!-- 全　体 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_GEN3_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_GENP_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_GEN_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_GENZ_A}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap bgcolor='white'>工作仕掛</td>
+                    <!-- カプラ -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KOU3_C}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KOUP_C}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KOU_C}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KOUZ_C}</td>
+                    <!-- リニア -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KOU3_L}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KOUP_L}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KOU_L}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KOUZ_L}</td>
+                    <!-- 全　体 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KOU3_A}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KOUP_A}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KOU_A}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KOUZ_A}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap bgcolor='#dcdcdc'>検査仕掛</td>
+                    <!-- カプラ -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KEN3_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KENP_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KEN_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KENZ_C}</td>
+                    <!-- リニア -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KEN3_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KENP_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KEN_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KENZ_L}</td>
+                    <!-- 全　体 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KEN3_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KENP_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KEN_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KENZ_A}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap bgcolor='white'>外注仕掛</td>
+                    <!-- カプラ -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_GAI3_C}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_GAIP_C}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_GAI_C}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_GAIZ_C}</td>
+                    <!-- リニア -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_GAI3_L}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_GAIP_L}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_GAI_L}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_GAIZ_L}</td>
+                    <!-- 全　体 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_GAI3_A}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_GAIP_A}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_GAI_A}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_GAIZ_A}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap bgcolor='#dcdcdc'>ＣＣ部品</td>
+                    <!-- カプラ -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_CC3_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_CCP_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_CC_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_CCZ_C}</td>
+                    <!-- リニア -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_CC3_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_CCP_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_CC_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_CCZ_L}</td>
+                    <!-- 全　体 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_CC3_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_CCP_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_CC_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_CCZ_A}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap colspan='2' bgcolor='#ffffd8'>部　品　計</td>
+                    <!-- カプラ -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_BUH3_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_BUHP_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_BUH_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_BUHZ_C}</td>
+                    <!-- リニア -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_BUH3_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_BUHP_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_BUH_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_BUHZ_L}</td>
+                    <!-- 全　体 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_BUH3_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_BUHP_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_BUH_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_BUHZ_A}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='center' nowrap colspan='3' bgcolor='#c8ffc8'>合　　　計</td>
+                    <!-- カプラ -->
+                    <td class='pt10'  align='right' bgcolor='#c8ffc8'>{TBODY_GOU3_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#c8ffc8'>{TBODY_GOUP_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#88ffc8'>{TBODY_GOU_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#c8ffc8'>{TBODY_GOUZ_C}</td>
+                    <!-- リニア -->
+                    <td class='pt10'  align='right' bgcolor='#c8ffc8'>{TBODY_GOU3_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#c8ffc8'>{TBODY_GOUP_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#88ffc8'>{TBODY_GOU_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#c8ffc8'>{TBODY_GOUZ_L}</td>
+                    <!-- 全　体 -->
+                    <td class='pt10'  align='right' bgcolor='#c8ffc8'>{TBODY_GOU3_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#c8ffc8'>{TBODY_GOUP_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#88ffc8'>{TBODY_GOU_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#c8ffc8'>{TBODY_GOUZ_A}</td>
+                </tr>
+                        <!--  bgcolor='#ffffc6' 薄い黄色 --> 
+                        <!--  bgcolor='#ffffd8' 超薄い黄色 --> 
+                        <!--  bgcolor='#c8ffc8' 薄い緑 --> 
+                        <!--  bgcolor='#dcf0ff' 薄い水色 --> 
+                        <!--  bgcolor='#dcdcdc' 薄い灰色 --> 
+                <tr>
+                    <td class='pt10b' align='left' width='10' bgcolor='#ffffc8'>　</td>
+                    <td class='pt10'  align='left' colspan='2' nowrap bgcolor='white'>製造間接費他</td>
+                    <!-- カプラ -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SAG3_C}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SAGP_C}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SAG_C}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SAGZ_C}</td>
+                    <!-- リニア -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SAG3_L}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SAGP_L}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SAG_L}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SAGZ_L}</td>
+                    <!-- 全　体 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SAG3_A}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SAGP_A}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SAG_A}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SAGZ_A}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='center' colspan='3' nowrap bgcolor='#ffffc6'>財務会計評価額</td>
+                    <!-- カプラ -->
+                    <td class='pt10'  align='right' bgcolor='#ffffc6' nowrap>{TBODY_ZAI3_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffc6' nowrap>{TBODY_ZAIP_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffc6' nowrap>{TBODY_ZAI_C}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffc6' nowrap>{TBODY_ZAIZ_C}</td>
+                    <!-- リニア -->
+                    <td class='pt10'  align='right' bgcolor='#ffffc6' nowrap>{TBODY_ZAI3_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffc6' nowrap>{TBODY_ZAIP_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffc6' nowrap>{TBODY_ZAI_L}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffc6' nowrap>{TBODY_ZAIZ_L}</td>
+                    <!-- 全　体 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffc6' nowrap>{TBODY_ZAI3_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffc6' nowrap>{TBODY_ZAIP_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffc6' nowrap>{TBODY_ZAI_A}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffc6' nowrap>{TBODY_ZAIZ_A}</td>
+                </tr>
+                </patTemplate:tmpl>
+            </TBODY>
+        </table>
+        <table width='50%' bordercolordark='white' bordercolorlight='#bdaa90' bgcolor='#d6d3ce' align='left' cellspacing="0" cellpadding="3" border='1'>
+            <THEAD>
+                <!-- テーブル ヘッダーの表示 -->
+            </THEAD>
+            <TFOOT>
+                <!-- 現在はフッターは何もない -->
+            </TFOOT>
+            <TBODY>
+                <patTemplate:tmpl name="tbody2">
+                <tr>
+                    <td class='pt10' align='center' valign='middle' rowspan='14' nowrap bgcolor='white'>資　材　部　品</td>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='center' colspan='4' bgcolor='white'>カ　プ　ラ　部　品　在　庫</td>
+                    <td class='pt8'  align='center' colspan='4' bgcolor='white'>リ　ニ　ア　部　品　在　庫</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='center' bgcolor='white'>グループ</td>
+                    <td class='pt8'  align='center' bgcolor='white'>{TBODY2_MONP_C}</td>
+                    <td class='pt8'  align='center' bgcolor='white'>{TBODY2_MON_C}</td>
+                    <td class='pt8'  align='center' bgcolor='white' nowrap>前月増減</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='center' bgcolor='white'>グループ</td>
+                    <td class='pt8'  align='center' bgcolor='white'>{TBODY2_MONP_L}</td>
+                    <td class='pt8'  align='center' bgcolor='white'>{TBODY2_MON_L}</td>
+                    <td class='pt8'  align='center' bgcolor='white' nowrap>前月増減</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>ハイカプラ</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C1P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C1}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_C1_ZOU}</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>泡風呂</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L1P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L1}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_L1_ZOU}</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>ラインカプラ</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C2P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C2}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_C2_ZOU}</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>ブロワー</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L2P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L2}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_L2_ZOU}</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>ミニカプラ</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C3P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C3}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_C3_ZOU}</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>マッサージ</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L3P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L3}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_L3_ZOU}</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>ＳＰカプラ</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C4P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C4}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_C4_ZOU}</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>バキューム</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L4P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L4}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_L4_ZOU}</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>ＴＳＰカプラ</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C5P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C5}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_C5_ZOU}</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>コンプレッサ</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L5P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L5}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_L5_ZOU}</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>ＨＳＰカプラ</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C6P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C6}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_C6_ZOU}</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>ビュティーモア</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L6P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L6}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_L6_ZOU}</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>スーパー</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C7P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C7}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_C7_ZOU}</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>美顔機</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L7P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L7}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_L7_ZOU}</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>ガスカプラ</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C8P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C8}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_C8_ZOU}</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='left'  nowrap bgcolor='white'>その他</td>
+                    <td class='pt8'  align='right' nowrap bgcolor='white'>{TBODY2_L8P}</td>
+                    <td class='pt8'  align='right' nowrap bgcolor='white'>{TBODY2_L8}</td>
+                    <td class='pt8'  align='right' nowrap bgcolor='white'>{TBODY2_L8_ZOU}</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>レバーロック</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C9P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C9}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_C9_ZOU}</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>バイモル</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L9P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_L9}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_L9_ZOU}</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>チューブ</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C10P}</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_C10}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY2_C10_ZOU}</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>　</td>
+                    <td class='pt8'  align='right' bgcolor='white'>　</td>
+                    <td class='pt8'  align='right' bgcolor='white'>　</td>
+                    <td class='pt8'  align='right' bgcolor='white'>　</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='left'  nowrap bgcolor='white'>その他</td>
+                    <td class='pt8'  align='right' nowrap bgcolor='white'>{TBODY2_C11P}</td>
+                    <td class='pt8'  align='right' nowrap bgcolor='white'>{TBODY2_C11}</td>
+                    <td class='pt8'  align='right' nowrap bgcolor='white'>{TBODY2_C11_ZOU}</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='left' nowrap bgcolor='white'>　</td>
+                    <td class='pt8'  align='right' bgcolor='white'>　</td>
+                    <td class='pt8'  align='right' bgcolor='white'>　</td>
+                    <td class='pt8'  align='right' bgcolor='white'>　</td>
+                </tr>
+                <tr>
+                    <!-- カプラ -->
+                    <td class='pt8'  align='center' nowrap bgcolor='white'>計</td>
+                    <td class='pt8'  align='right' nowrap bgcolor='white'>{TBODY2_CKEIP}   </td>
+                    <td class='pt8'  align='right' nowrap bgcolor='#cac8ff'>{TBODY2_CKEI}    </td>
+                    <td class='pt8'  align='right' nowrap bgcolor='white'>{TBODY2_CKEI_ZOU}</td>
+                    <!-- リニア -->
+                    <td class='pt8'  align='center' nowrap bgcolor='white'>計</td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_LKEIP}   </td>
+                    <td class='pt8'  align='right' bgcolor='#cac8ff'>{TBODY2_LKEI}    </td>
+                    <td class='pt8'  align='right' bgcolor='white'>{TBODY2_LKEI_ZOU}</td>
+                </tr>
+                </patTemplate:tmpl>
+            </TBODY>
+        </table>
+        <table width='20%' bordercolordark='white' bordercolorlight='#bdaa90' bgcolor='#d6d3ce' align='center' cellspacing="0" cellpadding="3" border='1'>
+            <THEAD>
+                <!-- テーブル ヘッダーの表示 -->
+            </THEAD>
+            <TFOOT>
+                <!-- 現在はフッターは何もない -->
+            </TFOOT>
+            <TBODY>
+                <patTemplate:tmpl name="tbody3">
+                <tr>
+                    <td class='pt10' align='center' colspan='4' bgcolor='white'>在庫金額</td>
+                </tr>
+                <tr>
+                    <td class='pt8'  align='center' bgcolor='white' nowrap>事業部</td>
+                    <td class='pt8'  align='center' bgcolor='white' nowrap>目　標</td>
+                    <td class='pt8'  align='center' bgcolor='white' nowrap>当　月</td>
+                    <td class='pt8'  align='center' bgcolor='white' nowrap>増　減</td>
+                </tr>
+                <tr>
+                    <td class='pt8'  align='center' bgcolor='white'>カプラ</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY3_MOKU_C}</td>
+                    <td class='pt8'  align='right' bgcolor='#88ffc8' nowrap>{TBODY3_MON_C}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY3_ZOU_C}</td>
+                </tr>
+                <tr>
+                    <td class='pt8'  align='center' bgcolor='white'>リニア</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY3_MOKU_L}</td>
+                    <td class='pt8'  align='right' bgcolor='#88ffc8' nowrap>{TBODY3_MON_L}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY3_ZOU_L}</td>
+                </tr>
+                <tr>
+                    <td class='pt8'  align='center' bgcolor='white'>合　計</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY3_MOKU_A}</td>
+                    <td class='pt8'  align='right' bgcolor='#88ffc8' nowrap>{TBODY3_MON_A}</td>
+                    <td class='pt8'  align='right' bgcolor='white' nowrap>{TBODY3_ZOU_A}</td>
+                </tr>
+                </patTemplate:tmpl>
+            </TBODY>
+        </table>
+            </td></tr>
+        </table> <!----------------- ダミーEnd ------------------>
+    </center>
+</BODY>
+</HTML>
+</patTemplate:tmpl>

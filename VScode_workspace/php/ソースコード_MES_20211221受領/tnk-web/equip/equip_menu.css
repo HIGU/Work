@@ -1,0 +1,12 @@
+/*///////////////////////////////////////////////////////////////////////*/
+/*/ ÀßÈ÷²ÔÆ¯´ÉÍý¥·¥¹¥Æ¥à Menu Common Style Sheet                        /*/
+/*/ Copyright (C) 2006 - 2006  K.Kobayashi tnksys@nitto-kohki.co.jp     /*/
+/*/ Changed history                                                     /*/
+/*/ 2006/03/14 Created   equip_menu.css                                 /*/
+/*///////////////////////////////////////////////////////////////////////*/
+body {
+    background-image:       url(/img/t_nitto_logo4.png);
+    background-repeat:      no-repeat;
+    background-attachment:  fixed;
+    background-position:    right bottom;
+}

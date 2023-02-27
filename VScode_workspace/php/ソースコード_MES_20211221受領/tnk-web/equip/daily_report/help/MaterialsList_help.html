@@ -1,0 +1,53 @@
+<!--
+//////////////////////////////////////////////////////////////////////////////
+// 機械運転日報 材料マスタ保守画面HELP                                      //
+// Copyright (C) 2004-2004 Kazuhiro.Kobayashi tnksys@nitto-kohki.co.jp      //
+//               Designed  Norihisa.ooya                                    //
+// Changed history                                                          //
+// 2004/12/09 Created  Mnt_start_help.html                                  //
+//////////////////////////////////////////////////////////////////////////////
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-JP">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>材料マスタ保守画面 ＨＥＬＰ</title>
+<script language='JavaScript'>
+<!--
+function winActiveChk() {
+    if (document.all) {     // IEなら
+        if (document.hasFocus() == false) {     // IE5.5以上で使える
+            window.focus();
+            return;
+        }
+        return;
+    } else {                // NN ならとワリキッテ
+        window.focus();
+        return;
+    }
+    // <input type='button' value='TEST' onClick="window.opener.location.reload()">
+    // parent.Header.関数名() or オブジェクト;
+}
+// -->
+</script>
+<style type="text/css"> 
+<!-- 
+input {
+    font-size: 10.5pt;
+    font-weight: bold;
+} 
+--> 
+</style> 
+</head>
+<body style='margin:0%;' onLoad='winActiveChk()'>
+    <input type='button' value='HELPを閉じる' onclick='window.close()'>
+    <br>
+    <center>
+        <input type='image' alt='材料マスタ保守画面 ＨＥＬＰ' border='0' src='MaterialsList_help.png'>
+        <br>
+        <input type='button' value='新規登録ＨＥＬＰ 詳細' onclick='location.href="MaterialsEntry_help.html"'>
+        <br>
+        <br>
+    </center>
+</body>
+</html>

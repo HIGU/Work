@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Shift_JIS">
+<TITLE>SetFont</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="fpdf.css">
+</HEAD>
+<BODY>
+<H2>SetFont</H2>
+<TT>SetFont(<B>string</B> family [, <B>string</B> style [, <B>float</B> size]])</TT>
+<H4 CLASS='st'>バージョン</H4>
+1.0
+<H4 CLASS='st'>説明</H4>
+文字列を出力する際のフォントを設定します。
+文字列を出力する前に必ず1回はこのメンバ関数をコールしないと、ドキュメントは無効になります。
+<BR>
+フォントは標準のものでも、AddFont()メンバ関数によって追加されたフォントでも良いです。
+標準フォントはWindowsのcp1252(Western Europe)エンコーディングを使います。
+<BR>
+このメンバ関数は最初のページが生成される前にコールした場合、
+（その後生成する）すべてのページにその設定が引き継がれます。
+<BR>
+カレント（現在の）フォントサイズだけを変更したい場合、単純にSetFontSize()メンバ関数をコールする方が簡単です。
+<BR>
+<BR>
+<B>注意: </B>標準のフォントを利用する場合、フォント定義ファイル(font metric files)の参照が可能である必要があります。
+これを行うには3種類の方法があります。
+<BR>
+<BR>
+<UL>
+<LI>（実行するスクリプトが存在する同じ）カレント（現在の）ディレクトリに配置する
+<BR>
+<LI><TT>include_path</TT> パラメータによって指定された（複数の）ディレクトリの中のひとつに配置する
+<BR>
+<LI><TT>FPDF_FONTPATH</TT> 定数によって定義されたディレクトリに配置する
+</UL>
+最後の方法の例（/に続く部分に注目）：
+<BR>
+<BR>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+define('FPDF_FONTPATH','/home/www/font/');<BR>
+require('fpdf.php');
+</TT>
+</TD></TR></TABLE><BR>
+もし指定したフォントが見つからない場合、"Could not includefont metric file"というエラーが表示されます。
+<H4 CLASS='st'>パラメータ</H4>
+<TT><U>family</U></TT>
+<BLOCKQUOTE>
+フォント（ファミリー、群）。
+AddFont()メンバ関数によって定義した名前か、以下の標準のものを指定できます。(完全一致する必要があります)：
+<UL>
+<LI><TT>Courier</TT> 等幅(fixed-width)
+<LI><TT>Helvetica<TT> or </TT>Arial</TT> (両方とも sans serif)
+<LI><TT>Times</TT> (serif)
+<LI><TT>Symbol</TT> (symbolic)
+<LI><TT>ZapfDingbats</TT> (symbolic)
+</UL>
+空文字をセットすることもできます。その場合、カレント（現在の）フォントが利用されます。
+</BLOCKQUOTE>
+<TT><U>style</U></TT>
+<BLOCKQUOTE>
+フォントスタイル。
+指定できる値（完全一致する必要があります）：
+<UL>
+<LI>空文字: 標準(regular)
+<LI><TT>B</TT>: 太字(bold)
+<LI><TT>I</TT>: 斜体(italic)
+<LI><TT>U</TT>: 下線付(underline)
+</UL>
+または、上記の任意の組み合わせ。
+デフォルトの値は、標準(regular)になります。
+太字(bold)、斜体(italic)は<TT>Symbol</TT> と <TT>ZapfDingbats</TT>には適用されません。
+</BLOCKQUOTE>
+<TT><U>size</U></TT>
+<BLOCKQUOTE>
+フォントサイズ（ポイント）。
+<BR>
+デフォルトの値はカレント（現在の）サイズになります。
+もしドキュメントの開始以降1回もサイズが指定されていない場合、12ポイントに設定されます。
+</BLOCKQUOTE>
+<H4 CLASS='st'>例</H4>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+//Times regular 12<BR>
+$pdf-&gt;SetFont('Times');<BR>
+//Arial bold 14<BR>
+$pdf-&gt;SetFont('Arial','B',14);<BR>
+//boldを取り除く<BR>
+$pdf-&gt;SetFont('');<BR>
+//Times bold, italic and underlined 14<BR>
+$pdf-&gt;SetFont('Times','BIU');
+</TT>
+</TD></TR></TABLE><BR>
+<H4 CLASS='st'>参照</H4>
+<A HREF="addfont.htm">AddFont()</A>,
+<A HREF="setfontsize.htm">SetFontSize()</A>,
+<A HREF="cell.htm">Cell()</A>,
+<A HREF="multicell.htm">MultiCell()</A>,
+<A HREF="write.htm">Write()</A>.
+<H6></H6>
+<HR>
+<DIV ALIGN="CENTER"><A HREF="index.htm">目次</A></DIV>
+</BODY>
+</HTML>

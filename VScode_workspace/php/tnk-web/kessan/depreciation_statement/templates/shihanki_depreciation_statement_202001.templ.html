@@ -1,0 +1,492 @@
+<!--
+<?php
+// Changed history
+// 2020/01/27 Created
+//
+?>
+-->
+<patTemplate:tmpl name="page">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>{PAGE_TITLE}</title>
+{OUT_CSS}
+{OUT_JSBASE}
+{PAGE_MENU_SITE_URL}
+
+<!--    ファイル指定の場合
+<script language='JavaScript' src='template.js?{PAGE_UNIQUE}'>
+</script>
+-->
+
+<script language="JavaScript">
+<!--
+/* 入力文字が数字かどうかチェック */
+function isDigit(str) {
+    var len=str.length;
+    var c;
+    for (i=1; i<len; i++) {
+        c = str.charAt(i);
+        if ((c < "0") || (c > "9")) {
+            return true;
+        }
+    }
+    return false;
+}
+/* 初期入力フォームのエレメントにフォーカスさせる */
+function set_focus(){
+//    document.form_name.element_name.focus();      // 初期入力フォームがある場合はコメントを外す
+//    document.form_name.element_name.select();
+}
+// -->
+</script>
+
+<!-- スタイルシートのファイル指定をコメント HTMLタグ コメントは入れ子に出来ない事に注意
+<link rel='stylesheet' href='template.css?{PAGE_UNIQUE}' type='text/css' media='screen'>
+-->
+
+<style type="text/css">
+<!--
+.pt8 {
+    font:normal 8pt;
+    font-family: monospace;
+}
+.pt10 {
+    font:normal 10pt;
+    font-family: monospace;
+}
+.pt10b {
+    font:bold 10pt;
+    font-family: monospace;
+}
+.pt11b {
+    font:bold 11pt;
+}
+.pt12b {
+    font:bold 12pt;
+    font-family: monospace;
+}
+.title_font {
+    font:bold 13.5pt;
+    font-family: monospace;
+}
+.today_font {
+    font-size: 10.5pt;
+    font-family: monospace;
+}
+.corporate_name {
+    font:bold 10pt;
+    font-family: monospace;
+}
+.margin0 {
+    margin:0%;
+}
+th {
+    background-color:#ffffc6;
+    color:blue;
+    font:bold 11pt;
+    font-family: monospace;
+}
+select {
+    background-color:gold;
+    color:black;
+}
+.OnOff_font {
+    font-size:     8.5pt;
+    font-family:   monospace;
+}
+-->
+</style>
+</head>
+<body style='overflow-y:hidden;' onLoad='set_focus()'>
+    <center>
+{OUT_TITLE_BORDER}
+        <!----------------- ここは タイトルを表示する ------------------->
+        <table width='100%' bgcolor='#d6d3ce'  cellspacing='0' cellpadding='1' border='1'>
+            <tr><td> <!----------- ダミー(デザイン用) ------------>
+        <table width='100%' bordercolordark='white' bordercolorlight='#bdaa90' bgcolor='#d6d3ce' cellspacing='0' cellpadding='1' border='1'>
+            <tr>
+                <form method='post' action='{PAGE_CURRENT_URL}'>
+                    <td nowrap width='30%' bgcolor='#d6d3ce' align='right' class='pt10b'>
+                        単位
+                        <select name='state_tani' class='pt10'>
+                             <option value='1'      {EN}>　　円</option>
+                             <option value='1000'   {SEN}>　千円</option>
+                             <option value='100000' {JYUMAN}>十万円</option>
+                             <option value='1000000'{MILLION}>百万円</option>
+                        </select>
+                        少数桁
+                        <select name='state_keta' class='pt10'>
+                             <option value='0' {ZERO}>０桁</option>
+                             <option value='1' {ICHI}>１桁</option>
+                             <option value='3' {SAN}>３桁</option>
+                             <option value='6' {ROKU}>６桁</option>
+                        </select>
+                        <input class='pt10b' type='submit' name='return' value='単位変更'>
+                    </td>
+                </form>
+            </tr>
+        </table>
+            </td></tr>
+        </table> <!----------------- ダミーEnd ------------------>
+        
+        <!--------------- ここから本文の表を表示する -------------------->
+        <table width='100%' bgcolor='#d6d3ce' align='center' cellspacing="0" cellpadding="3" border='1'>
+            <tr><td> <!----------- ダミー(デザイン用) ------------>
+        <table width='100%' bordercolordark='white' bordercolorlight='#bdaa90' bgcolor='#d6d3ce' align='center' cellspacing="0" cellpadding="3" border='1'>
+            <THEAD>
+                <!-- テーブル ヘッダーの表示 -->
+            </THEAD>
+            <TFOOT>
+                <!-- 現在はフッターは何もない -->
+            </TFOOT>
+            <TBODY>
+                <patTemplate:tmpl name="tbody">
+                <tr>
+                    <td class='pt10b' align='center' colspan='2' rowspan='3' bgcolor='#ffffd8' nowrap>資産の種類</td>
+                    <td class='pt10b' align='center' colspan='4' bgcolor='#ffffd8'>取得価額</td>
+                    <td class='pt10b' align='center' rowspan='3' bgcolor='#ffffd8'>期首<BR>帳簿価額</td>
+                    <td class='pt10b' align='center' colspan='4' bgcolor='#ffffd8'>減価償却累計額</td>
+                    <td class='pt10b' align='center' rowspan='3' bgcolor='#ffffd8' nowrap>除却資産<BR>等の<BR>帳簿価額</td> 
+                    <td class='pt10b' align='center' rowspan='3' bgcolor='#ffffd8' nowrap>期末<BR>帳簿価額</td>
+                </tr>
+                <tr>
+                    <!-- 取得価額 -->
+                    <td nowrap class='pt10b' align='center' rowspan='2' bgcolor='#ffffd8'>期首残高</td>
+                    <td nowrap class='pt10b' align='center' rowspan='2' bgcolor='#ffffd8'>期中増加</td>
+                    <td nowrap class='pt10b' align='center' rowspan='2' bgcolor='#ffffd8'>期中減少</td>
+                    <td nowrap class='pt10b' align='center' rowspan='2' bgcolor='#ffffd8'>期末残高</td>
+                    <!-- 期首帳簿価額 -->
+                    <!-- 減価償却累計額 -->
+                    <td nowrap class='pt10b' align='center' rowspan='2' bgcolor='#ffffd8'>期首残高</td>
+                    <td nowrap class='pt10b' align='center' rowspan='2' bgcolor='#ffffd8'>期中減少</td>
+                    <td nowrap class='pt10b' align='center' rowspan='2' bgcolor='#ffffd8'>当期償却額</td>
+                    <td nowrap class='pt10b' align='center' rowspan='2' bgcolor='#ffffd8'>期末残高</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <!-- 期末帳簿価額 -->
+                </tr>
+                <!-- 調整 どっかずれてるかも -->
+                <tr>
+                    <td class='pt10b' align='left'></td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' rowspan='10' width='10' bgcolor='#ffffd8'>有形固定資産</td>
+                    <td class='pt10b' align='left' nowrap bgcolor='white'>建物</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_KISHU_TATE}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_ZOU_TATE}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_GEN_TATE}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_TATE}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KISHU_CHO_TATE}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_KISHU_TATE}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_GEN_TATE}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_SYO_TATE}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_TATE}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_JYO_CHO_TATE}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_TATE}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap bgcolor='#dcdcdc'>建物付属設備</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_KISHU_FUZOKU}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_ZOU_FUZOKU}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_GEN_FUZOKU}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_FUZOKU}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KISHU_CHO_FUZOKU}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_KISHU_FUZOKU}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_GEN_FUZOKU}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_SYO_FUZOKU}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_FUZOKU}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_JYO_CHO_FUZOKU}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_FUZOKU}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='right' nowrap bgcolor='#ffffd8'>建物合計</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KISHU_TATE_TOTAL}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_ZOU_TATE_TOTAL}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_GEN_TATE_TOTAL}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_TATE_TOTAL}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KISHU_CHO_TATE_TOTAL}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8''>{TBODY_RUI_KISHU_TATE_TOTAL}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_GEN_TATE_TOTAL}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_SYO_TATE_TOTAL}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_TATE_TOTAL}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_JYO_CHO_TATE_TOTAL}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_TATE_TOTAL}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap bgcolor='#dcdcdc'>構築物</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_KISHU_KOUTI}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_ZOU_KOUTI}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_GEN_KOUTI}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_KOUTI}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KISHU_CHO_KOUTI}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_KISHU_KOUTI}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_GEN_KOUTI}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_SYO_KOUTI}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_KOUTI}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_JYO_CHO_KOUTI}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_KOUTI}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap bgcolor='white'>機械及び装置</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_KISHU_KIKAI}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_ZOU_KIKAI}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_GEN_KIKAI}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_KIKAI}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KISHU_CHO_KIKAI}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_KISHU_KIKAI}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_GEN_KIKAI}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_SYO_KIKAI}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_KIKAI}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_JYO_CHO_KIKAI}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_KIKAI}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap bgcolor='#dcdcdc'>車輛運搬具</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_KISHU_SHARYO}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_ZOU_SHARYO}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_GEN_SHARYO}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_SHARYO}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KISHU_CHO_SHARYO}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_KISHU_SHARYO}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_GEN_SHARYO}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_SYO_SHARYO}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_SHARYO}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_JYO_CHO_SHARYO}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_SHARYO}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap bgcolor='white'>器具・工具</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_KISHU_KIGU}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_ZOU_KIGU}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_GEN_KIGU}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_KIGU}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KISHU_CHO_KIGU}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_KISHU_KIGU}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_GEN_KIGU}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_SYO_KIGU}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8''>{TBODY_RUI_KIMA_KIGU}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_JYO_CHO_KIGU}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_KIGU}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap bgcolor='#dcdcdc'>什器・備品</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_KISHU_JYUKI}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_ZOU_JYUKI}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_GEN_JYUKI}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_JYUKI}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KISHU_CHO_JYUKI}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_KISHU_JYUKI}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_GEN_JYUKI}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_SYO_JYUKI}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_JYUKI}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_JYO_CHO_JYUKI}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_JYUKI}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='right' nowrap bgcolor='#ffffd8'>工具器具備品計</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KISHU_KOUGU_TOTAL}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_ZOU_KOUGU_TOTAL}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_GEN_KOUGU_TOTAL}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_KOUGU_TOTAL}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KISHU_CHO_KOUGU_TOTAL}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KISHU_KOUGU_TOTAL}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_GEN_KOUGU_TOTAL}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8e'>{TBODY_RUI_SYO_KOUGU_TOTAL}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_KOUGU_TOTAL}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_JYO_CHO_KOUGU_TOTAL}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_KOUGU_TOTAL}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='left' nowrap bgcolor='white'>リース資産</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_KISHU_LEASE}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_ZOU_LEASE}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_GEN_LEASE}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_LEASE}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KISHU_CHO_LEASE}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_KISHU_LEASE}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_GEN_LEASE}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_SYO_LEASE}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_LEASE}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_JYO_CHO_LEASE}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_LEASE}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='right' nowrap colspan='2' bgcolor='#ffffd8'>合計</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KISHU_YUKEI_TOTAL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_ZOU_YUKEI_TOTAL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_GEN_YUKEI_TOTAL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_YUKEI_TOTAL}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_KISHU_CHO_YUKEI_TOTAL}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KISHU_YUKEI_TOTAL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_GEN_YUKEI_TOTAL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_SYO_YUKEI_TOTAL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_YUKEI_TOTAL}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_JYO_CHO_YUKEI_TOTAL}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_YUKEI_TOTAL}</td>
+                </tr>
+                        <!--  bgcolor='#ffffc6' 薄い黄色 --> 
+                        <!--  bgcolor='#ffffd8' 超薄い黄色 --> 
+                        <!--  bgcolor='#c8ffc8' 薄い緑 --> 
+                        <!--  bgcolor='#dcf0ff' 薄い水色 --> 
+                        <!--  bgcolor='#dcdcdc' 薄い灰色 --> 
+                <tr>
+                    <td class='pt10b' align='left' rowspan='3' width='10' bgcolor='#ffffd8'>無形固定</td>
+                    <td class='pt10b'  align='left' nowrap bgcolor='white'>電話加入権</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_KISHU_DENWA}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_ZOU_DENWA}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_GEN_DENWA}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_DENWA}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KISHU_CHO_DENWA}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_KISHU_DENWA}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_GEN_DENWA}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_SYO_DENWA}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_DENWA}</td>
+                    <!-- 除却資産等の帳簿価額-->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_JYO_CHO_DENWA}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_DENWA}</td>
+                </tr> 
+                <tr>
+                    <td class='pt10b'  align='left' nowrap bgcolor='#dcdcdc'>施設利用権</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_KISHU_SHISE}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_ZOU_SHISE}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_SHUTOKU_GEN_SHISE}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_SHISE}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_KISHU_CHO_SHISE}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_KISHU_SHISE}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_GEN_SHISE}</td>
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_RUI_SYO_SHISE}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_SHISE}</td>
+                    <!-- 除却資産等の帳簿価額-->
+                    <td class='pt10'  align='right' bgcolor='#dcdcdc'>{TBODY_JYO_CHO_SHISE}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_SHISE}</td>
+                </tr> 
+                <tr>
+                    <td class='pt10b'  align='left' nowrap bgcolor='white'>ソフトウェア</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_KISHU_SOFT}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_ZOU_SOFT}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_SHUTOKU_GEN_SOFT}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_SOFT}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_KISHU_CHO_SOFT}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_KISHU_SOFT}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_GEN_SOFT}</td>
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_RUI_SYO_SOFT}</td>
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_SOFT}</td>
+                    <!-- 除却資産等の帳簿価額-->
+                    <td class='pt10'  align='right' bgcolor='white'>{TBODY_JYO_CHO_SOFT}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_SOFT}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='right' nowrap colspan='2' bgcolor='#ffffd8'>合計</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KISHU_MUKEI_TOTAL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_ZOU_MUKEI_TOTAL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_GEN_MUKEI_TOTAL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_SHUTOKU_KIMA_MUKEI_TOTAL}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_KISHU_CHO_MUKEI_TOTAL}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KISHU_MUKEI_TOTAL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_GEN_MUKEI_TOTAL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_SYO_MUKEI_TOTAL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_RUI_KIMA_MUKEI_TOTAL}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_JYO_CHO_MUKEI_TOTAL}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8'>{TBODY_KIMA_CHO_MUKEI_TOTAL}</td>
+                </tr>
+                <tr>
+                    <td class='pt10b' align='right' colspan='2' nowrap bgcolor='#ffffd8'>総合計</td>
+                    <!-- 取得価額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8' nowrap>{TBODY_SHUTOKU_KISHU_ALL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8' nowrap>{TBODY_SHUTOKU_ZOU_ALL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8' nowrap>{TBODY_SHUTOKU_GEN_ALL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8' nowrap>{TBODY_SHUTOKU_KIMA_ALL}</td>
+                    <!-- 期首帳簿価額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8' nowrap>{TBODY_KISHU_CHO_ALL}</td>
+                    <!-- 減価償却累計額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8' nowrap>{TBODY_RUI_KISHU_ALL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8' nowrap>{TBODY_RUI_GEN_ALL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8' nowrap>{TBODY_RUI_SYO_ALL}</td>
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8' nowrap>{TBODY_RUI_KIMA_ALL}</td>
+                    <!-- 除却資産等の帳簿価額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8' nowrap>{TBODY_JYO_CHO_ALL}</td>
+                    <!-- 期末帳簿価額 -->
+                    <td class='pt10b'  align='right' bgcolor='#ffffd8' nowrap>{TBODY_KIMA_CHO_ALL}</td>
+                </tr>
+                </patTemplate:tmpl>
+            </TBODY>
+        </table>
+    </center>
+</body>
+</html>
+</patTemplate:tmpl>

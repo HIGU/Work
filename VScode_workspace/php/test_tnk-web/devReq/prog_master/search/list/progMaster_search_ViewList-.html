@@ -1,0 +1,172 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<title>刻印管理システム検索結果</title>
+<script type='text/javascript' src='/base_class.js'></script>
+<link rel='stylesheet' href='/menu_form.css' type='text/css' media='screen'>
+<link rel='stylesheet' href='../progMaster_search.css' type='text/css' media='screen'>
+<style type='text/css'>
+<!--
+body {
+    background-image:none;
+}
+-->
+</style>
+<script type='text/javascript' src='../progMaster_search.js'></script>
+</head>
+<body style='background-color:#d6d3ce;'>  <!--  -->
+<center>
+<table width='100%' bgcolor='#d6d3ce' border='1' cellspacing='0' cellpadding='1'>
+    <tr><td> <!----------- ダミー(デザイン用) ------------>
+<table class='winbox_field' width='100%' border='1' cellspacing='0' cellpadding='3'>
+    <tr>
+        <font size='2'><td class='winboxb' width=' 5%' align='right' rowspan='3'>1</td>
+    <td class='winbox' width='38%' align='left'>1</td>
+    <td class='winbox' width='24%' align='left'>test1</td>
+    <td class='winbox' width='33%' align='left'><B>C:test1\</B></td>
+        </font></tr>
+    <tr>
+        <font size='2'>
+    <td class='winboxb' width='65%' align='left' rowspan='2' colspan='2'>dummy1</td>
+    <td class='winbox' width='30%' align='center'><a href='../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=' onclick='ProgMasterSearch.win_open("../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=", 1000, 440); return false;' title='クリックで使用ＤＢの詳細を表示します。'>一覧</a></td>
+    </tr>
+    <tr>
+        <td class='winboxb' width='33%' align='left'>　202211　</td>
+    </font></tr>
+    <tr>
+        <font size='2'><td class='winboxb' width=' 5%' align='right' rowspan='3'>2</td>
+    <td class='winbox' width='38%' align='left'>2</td>
+    <td class='winbox' width='24%' align='left'>test2</td>
+    <td class='winbox' width='33%' align='left'><B>C:test2\</B></td>
+        </font></tr>
+    <tr>
+        <font size='2'>
+    <td class='winboxb' width='65%' align='left' rowspan='2' colspan='2'>dummy2</td>
+    <td class='winbox' width='30%' align='center'><a href='../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=' onclick='ProgMasterSearch.win_open("../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=", 1000, 440); return false;' title='クリックで使用ＤＢの詳細を表示します。'>一覧</a></td>
+    </tr>
+    <tr>
+        <td class='winboxb' width='33%' align='left'>　202211　</td>
+    </font></tr>
+    <tr>
+        <font size='2'><td class='winboxb' width=' 5%' align='right' rowspan='3'>3</td>
+    <td class='winbox' width='38%' align='left'>3</td>
+    <td class='winbox' width='24%' align='left'>test3</td>
+    <td class='winbox' width='33%' align='left'><B>C:test3\</B></td>
+        </font></tr>
+    <tr>
+        <font size='2'>
+    <td class='winboxb' width='65%' align='left' rowspan='2' colspan='2'>dummy3</td>
+    <td class='winbox' width='30%' align='center'><a href='../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=' onclick='ProgMasterSearch.win_open("../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=", 1000, 440); return false;' title='クリックで使用ＤＢの詳細を表示します。'>一覧</a></td>
+    </tr>
+    <tr>
+        <td class='winboxb' width='33%' align='left'>　202211　</td>
+    </font></tr>
+    <tr>
+        <font size='2'><td class='winboxb' width=' 5%' align='right' rowspan='3'>4</td>
+    <td class='winbox' width='38%' align='left'>4</td>
+    <td class='winbox' width='24%' align='left'>test4</td>
+    <td class='winbox' width='33%' align='left'><B>C:test4\</B></td>
+        </font></tr>
+    <tr>
+        <font size='2'>
+    <td class='winboxb' width='65%' align='left' rowspan='2' colspan='2'>dummy4</td>
+    <td class='winbox' width='30%' align='center'><a href='../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=' onclick='ProgMasterSearch.win_open("../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=", 1000, 440); return false;' title='クリックで使用ＤＢの詳細を表示します。'>一覧</a></td>
+    </tr>
+    <tr>
+        <td class='winboxb' width='33%' align='left'>　202211　</td>
+    </font></tr>
+    <tr>
+        <font size='2'><td class='winboxb' width=' 5%' align='right' rowspan='3'>5</td>
+    <td class='winbox' width='38%' align='left'>5</td>
+    <td class='winbox' width='24%' align='left'>test5</td>
+    <td class='winbox' width='33%' align='left'><B>C:test5\</B></td>
+        </font></tr>
+    <tr>
+        <font size='2'>
+    <td class='winboxb' width='65%' align='left' rowspan='2' colspan='2'>dummy5</td>
+    <td class='winbox' width='30%' align='center'><a href='../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=' onclick='ProgMasterSearch.win_open("../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=", 1000, 440); return false;' title='クリックで使用ＤＢの詳細を表示します。'>一覧</a></td>
+    </tr>
+    <tr>
+        <td class='winboxb' width='33%' align='left'>　202211　</td>
+    </font></tr>
+    <tr>
+        <font size='2'><td class='winboxb' width=' 5%' align='right' rowspan='3'>6</td>
+    <td class='winbox' width='38%' align='left'>6</td>
+    <td class='winbox' width='24%' align='left'>test6</td>
+    <td class='winbox' width='33%' align='left'><B>C:test6\</B></td>
+        </font></tr>
+    <tr>
+        <font size='2'>
+    <td class='winboxb' width='65%' align='left' rowspan='2' colspan='2'>dummy6</td>
+    <td class='winbox' width='30%' align='center'><a href='../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=' onclick='ProgMasterSearch.win_open("../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=", 1000, 440); return false;' title='クリックで使用ＤＢの詳細を表示します。'>一覧</a></td>
+    </tr>
+    <tr>
+        <td class='winboxb' width='33%' align='left'>　202211　</td>
+    </font></tr>
+    <tr>
+        <font size='2'><td class='winboxb' width=' 5%' align='right' rowspan='3'>7</td>
+    <td class='winbox' width='38%' align='left'>7</td>
+    <td class='winbox' width='24%' align='left'>test7</td>
+    <td class='winbox' width='33%' align='left'><B>C:test7\</B></td>
+        </font></tr>
+    <tr>
+        <font size='2'>
+    <td class='winboxb' width='65%' align='left' rowspan='2' colspan='2'>dummy7</td>
+    <td class='winbox' width='30%' align='center'><a href='../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=' onclick='ProgMasterSearch.win_open("../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=", 1000, 440); return false;' title='クリックで使用ＤＢの詳細を表示します。'>一覧</a></td>
+    </tr>
+    <tr>
+        <td class='winboxb' width='33%' align='left'>　202211　</td>
+    </font></tr>
+    <tr>
+        <font size='2'><td class='winboxb' width=' 5%' align='right' rowspan='3'>8</td>
+    <td class='winbox' width='38%' align='left'>8</td>
+    <td class='winbox' width='24%' align='left'>test8</td>
+    <td class='winbox' width='33%' align='left'><B>C:test8\</B></td>
+        </font></tr>
+    <tr>
+        <font size='2'>
+    <td class='winboxb' width='65%' align='left' rowspan='2' colspan='2'>dummy8</td>
+    <td class='winbox' width='30%' align='center'><a href='../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=' onclick='ProgMasterSearch.win_open("../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=", 1000, 440); return false;' title='クリックで使用ＤＢの詳細を表示します。'>一覧</a></td>
+    </tr>
+    <tr>
+        <td class='winboxb' width='33%' align='left'>　202211　</td>
+    </font></tr>
+    <tr>
+        <font size='2'><td class='winboxb' width=' 5%' align='right' rowspan='3'>9</td>
+    <td class='winbox' width='38%' align='left'>9</td>
+    <td class='winbox' width='24%' align='left'>test9</td>
+    <td class='winbox' width='33%' align='left'><B>C:test9\</B></td>
+        </font></tr>
+    <tr>
+        <font size='2'>
+    <td class='winboxb' width='65%' align='left' rowspan='2' colspan='2'>dummy9</td>
+    <td class='winbox' width='30%' align='center'><a href='../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=' onclick='ProgMasterSearch.win_open("../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=", 1000, 440); return false;' title='クリックで使用ＤＢの詳細を表示します。'>一覧</a></td>
+    </tr>
+    <tr>
+        <td class='winboxb' width='33%' align='left'>　202211　</td>
+    </font></tr>
+    <tr>
+        <font size='2'><td class='winboxb' width=' 5%' align='right' rowspan='3'>10</td>
+    <td class='winbox' width='38%' align='left'>10</td>
+    <td class='winbox' width='24%' align='left'>test10</td>
+    <td class='winbox' width='33%' align='left'><B>C:test10\</B></td>
+        </font></tr>
+    <tr>
+        <font size='2'>
+    <td class='winboxb' width='65%' align='left' rowspan='2' colspan='2'>dummy10</td>
+    <td class='winbox' width='30%' align='center'><a href='../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=' onclick='ProgMasterSearch.win_open("../progMaster_search_db_detail.php?db1=DB1&db2=DB2&db3=DB3&db4=DB4&db5=DB5&db6=DB6&db7=DB7&db8=DB8&db9=DB9&db10=DB10&db11=DB11&db12=DB12&key=", 1000, 440); return false;' title='クリックで使用ＤＢの詳細を表示します。'>一覧</a></td>
+    </tr>
+    <tr>
+        <td class='winboxb' width='33%' align='left'>　202211　</td>
+    </font></tr>
+</table>
+    </td></tr>
+</table> <!----------------- ダミーEnd ------------------>
+
+</center>
+</body>
+</html>

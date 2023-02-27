@@ -1,0 +1,512 @@
+<?php
+//////////////////////////////////////////////////////////////////////////////
+// ·î¼¡Â»±×´Ø·¸ ¾ÃÈñÀÇ¿½¹ð½ñ ³ÎÄê¿½¹ð½ñÂè1É½ PDF½ÐÎÏ(°õºþ) FPDF/MBFPDF»ÈÍÑ  //
+// Copyright (C) 2021-2021 Norihisa.Ohya norihisa_ooya@nitto-kohki.co.jp    //
+// Changed history                                                          //
+// 2019/06/13 Created  sales_tax_kakutei_shinkoku1_pdf  ¥´¥·¥Ã¥¯ÂÎ          //
+//////////////////////////////////////////////////////////////////////////////
+ini_set('memory_limit', '100M');             // PDF¤ÎÂçÎÌ½ÐÎÏ¤Î¤¿¤á 52M¤ÇOK¤À¤¬ 64M¤Ø
+// ini_set('error_reporting', E_ALL | E_STRICT);
+// ini_set('display_errors','1');              // Error É½¼¨ ON debug ÍÑ ¥ê¥ê¡¼¥¹¸å¥³¥á¥ó¥È
+// ini_set('implicit_flush', 'off');           // echo print ¤Ç flush ¤µ¤»¤Ê¤¤(ÃÙ¤¯¤Ê¤ë¤¿¤á) CLI CGIÈÇ
+// ini_set('max_execution_time', 1200);        // ºÇÂç¼Â¹Ô»þ´Ö=20Ê¬ CLI CGIÈÇ
+session_start();                        // ini_set()¤Î¼¡¤Ë»ØÄê¤¹¤ë¤³¤È Script ºÇ¾å¹Ô
+require_once ('/home/www/html/tnk-web/function.php');   // access_log()¤ò»È¤¦¤¿¤ádefine¢ªfunction¤ØÀÚÂØ
+require_once ('/home/www/html/tnk-web/tnk_func.php');           // TNK ¤Ë°ÍÂ¸¤¹¤ëÉôÊ¬¤Î´Ø¿ô¤ò require_once ¤·¤Æ¤¤¤ë
+require_once ('/home/www/html/tnk-web/MenuHeader.php');         // TNK Á´¶¦ÄÌ menu class
+// require_once ('/home/www/html/tnk-web/define.php');
+access_log();                           // Script Name ¤Ï¼«Æ°¼èÆÀ
+
+//////////////// Ç§¾Ú¥Á¥§¥Ã¥¯
+// if ( !isset($_SESSION['User_ID']) || !isset($_SESSION['Password']) || !isset($_SESSION['Auth']) ) {
+/*
+if (!getCheckAuthority(58)) {        // ¸¢¸Â¥ì¥Ù¥ë¤¬£±°Ê²¼¤ÏµñÈÝ(¾åµé¥æ¡¼¥¶¡¼¤Î¤ß)
+// if (account_group_check() == FALSE) {        // ÆÃÄê¤Î¥°¥ë¡¼¥×°Ê³°¤ÏµñÈÝ
+    $_SESSION['s_sysmsg'] = 'Í­µë´ÉÍýÂæÄ¢¤ò°õºþ¤¹¤ë¸¢¸Â¤¬¤¢¤ê¤Þ¤»¤ó¡ª';
+    header('Location: http:' . WEB_HOST . EMP_MENU);   // ¸ÇÄê¸Æ½Ð¸µ¤ØÌá¤ë
+    // header("Location: $url_referer");                   // Ä¾Á°¤Î¸Æ½Ð¸µ¤ØÌá¤ë
+    exit();
+}
+*/
+////////// ÂæÄ¢ÂÐ¾ÝÇ¯ÅÙ¤Î¼èÆÀ
+///// ÂÐ¾ÝÅö·î
+$ki2_ym   = $_SESSION['2ki_ym'];
+$yyyymm   = $_SESSION['2ki_ym'];
+$ki       = Ym_to_tnk($_SESSION['2ki_ym']);
+$b_yyyymm = $yyyymm - 100;
+$p1_ki    = Ym_to_tnk($b_yyyymm);
+
+///// Á°´üËö Ç¯·î¤Î»»½Ð
+$yyyy = substr($yyyymm, 0,4);
+$mm   = substr($yyyymm, 4,2);
+if (($mm >= 1) && ($mm <= 3)) {
+    $yyyy = ($yyyy - 1);
+}
+$pre_end_ym = $yyyy . "03";     // Á°´üËöÇ¯·î
+
+///// ´ü¡¦È¾´ü¤Î¼èÆÀ
+$tuki_chk = substr($_SESSION['2ki_ym'],4,2);
+if ($tuki_chk >= 1 && $tuki_chk <= 3) {           //Âè£´»ÍÈ¾´ü
+    $hanki = '£´';
+} elseif ($tuki_chk >= 4 && $tuki_chk <= 6) {     //Âè£±»ÍÈ¾´ü
+    $hanki = '£±';
+} elseif ($tuki_chk >= 7 && $tuki_chk <= 9) {     //Âè£²»ÍÈ¾´ü
+    $hanki = '£²';
+} elseif ($tuki_chk >= 10) {    //Âè£³»ÍÈ¾´ü
+    $hanki = '£³';
+}
+
+///// Ç¯·îÈÏ°Ï¤Î¼èÆÀ
+if ($tuki_chk >= 1 && $tuki_chk <= 3) {           //Âè£´»ÍÈ¾´ü
+    $str_ym = $yyyy . '04';
+    $end_ym = $yyyymm;
+} elseif ($tuki_chk >= 4 && $tuki_chk <= 6) {     //Âè£±»ÍÈ¾´ü
+    $str_ym = $yyyy . '04';
+    $end_ym = $yyyymm;
+} elseif ($tuki_chk >= 7 && $tuki_chk <= 9) {     //Âè£²»ÍÈ¾´ü
+    $str_ym = $yyyy . '04';
+    $end_ym = $yyyymm;
+} elseif ($tuki_chk >= 10) {    //Âè£³»ÍÈ¾´ü
+    $str_ym = $yyyy . '04';
+    $end_ym = $yyyymm;
+}
+///// TNK´ü ¢ª NK´ü¤ØÊÑ´¹
+$nk_ki   = $ki + 44;
+$nk_p1ki = $p1_ki + 44;
+
+$cost_ym = array();
+$tuki_chk = substr($_SESSION['2ki_ym'],4,2);
+if ($tuki_chk >= 1 && $tuki_chk <= 3) {           //Âè£´»ÍÈ¾´ü
+    $hanki = '£´';
+    $yyyy_tou = $yyyy + 1;
+    $cost_ym[0]  = $yyyy . '04';
+    $cost_ym[1]  = $yyyy . '05';
+    $cost_ym[2]  = $yyyy . '06';
+    $cost_ym[3]  = $yyyy . '07';
+    $cost_ym[4]  = $yyyy . '08';
+    $cost_ym[5]  = $yyyy . '09';
+    $cost_ym[6]  = $yyyy . '10';
+    $cost_ym[7]  = $yyyy . '11';
+    $cost_ym[8]  = $yyyy . '12';
+    $cost_ym[9]  = $yyyy_tou . '01';
+    $cost_ym[10] = $yyyy_tou . '02';
+    $cost_ym[11] = $yyyy_tou . '03';
+    $cnum        = 12;
+} elseif ($tuki_chk >= 4 && $tuki_chk <= 6) {     //Âè£±»ÍÈ¾´ü
+    $hanki = '£±';
+    $cost_ym[0]  = $yyyy . '04';
+    $cost_ym[1]  = $yyyy . '05';
+    $cost_ym[2]  = $yyyy . '06';
+    $cnum        = 3;
+} elseif ($tuki_chk >= 7 && $tuki_chk <= 9) {     //Âè£²»ÍÈ¾´ü
+    $hanki = '£²';
+    $cost_ym[0] = $yyyy . '04';
+    $cost_ym[1] = $yyyy . '05';
+    $cost_ym[2] = $yyyy . '06';
+    $cost_ym[3] = $yyyy . '07';
+    $cost_ym[4]  = $yyyy . '08';
+    $cost_ym[5]  = $yyyy . '09';
+    $cnum        = 6;
+} elseif ($tuki_chk >= 10) {    //Âè£³»ÍÈ¾´ü
+    $hanki = '£³';
+    $cost_ym[0]  = $yyyy . '04';
+    $cost_ym[1]  = $yyyy . '05';
+    $cost_ym[2]  = $yyyy . '06';
+    $cost_ym[3]  = $yyyy . '07';
+    $cost_ym[4]  = $yyyy . '08';
+    $cost_ym[5]  = $yyyy . '09';
+    $cost_ym[6]  = $yyyy . '10';
+    $cost_ym[7]  = $yyyy . '11';
+    $cost_ym[8]  = $yyyy . '12';
+    $cnum        = 9;
+}
+
+// Íâ´ü4·îÊ¬
+$cost_ym_next = $yyyy + 1 . '04';
+
+$current_script  = $_SERVER['PHP_SELF'];        // ¸½ºß¼Â¹ÔÃæ¤Î¥¹¥¯¥ê¥×¥ÈÌ¾¤òÊÝÂ¸
+
+///// MBFPDF/FPDF ¤Ç»ÈÍÑ¤¹¤ëÁÈ¹þ¥Õ¥©¥ó¥È
+define('FPDF_FONTPATH', '/home/www/html/mbfpdf/font/');     // Core Font ¤Î¥Ñ¥¹
+///// ÆüËÜ¸ìÉ½¼¨¤Î¾ì¹çÉ¬¿Ü¡£¤¹¤Ê¤ï¤Á¡¢É¬¤º¥¤¥ó¥¯¥ë¡¼¥É¤¹¤ë
+require_once ('/home/www/html/mbfpdf/mbfpdf.php');          // ¥Þ¥ë¥Á¥Ð¥¤¥ÈFPDF
+
+class PDF_j extends MBFPDF  // ÆüËÜ¸ìPDF¥¯¥é¥¹¤ò³ÈÄ¥¤·¤Þ¤¹¡£
+{
+    // Private properties
+    var $wh_usr;     // Header Column Text
+    var $w_usr;      // Header Column Width
+    var $data_usr;   // Header ÍÑ ¥æ¡¼¥¶¡¼¥Ç¡¼¥¿
+    var $usr_cnt;    // Header ÍÑ ¥æ¡¼¥¶¡¼ÀÚÂØ
+    
+    /// Constructer ¤òÄêµÁ¤¹¤ë¤È ´ðÄì¥¯¥é¥¹¤Î Constructer¤¬¼Â¹Ô¤µ¤ì¤Ê¤¤
+    function PDF_j()
+    {
+        // $this->FPDF();  // ´ðÄìClass¤ÎConstructer¤Ï¥×¥í¥°¥é¥Þ¡¼¤ÎÀÕÇ¤¤Ç¸Æ½Ð¤¹¡£
+        parent::FPDF_Protection();
+        $this->wh_usr   = array();
+        $this->w_usr    = array();
+        $this->usr_cnt  = 1;    // ²¡°õÍóÉ½¼¨ÍÑ
+        $this->data_usr = array('', '', '', '');    // ¥Æ¥¹¥ÈÍÑ¤Î¥æ¡¼¥¶¡¼¤ò¾È²ñ¤¹¤ë¤È¥ï¡¼¥Ë¥ó¥°¤Ë¤Ê¤ë¤¿¤áÄÉ²Ã
+    }
+    
+    // Simple table...Ì¤»ÈÍÑ
+    function BasicTable($header, $data)
+    {
+        //Header
+        foreach ($header as $col) {
+            $this->Cell(30, 7, $col, 1);
+        }
+        $this->Ln();
+        //Data
+        foreach ($data as $row) {
+            foreach ($row as $col) {
+                $this->Cell(30, 7, $col, 1);
+            }
+            $this->Ln();
+        }
+    }
+    
+    // Better table...Ì¤»ÈÍÑ
+    function ImprovedTable($header, $data)
+    {
+        // Column widths ¥×¥í¥Ñ¥Æ¥£¤ØÊÑ¹¹
+        // $w = array(25, 15, 24, 105, 30);   //³Æ¥»¥ë¤Î²£Éý¤ò»ØÄê¤·¤Æ¤¤¤Þ¤¹¡£
+        // Header
+        for ($i=0; $i<count($header); $i++) {
+            $this->Cell($this->w_usr[$i], 7, $header[$i], 1, 0, 'C');
+        }
+        $this->Ln();
+        // Data
+        foreach ($data as $row) {
+            $this->Cell($this->w_usr[0], 6, $row[0], 'LR');
+            $this->Cell($this->w_usr[1], 6, $row[1], 'LR');
+            $this->Cell($this->w_usr[2], 6, $row[2], 'LR');
+            $this->Cell($this->w_usr[3], 6, $row[3], 'LR');
+            $this->Cell($this->w_usr[4], 6, $row[4], 'LR');
+            $this->Ln();
+        }
+        // Closure line
+        $this->Cell(array_sum($w), 0, '', 'T');
+    }
+    
+    //¤³¤Î¥á¥ó¥Ð´Ø¿ô¤ò½¤Àµ¤·¤Æ¤¤¤Þ¤¹¡£
+    // Colored table
+    function FancyTable($data, $caption)
+    {
+        // Color and font restoration
+        $this->SetFillColor(224, 235, 255);
+        $this->SetTextColor(0, 0, 0);
+        $this->SetFont('');
+        // Header Column ¥×¥í¥Ñ¥Æ¥£¤ØÊÑ¹¹
+        // $w = array(25, 15, 24, 105, 30);   // ³Æ¥»¥ë¤Î²£Éý¤ò»ØÄê¤·¤Æ¤¤¤Þ¤¹¡£
+        // Data
+        $this->SetFont(GOTHIC, 'B', 12);
+        $this->Cell($this->w_usr[0], 6, '', 'LTB', 0, 'L', 1);
+        $this->Cell(120, 6, $caption, 'RTB', 0, 'L', 1);
+        $this->SetTextColor(50, 0, 255);    // ¥­¥ã¥×¥·¥ç¥ó¤À¤±¿§¤òÊÑ¤¨¤ë(ÀÄ)
+        //$this->Cell($this->w_usr[2], 5, '', 'TB', 0, 'L', 1);
+        //$this->Cell($this->w_usr[3], 5, '', 'RTB', 0, 'L', 1);
+        $this->SetTextColor(0, 0, 0);
+        $this->Ln();    // ²þ¹Ô
+        $this->SetFillColor(235);   // ¥°¥ì¡¼¥¹¥±¡¼¥ë¥â¡¼¥É
+        $this->SetFont(GOTHIC, '', 12);
+        $fill = 0;
+        foreach ($data as $row) {
+                $this->Cell($this->w_usr[0], 6, $row[0], 'LRTB', 0, 'C', $fill);    // °Ê²¼¡¢³Æ¥Õ¥£¡¼¥ë¥É¤´¤È¤Ë½ÐÎÏ
+                $this->Cell($this->w_usr[1], 6, $row[1], 'LRTB', 0, 'L', $fill);
+                $this->Cell($this->w_usr[2], 6, $row[2], 'LRTB', 0, 'C', $fill);
+                $this->Cell($this->w_usr[3], 6, $row[3], 'LRTB', 0, 'R', $fill);
+                $this->Ln();
+                $fill = !$fill;
+        }
+        $this->Cell(array_sum($this->w_usr), 0, '', 'T');
+        $this->Ln();    // ²þ¹Ô
+    }
+
+    function Header()   //Æ¬¤Ë¤Ä¤±¤¿¤¤ÆâÍÆ¤Ï¤³¤³¤Ë¡£¥³¥ó¥¹¥È¥é¥¯¥¿¤ß¤¿¤¤¤Ë¼«Æ°¼Â¹Ô¤µ¤ì¤Þ¤¹¡£
+    {
+        /*
+        $this->Image('/home/www/html/tnk-web/img/t_nitto_logo2.png', 155, 5, 50, 0, '', '');  //¥¤¥á¡¼¥¸¤òÇÛÃÖ¤·¤Þ¤¹¡£¾ì½ê¤ò»ØÄê¤·¤Þ¤¹¡£¢ª¥ê¥Õ¥¡¥ì¥ó¥¹»²¾È
+        */
+        $this->SetX(60);
+        // Select Arial bold 15
+        $this->SetFont(GOTHIC, 'B', 16);
+        // Move to the right
+        /// $this->Cell(80);
+        // Framed title
+        $list_title = '²ÝÀÇ´ü´ÖÊ¬¤Î¾ÃÈñÀÇµÚ¤ÓÃÏÊý¾ÃÈñÀÇ¤Î³ÎÄê¿½¹ð½ñ';
+        $this->Cell(80, 10, $list_title, 'TB', 0, 'C');
+        /*
+        $this->Ln(80);
+        $this->SetFont(GOTHIC, '', 8);
+        $this->SetY(16);
+        $this->Cell(0, 0, date('YÇ¯m·îdÆü H»þiÊ¬sÉÃ'), 0, 0, 'R');
+        $this->SetY(19);
+        $this->Cell(0, 0, 'ÆÊÌÚÆüÅì¹©´ï³ô¼°²ñ¼Ò', 0, 0, 'R');
+        */
+        // $this->SetY(22);
+        // $this->Cell(0, 0, '¢©329-1311 ÆÊÌÚ¸©¤µ¤¯¤é»Ô»á²È3473-2', 0, 0, 'R');
+        // $this->SetY(25);
+        // $this->Cell(0, 0, 'Tel:028-682-8851/Fax:028-681-7038', 0, 0, 'R');
+        $this->SetFont(GOTHIC, '', 9);
+        $this->SetXY(165, 22);
+        // Line break
+        $this->Ln(3);
+        $this->SetFont(GOTHIC, '', 10);
+        $this->SetFillColor(224, 235, 255);
+        $this->SetTextColor(0);
+        // $this->SetX(15);
+        
+        $this->SetY(19);
+        $this->Cell(0, 0, '¡ÊÃ±°Ì¡§±ß¡Ë', 0, 0, 'R');
+        $this->Ln();
+        $this->Ln(10);
+        
+        // Colors, line width and bold font
+        $this->SetFillColor(128, 128, 128);
+        $this->SetTextColor(255);
+        $this->SetDrawColor(0, 0, 0);
+        $this->SetLineWidth(.3);
+        $this->SetFont('', 'B');
+        
+        $this->SetFont(GOTHIC, 'B', 12);
+        for ($i=0; $i<count($this->wh_usr); $i++) {
+            $this->Cell($this->w_usr[$i], 7, $this->wh_usr[$i], 1, 0, 'C', 1);  // ¥Õ¥£¡¼¥ë¥ÉÌ¾¤ò½ÐÎÏ
+        }
+        $this->Ln();    // Éý¤ò¤¢¤±¤Þ¤¹¡£¢ª¥ê¥Õ¥¡¥ì¥ó¥¹»²¾È¤Î¤³¤È
+    }
+    function Footer()   // ¥±¥Ä¤Ë¤Ä¤±¤¿¤¤ÆâÍÆ¤Ï¤³¤³¤Ë¡£¥³¥ó¥¹¥È¥é¥¯¥¿¤ß¤¿¤¤¤Ë¼«Æ°¼Â¹Ô¤µ¤ì¤Þ¤¹¡£
+    {
+        // Go to 1.5 cm from bottom
+        // Select Arial italic 8
+        /*
+        $this->SetFont('Times', 'I', 8);
+        // Print centered page number
+        $this->SetY(-10);    // ²¼¤«¤é10mm¤Ë¥»¥Ã¥È(5mm¤À¤È¥×¥ê¥ó¥¿¡¼¤Ë¤è¤Ã¤Æ¤Ï°õºþ¤µ¤ì¤Ê¤¤)
+        $this->Cell(0, 10, '('.$this->PageNo().')', 0, 0, 'C');
+        $this->Cell(0, 10, 'Copyright TOCHIG NITTO KOHKI Co.,Ltd. All rights reserved', 0, 0, 'R');
+        */
+    }
+
+}
+
+Header('Pragma: public');   // https¤òÍøÍÑ¤¹¤ëºÝ¤Î¤ª¤Þ¤¸¤Ê¤¤¤Ç¤¹¡£
+
+///////// FPDF
+$pdf = new PDF_j();     // ¾å¤ÇÍÑ°Õ¤·¤¿³ÈÄ¥¥¯¥é¥¹¤òÀ¸À®
+
+///// PDFÊ¸½ñ¤Î¥×¥í¥Ñ¥Æ¥£ÀßÄê
+$pdf->SetAuthor('ÆÊÌÚÆüÅì¹©´ï³ô¼°²ñ¼Ò');    // Tochigi Nitto Kohki Co.,Ltd.
+$pdf->SetCreator("$current_script");
+$pdf->SetTitle('Employee name list');
+$pdf->SetSubject('Teaching exercise record');
+$pdf->SetDisplayMode('fullwidth', 'default');       // ¥Ú¡¼¥¸¤Î¥ì¥¤¥¢¥¦¥È=Âè£²°ú¿ô¤òÀßÄê¤·¤Ê¤¤¾ì¹ç¤Ïcontinuous=Ï¢Â³¤·¤ÆÇÛÃÖ
+$pdf->SetCompression(true);         // °µ½Ì¤òÍ­¸ú¤Ë¤¹¤ë(default=on)
+$pdf->SetProtection(array('print'), '', 'tnkowner');    // °õºþ¤Î¤ßµö²Ä¤Î¥×¥í¥Æ¥¯¥È fpdf_protection.php¤¬É¬Í×('print' => 4, 'modify' => 8, 'copy' => 16, 'annot-forms' => 32)
+
+///// PDFÊ¸½ñ¤Î»ÈÍÑ¥Õ¥©¥ó¥È¤ÎÀßÄê
+$pdf->AddMBFont(GOTHIC ,'SJIS');
+// $pdf->AddMBFont(PGOTHIC,'SJIS');
+// $pdf->AddMBFont(MINCHO ,'SJIS');
+// $pdf->AddMBFont(PMINCHO,'SJIS');
+// $pdf->AddMBFont(KOZMIN ,'SJIS');
+$pdf->Open();                   // PDF¤ò³«»Ï(¾ÊÎ¬²ÄÇ½¡¦AddPage()¤ÇOK)
+$pdf->SetLeftMargin(15.0);      // º¸¤Î¥Þ¡¼¥¸¥ó¤ò£±£µ.£°¥ß¥ê¤ËÊÑ¹¹
+$pdf->SetRightMargin(5.0);      // ±¦¤Î¥Þ¡¼¥¸¥ó¤ò£µ.£°¥ß¥ê¤ËÊÑ¹¹
+$pdf->SetFont(GOTHIC,'',10);    // ¥Ç¥Õ¥©¥ë¥È¥Õ¥©¥ó¥È¤òMS¥´¥·¥Ã¥¯ 10¥Ý¥¤¥ó¥È¤Ë¤·¤Æ¤ª¤¯¡£
+// Header
+
+/////////// PostgreSQL¤ÈÀÜÂ³
+$conn_str = 'host='.DB_HOST.' port='.DB_PORT.' dbname='.DB_NAME.' user='.DB_USER.' password='.DB_PASSWD;
+$con = pg_pConnect($conn_str);                  // »ýÂ³ÅªÀÜÂ³
+
+            // mysql_fetch_object¤Ï¤¤¤é¤Ê¤¤¤¬ pg_fetch_object¤Ï¹ÔÈÖ¹æ¤¬¤¤¤ë
+            // ¤Ï¤º¤À¤Ã¤¿¤¬ ¥Þ¥Ë¥å¥¢¥ë¤òÎÉ¤¯¸«¤¿¤é4.1.0°Ê¹ß¤Ï¥ª¥×¥·¥ç¥ó¤È¤Ê¤Ã¤¿¡£
+            // ÆâÉôÅª¤Ë¥ì¥³¡¼¥É¥«¥¦¥ó¥¿¡¼¤ò£±Áý²Ã¤µ¤»¤Æ¤¤¤ë¡£
+$data_f = array();  // ¥¹¥«¥é¡¼ÊÑ¿ô¤Ç¤Ï¤Ê¤¯¤Æ¡¢ÇÛÎó¤À¤È¤¤¤¦¤³¤È¤òÌÀ¼¨
+    // Column titles
+    //$pdf->wh_usr = array('¼èÆÀÇ¯·îÆü', '¼èÆÀÆâÍÆ', '¼èÆÀÆü¿ô');
+    $pdf->w_usr  = array(50, 70, 10, 40);   //³Æ¥»¥ë¤Î²£Éý¤ò»ØÄê¤·¤Æ¤¤¤Þ¤¹¡£
+    /* ¼õ¹ÖÍúÎò¤ò¼èÆÀ SQL */
+    $res_w = array();
+    ///// ½ÐÎÏ ¼Ò°÷ÈÖ¹æ¡¦Éô½ð¡¦Ìò¿¦¡¦»áÌ¾ ¤ÎËÜÊ¸Ãæ¤Î¸«½Ð¤·
+    // ¼èÆÀÆü¡¿É¬Í×Æü¿ô¤Î·Á¼°¤ËÊÑ´¹
+    // ´ð½à³«»ÏÆü¡Á´ð½à½ªÎ»Æü¤Î·Á¼°¤ËÊÑ´¹
+    //$pdf->data_usr = array($now_uid, $now_section, $now_position, $now_name, $now_reference, $total_num);
+    
+    $s_1 = '';
+    $s_2 = '²ÝÀÇÉ¸½à³Û';
+    $s_3 = '­¡';
+    $s_4 = '5,159,434,000';
+    $data_f[0] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '';
+    $s_2 = '¾ÃÈñÀÇ³Û';
+    $s_3 = '­¢';
+    $s_4 = '402,435,852';
+    $data_f[1] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '';
+    $s_2 = '¹µ½ü²áÂçÄ´À°ÀÇ³Û';
+    $s_3 = '­£';
+    $s_4 = '0';
+    $data_f[2] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '¹µ';
+    $s_2 = '¹µ½üÂÐ¾Ý»ÅÆþÀÇ³Û';
+    $s_3 = '­¤';
+    $s_4 = '357,820,500';
+    $data_f[3] = array($s_1, $s_2, $s_3, $s_4);
+    
+    
+    $s_1 = '½ü';
+    $s_2 = 'ÊÖ´ÔÅùÂÐ²Á¤Ë·¸¤ëÀÇ³Û';
+    $s_3 = '­¥';
+    $s_4 = '';
+    $data_f[4] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = 'ÀÇ';
+    $s_2 = 'ÂßÅÝ¤ì¤Ë·¸¤ëÀÇ³Û';
+    $s_3 = '­¦';
+    $s_4 = '';
+    $data_f[6] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '³Û';
+    $s_2 = '¹µ½üÀÇ³Û¾®·×¡Ê­¤+­¥+­¦¡Ë';
+    $s_3 = '­§';
+    $s_4 = '357,820,500';
+    $data_f[7] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '';
+    $s_2 = '¹µ½üÉÔÂ­´ÔÉÕÀÇ³Û¡Ê­§-­¢-­£¡Ë';
+    $s_3 = '­¨';
+    $s_4 = '';
+    $data_f[8] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '';
+    $s_2 = 'º¹°úÀÇ³Û¡Ê­¢+­£-­§¡Ë';
+    $s_3 = '­©';
+    $s_4 = '44,615,300';
+    $data_f[9] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '';
+    $s_2 = 'Ãæ´ÖÇ¼ÉÕÀÇ³Û';
+    $s_3 = '­ª';
+    $s_4 = '77,388,300';
+    $data_f[10] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '';
+    $s_2 = 'Ç¼ÉÕÀÇ³Û¡Ê­©-­ª¡Ë';
+    $s_3 = '­«';
+    $s_4 = '-32,773,000';
+    $data_f[11] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '';
+    $s_2 = 'Ãæ´ÖÇ¼ÉÕ´ÔÉÕÀÇ³Û¡Ê­ª-­©¡Ë';
+    $s_3 = '­¬';
+    $s_4 = '';
+    $data_f[12] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '¤³¤Î¿½¹ð½ñ¤¬½¤Àµ';
+    $s_2 = '´û³ÎÄêÀÇ³Û';
+    $s_3 = '­­';
+    $s_4 = '';
+    $data_f[13] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '¿½¹ð¤Ç¤¢¤ë¾ì¹ç';
+    $s_2 = 'º¹°úÇ¼ÉÕÀÇ³Û';
+    $s_3 = '­®';
+    $s_4 = '';
+    $data_f[14] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '²ÝÀÇÇä¾å';
+    $s_2 = '²ÝÀÇ»ñ»º¤Î¾ùÅÏÅù¤ÎÂÐ²Á¤Î³Û';
+    $s_3 = '­¯';
+    $s_4 = '5,230,710,364';
+    $data_f[15] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '³ä¹ç';
+    $s_2 = '»ñ»º¤Î¾ùÅÏÅù¤ÎÂÐ²Á¤Î³Û';
+    $s_3 = '­°';
+    $s_4 = '5,230,995,387';
+    $data_f[16] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $pdf->AddPage();    // ¥Ú¡¼¥¸¤òÀ¸À®¡£ºÇÄã1²ó¤Ï¥³¡¼¥ë¤¹¤ëÉ¬Í×¤¬¤¢¤ë(µÕ¤Ë$pdf->Open()¤Ï¾ÊÎ¬²ÄÇ½)
+    // $pdf->SetFont(GOTHIC, '', 12);
+    ///// ½ÐÎÏ ËÜÊ¸
+    $pdf->FancyTable($data_f, '¤³¤Î¿½¹ð½ñ¤Ë¤è¤ë¾ÃÈñÀÇ¤ÎÀÇ³Û¤Î·×»»');  // ¾å¤Ç¥«¥¹¥¿¥à¤·¤¿¥á¥ó¥Ð´Ø¿ô¤ò¸Æ¤Ó½Ð¤¹
+    
+    $s_1 = 'ÃÏÊý¾ÃÈñÀÇ¤Î²ÝÀÇÉ¸½à';
+    $s_2 = '¹µ½üÉÔÂ­´ÔÉÕÀÇ³Û¡Ê­¨¡Ë';
+    $s_3 = '­±';
+    $s_4 = '';
+    $data_f2[0] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '¤È¤Ê¤ë¾ÃÈñÀÇ³Û';
+    $s_2 = 'º¹°úÀÇ³Û¡Ê­©¡Ë';
+    $s_3 = '­²';
+    $s_4 = '44,615,300';
+    $data_f2[1] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '¾ùÅÏ';
+    $s_2 = '´ÔÉÕ³Û';
+    $s_3 = '­³';
+    $s_4 = '';
+    $data_f2[2] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '³ä¹ç';
+    $s_2 = 'Ç¼ÀÇ³Û';
+    $s_3 = '­´';
+    $s_4 = '12,598,600';
+    $data_f2[3] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '';
+    $s_2 = 'Ãæ´ÖÇ¼ÉÕ¾ùÅÏ³ä³Û';
+    $s_3 = '21';
+    $s_4 = '21,827,300';
+    $data_f2[4] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '';
+    $s_2 = 'Ç¼ÉÕ¾ùÅÏ³ä³Û¡Ê­´ - 21¡Ë';
+    $s_3 = '22';
+    $s_4 = '-9,228,700';
+    $data_f2[5] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '';
+    $s_2 = 'Ãæ´ÖÇ¼ÉÕ´ÔÉÕ¾ùÅÏ³ä³Û¡Ê21 - ­´¡Ë';
+    $s_3 = '23';
+    $s_4 = '';
+    $data_f2[6] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '¤³¤Î¿½¹ð½ñ¤¬½¤Àµ';
+    $s_2 = '´û³ÎÄê¾ùÅÏ³ä³Û';
+    $s_3 = '24';
+    $s_4 = '';
+    $data_f2[7] = array($s_1, $s_2, $s_3, $s_4);
+    
+    $s_1 = '¿½¹ð¤Ç¤¢¤ë¾ì¹ç';
+    $s_2 = 'º¹°úÇ¼ÉÕ¾ùÅÏ³ä³Û';
+    $s_3 = '25';
+    $s_4 = '';
+    $data_f2[8] = array($s_1, $s_2, $s_3, $s_4);
+    
+    //$pdf->AddPage();    // ¥Ú¡¼¥¸¤òÀ¸À®¡£ºÇÄã1²ó¤Ï¥³¡¼¥ë¤¹¤ëÉ¬Í×¤¬¤¢¤ë(µÕ¤Ë$pdf->Open()¤Ï¾ÊÎ¬²ÄÇ½)
+    // $pdf->SetFont(GOTHIC, '', 12);
+    ///// ½ÐÎÏ ËÜÊ¸
+    $pdf->FancyTable($data_f2, '¤³¤Î¿½¹ð½ñ¤Ë¤è¤ëÃÏÊý¾ÃÈñÀÇ¤ÎÀÇ³Û¤Î·×»»');  // ¾å¤Ç¥«¥¹¥¿¥à¤·¤¿¥á¥ó¥Ð´Ø¿ô¤ò¸Æ¤Ó½Ð¤¹
+    
+    $s_1 = '¾ÃÈñÀÇµÚ¤ÓÃÏÊý¾ÃÈñÀÇ¤Î';
+    $s_2 = '¹ç·×¡ÊÇ¼ÉÕËô¤Ï´ÔÉÕ¡ËÀÇ³Û';
+    $s_3 = '26';
+    $s_4 = '-42,001,700';
+    $data_f3[0] = array($s_1, $s_2, $s_3, $s_4);
+    
+    //$pdf->AddPage();    // ¥Ú¡¼¥¸¤òÀ¸À®¡£ºÇÄã1²ó¤Ï¥³¡¼¥ë¤¹¤ëÉ¬Í×¤¬¤¢¤ë(µÕ¤Ë$pdf->Open()¤Ï¾ÊÎ¬²ÄÇ½)
+    // $pdf->SetFont(GOTHIC, '', 12);
+    ///// ½ÐÎÏ ËÜÊ¸
+    $pdf->FancyTable($data_f3, '');  // ¾å¤Ç¥«¥¹¥¿¥à¤·¤¿¥á¥ó¥Ð´Ø¿ô¤ò¸Æ¤Ó½Ð¤¹
+
+$pdf->Output();     // ºÇ¸å¤Ë¡¢¾åµ­¥Ç¡¼¥¿¤ò½ÐÎÏ¤·¤Þ¤¹¡£
+exit;               // ¤Ê¤ë¤Ù¤¯¥³¡¼¥ë¤¹¤ë¡£¤Þ¤¿¡¢ºÇ¸å¤ÎPHP¥«¥Ã¥³¤Ë²þ¹Ô¤Ê¤É¤¬´Þ¤Þ¤ì¤ë¤È¥À¥á
+?> 

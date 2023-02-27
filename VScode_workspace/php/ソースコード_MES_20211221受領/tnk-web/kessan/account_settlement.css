@@ -1,0 +1,64 @@
+/*////////////////////////////////////////////////////////////////////////*/
+/*/  月次・中間・決算メニュー関係のサイト統一 Style Sheet                /*/
+/*/  2003/03/12   Copyright(C) K.Kobayashi k_kobayashi@tnk.co.jp         /*/
+/*/  変更経歴                                                            /*/
+/*/  2003/03/12 新規作成  account_settlement.css                         /*/
+/*////////////////////////////////////////////////////////////////////////*/
+select {
+    background-color:teal;
+    color:white;
+}
+textarea {
+    background-color:black;
+    color:white;
+}
+input.sousin {
+    background-color:red;
+}
+input.text {
+    background-color:black;
+    color:white;
+}
+.pt8 {
+    font:normal 8pt;
+    font-family: monospace;
+}
+.pt10 {
+    font:normal 10pt;
+    font-family: monospace;
+}
+.pt10b {
+    font:bold 10pt;
+    font-family: monospace;
+}
+.pt11 {
+    font-size:11pt;
+}
+.pt11b {
+    font:bold 11pt;
+    font-family: monospace;
+}
+.pt11bb {
+    color: blue;
+    font:bold 11pt;
+    font-family: monospace;
+}
+.pt12b {
+    font:bold 12pt;
+    font-family: monospace;
+}
+.title_font {
+    font:bold 13.5pt;
+    font-family: monospace;
+}
+.today_font {
+    font-size: 10.5pt;
+    font-family: monospace;
+}
+.corporate_name {
+    font:bold 10pt;
+    font-family: monospace;
+}
+.margin0 {
+    margin:0%;
+}

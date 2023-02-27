@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>工場の一覧画面ＨＥＬＰ</title>
+<script language='JavaScript'>
+<!--
+function winActiveChk() {
+    if (document.all) {     // IEなら
+        if (document.hasFocus() == false) {     // IE5.5以上で使える
+            window.focus();
+            return;
+        }
+        return;
+    } else {                // NN ならとワリキッテ
+        window.focus();
+        return;
+    }
+    // <input type='button' value='TEST' onClick="window.opener.location.reload()">
+    // parent.Header.関数名() or オブジェクト;
+}
+// -->
+</script>
+</head>
+<body style='margin:0%;' onLoad="setInterval('winActiveChk()',100)">
+    <center>
+        <input type='image' alt='工場の一覧表示 画面ＨＥＬＰ' border='0' src='list_help.png' onClick='window.close()'>
+    </center>
+</body>
+</html>

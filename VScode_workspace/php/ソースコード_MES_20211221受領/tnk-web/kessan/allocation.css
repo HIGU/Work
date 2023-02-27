@@ -1,0 +1,49 @@
+select {
+	background-color:teal;
+	color:white;
+}
+textarea {
+	background-color:black;
+	color:white;
+}
+input.sousin {
+	background-color:red;
+}
+input.text {
+	background-color:black;
+	color:white;
+}
+.pt11b {
+	font-size:11pt;
+	font:bold;
+}
+.pt12b {
+	font-size:12pt;
+	font:bold;
+}
+.fllbp{
+	font-size:16pt;
+	font-weight:bold;
+}
+.fc_red{
+	color:red;
+}
+.fc_yellow{
+	color:yellow;
+}
+.fc_blue{
+	color:blue;
+}
+.margin0 {
+	margin:0%;
+}
+.right{
+	text-align:right;
+}
+.center{
+	text-align:center;
+}
+.left{
+	text-align:left;
+}
+

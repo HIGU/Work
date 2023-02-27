@@ -1,0 +1,143 @@
+<patTemplate:tmpl name="page">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=EUC-JP">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>{PAGE_TITLE}</TITLE>
+{PAGE_MENU_SITE_URL}
+
+<!--    ファイル指定の場合
+<script language='JavaScript' src='equipment.js?{PAGE_UNIQUE}'>
+</script>
+-->
+
+<!-- スタイルシートのファイル指定をコメント HTMLタグ コメントは入れ子に出来ない事に注意
+<link rel='stylesheet' href='equipment.css?{PAGE_UNIQUE}' type='text/css' media='screen'>
+-->
+
+<style type="text/css">
+<!--
+.pt8 {
+    font:normal 8pt;
+    font-family: monospace;
+}
+.pt10 {
+    font:normal 10pt;
+    font-family: monospace;
+}
+.pt10b {
+    font:bold 10pt;
+    font-family: monospace;
+}
+.pt11b {
+    font:bold 11pt;
+}
+.pt12b {
+    font:bold 12pt;
+    font-family: monospace;
+}
+.title_font {
+    font:bold 13.5pt;
+    font-family: monospace;
+}
+.today_font {
+    font-size: 10.5pt;
+    font-family: monospace;
+}
+.corporate_name {
+    font:bold 10pt;
+    font-family: monospace;
+}
+.margin0 {
+    margin:0%;
+}
+select {
+    background-color:teal;
+    color:white;
+}
+.sunday {
+    background-color:red;
+    color:white;
+}
+.saturday {
+    background-color:yellow;
+    color:blue;
+}
+-->
+</style>
+
+</HEAD>
+<BODY class='margin0'>
+    <center>
+        <!----------------- ここは タイトルを表示する ------------------->
+        <table width='100%' bgcolor='#d6d3ce'  cellspacing='0' cellpadding='1' border='1'>
+            <tr><td> <!----------- ダミー(デザイン用) ------------>
+        <table width='100%' bordercolordark='white' bordercolorlight='#bdaa90' bgcolor='#d6d3ce' cellspacing='0' cellpadding='1' border='1'>
+            <tr>
+                <form name='return_form' method='post' action='{PAGE_RETURN_URL}'>
+                    <td width='60' bgcolor='blue' align='center' valign='center'>
+                        <input class='pt12b' type='submit' name='return' value='戻る'>
+                    </td>
+                </form>
+                <td class='title_font' colspan='1' bgcolor='#d6d3ce' align='center'>
+                    {PAGE_HEADER_TITLE}
+                </td>
+                <td class='today_font' colspan='1' bgcolor='#d6d3ce' align='center' width='140'>
+                    {PAGE_HEADER_TODAY}
+                </td>
+            </tr>
+        </table>
+            </td></tr>
+        </table> <!----------------- ダミーEnd ------------------>
+        
+                <!------------------ 機械番号 選択 --------------------->
+        <table border='0' cellspacing='10' cellpadding='0'>
+            <form name='mac_form' method='post' action='{PAGE_CURRENT_URL}'>
+                <tr align='center'>
+                    <td class='pt11b'>
+                        機械番号 機械名
+                    </td>
+                    <td class='pt11b'>
+                        年月日
+                    </td>
+                    <td>　</td> <!-- ダミー -->
+                </tr>
+                <tr align='center'>
+                    <td align='center'>
+                        <select name='mac_no' class='pt12b'>
+                        <patTemplate:tmpl name="item_mac">
+                            <option value={ITEM_MAC_NO}>{ITEM_MAC_NO_NAME}</option>
+                        </patTemplate:tmpl>
+                        </select>
+                    </td>
+                    <td align='center'>
+                        <select name='mac_no' class='pt12b'>
+                    <patTemplate:tmpl name="item_date" type="Condition" conditionvar="ITEM_DAY_TYPE">
+                        <patTemplate:sub condition="0">
+                            <option class='sunday' value={ITEM_DATE}>{ITEM_DSP_DATE}</option>
+                        </patTemplate:sub>
+                        <patTemplate:sub condition="6">
+                            <option class='saturday' value={ITEM_DATE}>{ITEM_DSP_DATE}</option>
+                        </patTemplate:sub>
+                        <patTemplate:sub condition="default">
+                            <option value={ITEM_DATE}>{ITEM_DSP_DATE}</option>
+                        </patTemplate:sub>
+                    </patTemplate:tmpl>
+                        </select>
+                    </td>
+                    <td>
+                        <input type='submit' name='select' value='実行'>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='3' class='pt11'>
+                        機械番号と年月日を指定して実行ボタンを押して下さい｡
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </center>
+</BODY>
+</HTML>
+</patTemplate:tmpl>

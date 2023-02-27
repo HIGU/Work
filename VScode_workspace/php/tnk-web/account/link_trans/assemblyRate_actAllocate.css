@@ -1,0 +1,267 @@
+/****************************************************************************/
+/* 間接費配賦率 照会画面                                          (CSS file)*/
+/* Copyright (C) 2007      Norihisa.Ohya      usoumu@nitto-kohki.co.jp      */
+/* Changed history                                                          */
+/* 2007/12/06 Created   assemblyRate_actAllocate.css                        */
+/****************************************************************************/
+
+.border-none
+    {padding-top:1px;
+    padding-right:1px;
+    padding-left:1px;
+    mso-ignore:padding;
+    color:windowtext;
+    font-size:11.0pt;
+    font-weight:400;
+    font-style:normal;
+    text-decoration:none;
+    font-family:"ＭＳ ゴシック";
+    mso-generic-font-family:auto;
+    mso-font-charset:128;
+    mso-number-format:General;
+    text-align:right;
+    vertical-align:bottom;
+    mso-background-source:auto;
+    mso-pattern:auto;
+    white-space:nowrap;}
+.border-none-left
+    {padding-top:1px;
+    padding-right:1px;
+    padding-left:1px;
+    mso-ignore:padding;
+    color:windowtext;
+    font-size:11.0pt;
+    font-weight:400;
+    font-style:normal;
+    text-decoration:none;
+    font-family:"ＭＳ ゴシック";
+    mso-generic-font-family:auto;
+    mso-font-charset:128;
+    mso-number-format:General;
+    text-align:left;
+    vertical-align:bottom;
+    mso-background-source:auto;
+    mso-pattern:auto;
+    white-space:nowrap;}
+.border-none-center
+    {padding-top:1px;
+    padding-right:1px;
+    padding-left:1px;
+    mso-ignore:padding;
+    color:windowtext;
+    font-size:11.0pt;
+    font-weight:400;
+    font-style:normal;
+    text-decoration:none;
+    font-family:"ＭＳ ゴシック";
+    mso-generic-font-family:auto;
+    mso-font-charset:128;
+    mso-number-format:General;
+    text-align:center;
+    vertical-align:bottom;
+    mso-background-source:auto;
+    mso-pattern:auto;
+    white-space:nowrap;}
+.back_green
+    {padding-top:1px;
+    padding-right:1px;
+    padding-left:1px;
+    mso-ignore:padding;
+    color:windowtext;
+    font-size:11.0pt;
+    font-weight:400;
+    font-style:normal;
+    text-decoration:none;
+    font-family:"ＭＳ ゴシック";
+    mso-generic-font-family:auto;
+    mso-font-charset:128;
+    mso-number-format:General;
+    text-align:right;
+    vertical-align:bottom;
+    border-top:.5pt solid windowtext;
+    border-right:.5pt solid windowtext;
+    border-bottom:.5pt solid windowtext;
+    border-left:.5pt solid windowtext;
+    background:#CCFFCC;
+    mso-pattern:auto none;
+    white-space:nowrap;}
+.light_blue
+    {padding-top:1px;
+    padding-right:1px;
+    padding-left:1px;
+    mso-ignore:padding;
+    color:windowtext;
+    font-size:11.0pt;
+    font-weight:400;
+    font-style:normal;
+    text-decoration:none;
+    font-family:"ＭＳ ゴシック";
+    mso-generic-font-family:auto;
+    mso-font-charset:128;
+    mso-number-format:"\#\,\#\#0_\)\;\[Red\]\\\(\#\,\#\#0\\\)";
+    text-align:right;
+    vertical-align:bottom;
+    border-top:none;
+    border-right:.5pt solid windowtext;
+    border-bottom:none;
+    border-left:none;
+    background:#CCFFFF;
+    mso-pattern:auto none;
+    mso-protection:unlocked visible;
+    white-space:nowrap;}
+.back_yellow
+    {padding-top:1px;
+    padding-right:1px;
+    padding-left:1px;
+    mso-ignore:padding;
+    color:windowtext;
+    font-size:11.0pt;
+    font-weight:400;
+    font-style:normal;
+    text-decoration:none;
+    font-family:"ＭＳ ゴシック";
+    mso-generic-font-family:auto;
+    mso-font-charset:128;
+    mso-number-format:"\#\,\#\#0_\)\;\[Red\]\\\(\#\,\#\#0\\\)";
+    text-align:right;
+    vertical-align:bottom;
+    border-top:none;
+    border-right:.5pt solid windowtext;
+    border-bottom:none;
+    border-left:none;
+    background:#FFFF99;
+    mso-pattern:auto none;
+    mso-protection:unlocked visible;
+    white-space:nowrap;}
+.back_orange
+    {padding-top:1px;
+    padding-right:1px;
+    padding-left:1px;
+    mso-ignore:padding;
+    color:windowtext;
+    font-size:11.0pt;
+    font-weight:400;
+    font-style:normal;
+    text-decoration:none;
+    font-family:"ＭＳ ゴシック";
+    mso-generic-font-family:auto;
+    mso-font-charset:128;
+    mso-number-format:General;
+    text-align:right;
+    vertical-align:bottom;
+    border-top:.5pt solid windowtext;
+    border-right:.5pt solid windowtext;
+    border-bottom:.5pt solid windowtext;
+    border-left:.5pt solid windowtext;
+    background:#FFCC99;
+    mso-pattern:auto none;
+    white-space:nowrap;}
+.back_blue
+    {padding-top:1px;
+    padding-right:1px;
+    padding-left:1px;
+    mso-ignore:padding;
+    color:windowtext;
+    font-size:11.0pt;
+    font-weight:400;
+    font-style:normal;
+    text-decoration:none;
+    font-family:"ＭＳ ゴシック";
+    mso-generic-font-family:auto;
+    mso-font-charset:128;
+    mso-number-format:"\#\,\#\#0_ ";
+    text-align:right;
+    vertical-align:bottom;
+    border-top:.5pt solid windowtext;
+    border-right:.5pt solid windowtext;
+    border-bottom:.5pt solid windowtext;
+    border-left:.5pt solid windowtext;
+    background:#99CCFF;
+    mso-pattern:auto none;
+    white-space:nowrap;}
+.bold-11pt
+    {padding-top:1px;
+    padding-right:1px;
+    padding-left:1px;
+    mso-ignore:padding;
+    color:windowtext;
+    font-size:11.0pt;
+    font-weight:700;
+    font-style:normal;
+    text-decoration:none;
+    font-family:"ＭＳ ゴシック";
+    mso-generic-font-family:auto;
+    mso-font-charset:128;
+    mso-number-format:General;
+    vertical-align:bottom;
+    border-top:none;
+    border-right:none;
+    border-bottom:none;
+    border-left:none;
+    mso-background-source:auto;
+    mso-pattern:auto;
+    mso-protection:unlocked visible;
+    white-space:nowrap;}
+.back_blue_red
+    {padding-top:1px;
+    padding-right:1px;
+    padding-left:1px;
+    mso-ignore:padding;
+    color:red;
+    font-size:13.0pt;
+    font-weight:700;
+    font-style:normal;
+    text-decoration:none;
+    font-family:"ＭＳ ゴシック", monospace;
+    mso-font-charset:128;
+    mso-number-format:"0\.0%";
+    text-align:right;
+    vertical-align:bottom;
+    border-top:none;
+    border-right:.5pt solid windowtext;
+    border-bottom:none;
+    border-left:.5pt solid windowtext;
+    background:#99CCFF;
+    mso-pattern:auto none;
+    white-space:nowrap;}
+.16pt
+    {padding-top:1px;
+    padding-right:1px;
+    padding-left:1px;
+    mso-ignore:padding;
+    color:windowtext;
+    font-size:16.0pt;
+    font-weight:700;
+    font-style:normal;
+    text-decoration:none;
+    font-family:"ＭＳ ゴシック", monospace;
+    mso-font-charset:128;
+    mso-number-format:General;
+    text-align:left;
+    vertical-align:bottom;
+    mso-background-source:auto;
+    mso-pattern:auto;
+    mso-protection:unlocked visible;
+    white-space:nowrap;}
+.pt11b
+    {font-size:     11pt;
+    font-weight:    bold;
+    font-family:    monospace;}
+.pt11
+    {font-size:     11pt;
+    font-weight:    nomal;
+    font-family:    monospace;}
+.pt11bb
+    {font-size:     11pt;
+    font-weight:    bold;
+    color:          blue;
+    font-family:    monospace;}
+.pt11br
+    {font-size:     11pt;
+    font-weight:    bold;
+    color:          red;
+    font-family:    monospace;}
+input.readonly {
+    background-color:   #d6d3ce;
+    font-weight:        bold;
+}

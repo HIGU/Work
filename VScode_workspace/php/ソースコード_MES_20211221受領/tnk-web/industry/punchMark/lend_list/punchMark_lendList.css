@@ -1,0 +1,146 @@
+/****************************************************************************/
+/* 刻印管理ステム 貸出台帳メニュー                 MVC View 部 (CSS file)   */
+/* Copyright (C) 2007      Kazuhiro.Kobayashi tnksys@nitto-kohki.co.jp      */
+/* Changed history                                                          */
+/* 2007/11/16 Created   punchMark_lendList.css                              */
+/* 2007/12/03 a クラスをブロック化 及び a:hover フォントサイズ変更          */
+/****************************************************************************/
+/*** フォント関連 ***/
+.pt8 {
+    font-size:   0.65em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt9 {
+    font-size:   0.75em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10 {
+    font-size:   0.85em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10b {
+    font-size:   0.85em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt11b {
+    font-size:   0.95em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt12b {
+    font-size:   1.05em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt14b {
+    font-size:   1.20em;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+
+/*** その他 ***/
+input.bg {
+    /* background-image: url(/img/border_silver_button.gif); */
+    background-image: url(/img/border_silver_retButton.gif);
+    background-repeat: repeat;
+}
+th {
+    font-size:          1.05em;
+    font-weight:        bold;
+    /* color:              yellow; */
+    /* background-color:   blue;   */
+    /* color:              white; */
+    /* background-color:   teal;  */
+    color:              black;
+    background-color:   #ceffce; /* エメラルドグリーン */
+    /* background-color:   #ffffc6;  薄い黄色 */
+}
+th.cond {
+    font-size:          1.05em;
+    font-weight:        bold;
+    color:              yellow;
+    background-color:   blue;  
+}
+.total {
+    color:              black;
+    background-color:   #ceffce; /* エメラルドグリーン */
+}
+.target {
+    background-color:   #ffffc6;  /* 薄い黄色 */
+}
+td {
+    font-size:          1.00em;
+    font-weight:        bold;
+}
+caption {
+    font-size:          1.05em;
+    font-weight:        bold;
+}
+.caption_color {
+    font-family:        monospace;
+    /* background-color:   #ffffc6; /* 薄い黄色 */
+    /* color:              black; */
+    color:              white;
+    background-color:   blue; 
+}
+input {
+    font-size:          0.90em;
+    font-weight:        bold;
+}
+select {
+    /* background-color:   #ffffc6; /* 薄い黄色 */
+    /* background-color:   #ceffce; /* エメラルドグリーン */
+    /* background-color:   lightblue; */
+    color:              black;
+    font-size:          11pt;
+    font-weight:        bold;
+}
+.TimeEdit select {
+    background-color:   lightblue;
+    color:              black;
+    font-size:          1.25em;
+    font-weight:        bold;
+}
+.center {
+    text-align:         center;
+}
+.right {
+    text-align:         right;
+}
+.left {
+    text-align:         left;
+}
+body {
+    /* ここにbodyを指定すれば HTMLタグは必要ない */
+    background-image:       url(/img/t_nitto_logo4.png);
+    background-repeat:      no-repeat;
+    background-attachment:  fixed;
+    background-position:    right bottom;
+}
+a {
+    color:                  blue;
+    text-decoration:        none;
+    text-align:             center;
+    background-color:       #F8F5EF;
+    display:                block;
+    padding:                1px; /* 2px */
+    border:                 2px outset #DDDDDD;
+}
+a:hover {
+    background-color:       blue;
+    color:                  white;
+    font-size:              1.50em;
+}
+
+div.viewFooter {
+    position:               absolute;
+    bottom:                 0px;
+    left:                   5px;
+    text-align:             right;
+    font-size:              0.7em;
+    font-weight:            bold;
+}

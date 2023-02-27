@@ -1,0 +1,49 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Shift_JIS">
+<TITLE>Output</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="fpdf.css">
+</HEAD>
+<BODY>
+<H2>Output</H2>
+<TT><B>string</B> Output([<B>string</B> name [, <B>string</B> dest]])</TT>
+<H4 CLASS='st'>バージョン</H4>
+1.0
+<H4 CLASS='st'>説明</H4>
+PDFドキュメントを次の３つの指定先へ送信（表示）します。
+指定できる送信先：文字列、ローカルファイル、ブラウザ
+ブラウザに送信（表示）する場合、（存在するなら）プラグインが利用されます。
+プラグインが存在しなければ「保存する(Save as)」ダイアログが強制的に表示されます。
+<BR>
+もしドキュメントの終了コマンドが呼び出されていなければ、このメンバ関数は
+Close()メンバ関数を先にコールします。
+<H4 CLASS='st'>パラメータ</H4>
+<TT><U>name</U></TT>
+<BLOCKQUOTE>
+ファイルの名前です。もし値がセットされなかった場合、
+ドキュメントは(送信先(dest)パラメータが <TT>I</TT>として)、<TT>doc.pdf</TT>という名前でブラウザに送信（表示）されます。
+</BLOCKQUOTE>
+<TT><U>dest</U></TT>
+<BLOCKQUOTE>
+ドキュメントを送信する送信先。
+以下のうちのひとつを指定します。
+<UL>
+<LI><TT>I</TT>:ブラウザにインラインにて送信します。存在すればプラグインが利用されます。
+「保存する(Save as)」ボタンが押された際は、<TT>name</TT>パラメータに指定した名前が使用されます。
+<LI><TT>D</TT>: ブラウザに送信し、<TT>name</TT>パラメータにて指定された名前で生成したPDFファイルを強制的にダウンロードさせます。
+<LI><TT>F</TT>: <TT>name</TT>パラメータにて指定された名前でローカルファイルとして保存します。
+<LI><TT>S</TT>: PDFドキュメントを文字列として返します。 <TT>name</TT> パラメータは無視されます。
+</UL>
+このdestパラメータが指定されない状態で<TT>name</TT> パラメータが指定されていた場合、送信先は<TT>F</TT>として扱われます。
+パラメータがまったく指定されていない場合、送信先は<TT>I</TT>になります。<br />
+<BR>
+注意：以前のバージョンとの互換性維持のため、boolean型の値も判別します。
+(<TT>false</TT> は <TT>F</TT> 、 <TT>true</TT> は <TT>D</TT>として解釈されます)。
+</BLOCKQUOTE>
+<H4 CLASS='st'>参照</H4>
+<A HREF="close.htm">Close()</A>.
+<H6></H6>
+<HR>
+<DIV ALIGN="CENTER"><A HREF="index.htm">目次</A></DIV>
+</BODY>
+</HTML>

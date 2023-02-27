@@ -1,0 +1,126 @@
+/****************************************************************************/
+/* 総材料費の関連サイト                               MVC View 部 (CSS file)*/
+/* Copyright (C) 2007      Kazuhiro.Kobayashi tnksys@nitto-kohki.co.jp      */
+/* Changed history                                                          */
+/* 2007/09/14 Created   material.css                                        */
+/****************************************************************************/
+
+.pt8 {
+    font-size:   0.65em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt9 {
+    font-size:   0.75em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10 {
+    font-size:   0.8em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10b {
+    font-size:   0.8em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt11 {
+    font-size:   0.95em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt11b {
+    font-size:   0.95em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt12 {
+    font-size:   1.0em;
+    font-family: monospace;
+}
+.pt12b {
+    font-size:   1.0em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt13b {
+    font-size:   1.1em;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+.pt14b {
+    font-size:   1.2em;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+.title_font {
+    font-size:      1.15em;
+    font-weight:    bold;
+    font-family:    monospace;
+}
+.today_font {
+    font-size:      0.85em;
+    font-family:    monospace;
+}
+.corporate_name {
+    font-size:      0.8em;
+    font-weight:    bold;
+    font-family:    monospace;
+}
+.caption_font {
+    font-size:      0.95em;
+    font-weight:    bold;
+}
+.assy_font {
+    font-size:      1.1em;
+    font-weight:    bold;
+    text-align:     left;
+    font-family:    monospace;
+}
+th {
+    /*******
+    background-color:   yellow;
+    color:              blue;
+    *******/
+    background-color:   #ceffce;
+    color:              black;
+    font-size:          0.9em;
+    font-weight:        bold;
+    font-family:        monospace;
+}
+.winbox_field th {
+    border-style:           solid;
+    border-width:           1px;
+    border-top-color:       #FFFFFF;
+    border-left-color:      #FFFFFF;
+    border-right-color:     #bdaa90;
+    border-bottom-color:    #bdaa90;
+}
+.winbox_field td {
+    border-style:           solid;
+    border-width:           1px;
+    border-top-color:       #FFFFFF;
+    border-left-color:      #FFFFFF;
+    border-right-color:     #bdaa90;
+    border-bottom-color:    #bdaa90;
+}
+body {
+    /* ここにbodyを指定すれば HTMLタグは必要ない */
+    background-image:       url(/img/t_nitto_logo4.png);
+    background-repeat:      no-repeat;
+    background-attachment:  fixed;
+    background-position:    right bottom;
+    /* style='overflow-y:      hidden;' */
+}
+a {
+    color:                  blue;
+}
+a:hover {
+    background-color:       blue;
+    color:                  white;
+}
+a:active {
+    background-color:       gold;
+    color:                  black;
+}

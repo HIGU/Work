@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<script type='text/javascript' src='../assemblyRate_reference.js'></script>
+<link rel='stylesheet' href='../assemblyRate_reference.css' type='text/css'>
+</head>
+<body>
+<center>
+    <form name='entry_form' action='../assemblyRate_reference_Main.php' method='post' onSubmit='return chk_entry(this)' target='_parent'>
+    <table bgcolor='#d6d3ce' width='300' align='center' border='1' cellspacing='0' cellpadding='3'>
+        <tr><td> <!----------- ダミー(デザイン用) ------------>
+        <table class='winbox_field' width='100%' bgcolor='#d6d3ce' align='center' border='1' cellspacing='0' cellpadding='3'>
+        <THEAD>
+            <!-- テーブル ヘッダーの表示 -->
+            <tr>
+                <td colspan=4 rowspan=3 bgcolor='#ffffc6' align='center'>
+                    作業者数と標準賃率の登録<BR>
+                    <font color='red'>
+                    ※初期値は前月のデータ・登録履歴があればそのデータを表示します。<BR>
+                    （前月未登録・履歴なしの場合は空欄）
+                    </font>
+                </td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <th rowspan=2 nowrap>グループ名</th>
+                <th rowspan=2 nowrap>作業者数<BR>(社員)</th>
+                <th rowspan=2 nowrap>作業者数<BR>(パート)</th>
+                <th rowspan=2 nowrap>標準賃率<BR>(円)</th>
+            </tr>
+        </THEAD>
+        <TFOOT>
+            <!-- 現在はフッターは何もない -->
+        </TFOOT>
+        <TBODY>
+            <tr>
+            <tr>
+                <td class='winbox' nowrap align='left'><div class='pt9'>test1</div></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_s[0]' value='10' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_p[0]' value='10' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='standard_rate[0]' value='10' size='15'></td>
+           </tr>
+            <tr>
+                <td class='winbox' nowrap align='left'><div class='pt9'>test2</div></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_s[1]' value='20' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_p[1]' value='20' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='standard_rate[1]' value='20' size='15'></td>
+           </tr>
+            <tr>
+                <td class='winbox' nowrap align='left'><div class='pt9'>test3</div></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_s[2]' value='30' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_p[2]' value='30' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='standard_rate[2]' value='30' size='15'></td>
+           </tr>
+            <tr>
+                <td class='winbox' nowrap align='left'><div class='pt9'>test4</div></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_s[3]' value='40' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_p[3]' value='40' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='standard_rate[3]' value='40' size='15'></td>
+           </tr>
+            <tr>
+                <td class='winbox' nowrap align='left'><div class='pt9'>test5</div></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_s[4]' value='50' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_p[4]' value='50' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='standard_rate[4]' value='50' size='15'></td>
+           </tr>
+            <tr>
+                <td class='winbox' nowrap align='left'><div class='pt9'>test6</div></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_s[5]' value='60' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_p[5]' value='60' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='standard_rate[5]' value='60' size='15'></td>
+           </tr>
+            <tr>
+                <td class='winbox' nowrap align='left'><div class='pt9'>test7</div></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_s[6]' value='70' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_p[6]' value='70' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='standard_rate[6]' value='70' size='15'></td>
+           </tr>
+            <tr>
+                <td class='winbox' nowrap align='left'><div class='pt9'>test8</div></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_s[7]' value='80' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_p[7]' value='80' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='standard_rate[7]' value='80' size='15'></td>
+           </tr>
+            <tr>
+                <td class='winbox' nowrap align='left'><div class='pt9'>test9</div></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_s[8]' value='90' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_p[8]' value='90' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='standard_rate[8]' value='90' size='15'></td>
+           </tr>
+            <tr>
+                <td class='winbox' nowrap align='left'><div class='pt9'>test10</div></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_s[9]' value='100' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='worker_figure_p[9]' value='100' size='15'></td>
+                <td class='winbox' align='center'><input type='text' class='price_font' name='standard_rate[9]' value='100' size='15'></td>
+           </tr>
+            </tr>
+            <tr>
+                <th rowspan=2 nowrap>　</th>
+                <th rowspan=2 nowrap>作業者賃率<BR>(社員)</th>
+                <th rowspan=2 nowrap>作業者賃率<BR>(パート)</th>
+                <th rowspan=2 nowrap>　</th>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td>　</td>
+                    <td class='winbox' align='center'><input type='text' class='price_font' name='worker_rate_s' value='10102' size='15'></td>
+                    <td class='winbox' align='center'><input type='text' class='price_font' name='worker_rate_p' value='10102' size='15'></td>
+                <td>　</td>
+            </tr>
+            <tr>
+                <td colspan=4 class='winbox' align='center'>
+                    <input type='submit' class='entry_font' name='entry' value='登録'>
+                    <input type='hidden' name='rows_g' value='10'>
+                    <input type='hidden' name='end_ym' value='202201'>
+                    <input type='hidden' name='str_ym' value='202211'>
+                </td>
+            </tr>
+        </TBODY>
+        </table>
+        </td></tr>
+    </table>
+    </form>
+    </center>
+</body>
+</html>

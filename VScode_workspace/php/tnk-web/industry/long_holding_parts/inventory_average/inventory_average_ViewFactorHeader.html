@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<title>要因マスターHeader部</title>
+<script type='text/javascript' src='/base_class.js'></script>
+<link rel='stylesheet' href='/menu_form.css' type='text/css' media='screen'>
+<link rel='stylesheet' href='inventory_average.css' type='text/css' media='screen'>
+<style type='text/css'>
+<!--
+body {
+    background-image:   none;
+    background-color:   #d6d3ce;
+}
+-->
+</style>
+<script type='text/javascript' src='inventory_average.js'></script>
+</head>
+<body
+    onLoad='
+        // parent.InventoryAverage.set_focus(parent.document.EditFactorForm.targetFactorName, "select");
+    '
+>
+<center>
+<table width='100%' bgcolor='#d6d3ce' border='1' cellspacing='0' cellpadding='1'>
+    <tr><td> <!----------- ダミー(デザイン用) ------------>
+<table class='winbox_field' width='100%' border='1' cellspacing='0' cellpadding='3'>
+    <tr>
+        <th class='winbox' width=' 5%'>No</th>
+        <th class='winbox' width='11%' title='資材在庫部品の一覧表に表示させる項目名です。'>要因項目</th>
+        <th class='winbox' width='60%' title='要因項目の詳しい説明を登録します。'>要因説明</th>
+        <th class='winbox' width=' 8%' title='要因項目を修正します。'>&nbsp</th>
+        <th class='winbox' width=' 8%' title='要因項目を無効にします。'>&nbsp;</th>
+        <th class='winbox' width=' 8%' title='要因項目を削除します。既に使用されている場合は削除できません。'>&nbsp;</th>
+    </tr>
+</table>
+    </td></tr>
+</table> <!----------------- ダミーEnd ------------------>
+</center>
+</body>
+</html>

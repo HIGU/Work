@@ -1,0 +1,151 @@
+<?php
+//////////////////////////////////////////////////////////////////////////////
+// 圧造工具 機械マスター追加・編集 View部                                   //
+// Copyright (C) 2011 Norihisa.Ooya usoumu@nitto-kohki.co.jp                //
+// Changed history                                                          //
+// 2011/09/28 Created  pressTool_machine_master_View.php                    //
+//////////////////////////////////////////////////////////////////////////////
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-JP">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title><?php echo $menu->out_title() ?></title>
+<?php echo $menu->out_site_java() ?>
+<?php echo $menu->out_css() ?>
+
+<script language="JavaScript">
+<!--
+/* 入力文字が数字かどうかチェック(ASCII code check) */
+function isDigit(str) {
+    var len = str.length;
+    var c;
+    for (i=0; i<len; i++) {
+        c = str.charAt(i);
+        if ((c < '0') || (c > '9')) {
+            return false;
+        }
+    }
+    return true;
+}
+
+/* 入力文字のチェック関数 */
+function chk_entry(obj) {
+    if (obj.machine_no.value.length == 0) {
+        alert('機械番号が入力されていません！');
+        obj.machine_no.focus();
+        obj.machine_no.select();
+        return false;
+    } else if ( !(isDigit(obj.machine_no.value)) ) {
+        alert('機械番号は数字以外入力出来ません！');
+        obj.machine_no.focus();
+        obj.machine_no.select();
+        return false;
+    }
+    
+    if (obj.machine_name.value.length == 0) {
+        alert('機械名称が入力されていません！');
+        obj.machine_name.focus();
+        obj.machine_name.select();
+        return false;
+    }
+    return true;
+}
+// -->
+</script>
+
+<style type="text/css">
+<!--
+th {
+    background-color:   blue;
+    color:              yellow;
+    font-size:          10pt;
+    font-weight:        bold;
+    font-family:        monospace;
+}
+-->
+</style>
+</head>
+<body scroll=no>
+    <center>
+    <?php echo $menu->out_title_border() ?>
+        <form name='entry_form' action='pressTool_master_Main.php' method='post' onSubmit='return chk_entry(this)'>
+            <table bgcolor='#d6d3ce' width='300' align='center' border='1' cellspacing='0' cellpadding='3'>
+                <tr><td> <!----------- ダミー(デザイン用) ------------>
+            <table class='winbox_field' width='100%' bgcolor='#d6d3ce' align='center' border='1' cellspacing='0' cellpadding='3'>
+            <THEAD>
+                <!-- テーブル ヘッダーの表示 -->
+                <tr>
+                    <td width='700' bgcolor='#ffffc6' align='center' colspan='15'>
+                    圧造工具マスター
+                    </td>
+                </tr>
+                <tr>
+                    <?php
+                    $field_g = $result->get_array2('field_g');
+                    for ($i=0; $i<$result->get('num_g'); $i++) {             // フィールド数分繰返し
+                    ?>
+                    <th class='winbox' nowrap><?php echo $field_g[$i] ?></th>
+                    <?php
+                    }
+                    ?>
+                    <th class='winbox' colspan='7' nowrap>追加・変更</th>
+                </tr>
+            </THEAD>
+            <TFOOT>
+                <!-- 現在はフッターは何もない -->
+            </TFOOT>
+            <TBODY>
+                <tr>
+                    <td class='winbox' align='center'>
+                        <select name='machine_name' class='pt11b' size='1'>
+                            <?php echo getMacOptionsBody($request) ?>
+                        </select>
+                    </td>
+                    <td class='winbox' align='center'><input type='text' class='price_font' name='parts_no' value='<?php echo $field_g = $request->get('parts_no') ?>' size='10' maxlength='9'></td>
+                    <td class='winbox' align='center'><input type='text' class='price_font' name='tool_no' value='<?php echo $field_g = $request->get('tool_no') ?>' size='20'></td>
+                    <td class='winbox' align='center'><input type='text' class='price_font' name='tool_name' value='<?php echo $field_g = $request->get('tool_name') ?>' size='30'></td>
+                    <td class='winbox' align='center'><input type='text' class='price_font' name='unit_price' value='<?php echo $field_g = $request->get('unit_price') ?>' size='10'></td>
+                    <?php if ($request->get('number') != '') { ?>
+                    <td class='winbox' align='center'>
+                        <input type='submit' class='entry_font' name='entry' value='変更'>
+                    </td>
+                    <?php } else { ?>
+                    <td class='winbox' align='center'>
+                        <input type='submit' class='entry_font' name='entry' value='追加'>
+                    </td>
+                    <?php } ?>
+                    <td class='winbox' align='center'>
+                        <input type='submit' class='entry_font' name='del' value='削除'>
+                    </td>
+                </tr>
+                <?php if ($request->get('number') != '') { ?>
+                <tr>
+                    <td class='winbox' align='center'>
+                        <?php echo getMacName($request) ?>
+                    </td>
+                    <td class='winbox' align='center'><input type='text' class='price_font' name='parts_no' value='<?php echo $field_g = $request->get('parts_no') ?>' size='10' maxlength='9'></td>
+                    <td class='winbox' align='center'><input type='text' class='price_font' name='tool_no' value='<?php echo $field_g = $request->get('tool_no') ?>' size='20'></td>
+                    <td class='winbox' align='center'><input type='text' class='price_font' name='tool_name' value='<?php echo $field_g = $request->get('tool_name') ?>' size='30'></td>
+                    <td class='winbox' align='center'><input type='text' class='price_font' name='unit_price' value='<?php echo $field_g = $request->get('unit_price') ?>' size='10'></td>
+                </tr>
+                <?php } ?>
+            </TBODY>
+            </table>
+                </td></tr>
+            </table> <!----------------- ダミーEnd ------------------>
+        </form>
+    </center>
+    <br>
+    <?php
+    if ($request->get('view_flg') == '照会') {
+        echo "<iframe hspace='0' vspace='0' frameborder='0' scrolling='yes' src='list/pressTool_master_List-{$_SESSION['User_ID']}.html' name='list' align='center' width='100%' height='70%' title='リスト'>\n";
+        echo "    一覧を表示しています。\n";
+        echo "</iframe>\n";
+    }
+    ?>
+</body>
+<?php echo $menu->out_alert_java() ?>
+</html>

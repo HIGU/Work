@@ -1,0 +1,149 @@
+BODY {
+        font-size : 14px;
+        font-family : "ＭＳ ゴシック";
+        /* background-image: url(bg.gif); */
+}
+
+/* ------------------------------------------------------------- */
+/* TABLE 関連                                                    */
+/* ------------------------------------------------------------- */
+TABLE { /* テーブルタグ共通スタイル */
+        font-size : 14px;
+        font-family : "ＭＳ ゴシック";
+        border-collapse : collapse;
+        background-color : floralwhite;
+        border-bottom-width : 1px;
+        border-right-width : 1px;
+        border-bottom-style : solid;
+        border-right-style : solid;
+        border-color :#000000;
+        padding : 2px;
+        margin  : 2px;
+}
+TR { /* テーブル行共通スタイル */
+        font-size : 14px;
+        font-family : "ＭＳ ゴシック";
+        border-collapse : collapse;
+        background-color : floralwhite;
+        border-bottom-width : 1px;
+        border-right-width : 1px;
+        border-bottom-style : solid;
+        border-right-style : solid;
+        border-color :#333333;
+        padding : 2px;
+        margin  : 2px;
+}
+TD { /* テーブル行共通スタイル */
+        font-size : 14px;
+        font-family : "ＭＳ ゴシック";
+        border-collapse : collapse;
+        background-color : floralwhite;
+        border-bottom-width : 1px;
+        border-right-width : 1px;
+        border-bottom-style : solid;
+        border-right-style : solid;
+        border-color :#333333;
+        padding : 2px;
+        margin  : 2px;
+}
+TD.HED {
+        /* color : #000000; */
+        /* background-color : #66cccc; */
+        color : #FFFFFF;
+        background-color : teal;
+        text-align: center;
+}
+TD.NUM{
+        text-align: right;
+}
+TABLE.LAYOUT { /* テーブルタグ共通スタイル */
+        border-bottom-width : 0px;
+        border-right-width : 0px;
+        background-color : none;
+}
+TR.LAYOUT { /* テーブル行共通スタイル */
+        border-bottom-width : 0px;
+        border-right-width : 0px;
+        background-color : none;
+}
+TD.LAYOUT { /* テーブル行共通スタイル */
+        border-bottom-width : 0px;
+        border-right-width : 0px;
+        background-color : none;
+}
+/* ------------------------------------------------------------- */
+/* 入力 関連                                                     */
+/* ------------------------------------------------------------- */
+INPUT.TEXT {
+        font-size : 14px;
+        font-family : "ＭＳ ゴシック";
+        border:1px solid #0066CC;
+        ime-mode : active;
+}
+INPUT.CODE {
+        font-size : 14px;
+        font-family : "ＭＳ ゴシック";
+        border:1px solid #0066CC;
+        ime-mode : disabled;
+}
+INPUT.NUM {
+        font-size : 14px;
+        font-family : "ＭＳ ゴシック";
+        border:1px solid #0066CC;
+        text-align: right;
+        ime-mode : disabled;
+}
+INPUT.PASSWORD {
+        font-size : 14px;
+        font-family : "ＭＳ ゴシック";
+        border:1px solid #0066CC;
+        ime-mode : disabled;
+}
+INPUT.READONLY {
+        font-size : 14px;
+        font-family : "ＭＳ ゴシック";
+        background-color : floralwhite;
+        border:0px;
+}
+SELECT {
+        font-family : "ＭＳ ゴシック";
+        border:1px solid #0066CC;
+        ime-mode : disabled;
+}
+TEXTAREA {
+        font-size : 14px;
+        font-family : "ＭＳ ゴシック";
+        border:1px solid #0066CC;
+        ime-mode : active;
+}
+/* ------------------------------------------------------------- */
+/* TITLE 関連                                                    */
+/* ------------------------------------------------------------- */
+.TITLE {
+        font-size : 24px;
+        background-color : blue;
+        color : white;
+        text-align: center;
+        width : 100%;
+
+        
+}
+/* ------------------------------------------------------------- */
+/* リンク 関連                                                   */
+/* ------------------------------------------------------------- */
+A:LINK {
+        text-decoration:none;
+        color:#0000ff;
+}
+A:VISITED {
+        text-decoration:none;
+        color:#0000ff;
+}
+A:ACTIVE {
+        text-decoration:none;
+}
+A:HOVER {
+        text-decoration:none;
+        color:#ffffff;
+        background-color:#0000ff;
+}

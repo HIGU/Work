@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Shift_JIS">
+<TITLE>SetDisplayMode</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="fpdf.css">
+</HEAD>
+<BODY>
+<H2>SetDisplayMode</H2>
+<TT>SetDisplayMode(<B>mixed</B> zoom [, <B>string</B> layout])</TT>
+<H4 CLASS='st'>バージョン</H4>
+1.2
+<H4 CLASS='st'>説明</H4>
+ドキュメントがビューアにどのように表示されるかを定義します。
+拡大縮小倍率(ズームレベル)の指定ができます：
+全画面表示、
+ウインドウの中での最大表示、
+実際のサイズ(100%)で表示、
+指定の拡縮倍率による表示、
+ビューアのデフォルト設定（アクロバットの設定メニューにて指定）。
+ページのレイアウト（配置方法）も同様に定義できます：
+1ページにすべてを配置、
+ページを連続して配置、
+2ページ単位で配置、
+ビューアのデフォルト設定。
+<BR>
+デフォルトでは、ウインドウの中での最大表示、ページを連続して配置する設定になっています。
+<H4 CLASS='st'>パラメータ</H4>
+<TT><U>zoom</U></TT>
+<BLOCKQUOTE>
+拡縮(ズーム)方法を指定します。
+以下のうちのいずれかを指定：
+<UL>
+<LI><TT>fullpage</TT>: 全画面に拡大して表示
+<LI><TT>fullwidth</TT>: ウインドウの中での最大サイズに拡大して表示※デフォルト
+<LI><TT>real</TT>: 実際のサイズで表示。(倍率を100%にするのと同義)
+<LI><TT>default</TT>: ビューアのデフォルト設定によって表示
+</UL>
+または、倍率を「数値」で指定して表示させます。
+</BLOCKQUOTE>
+<TT><U>layout</U></TT>
+<BLOCKQUOTE>
+ページのレイアウト（配置方法）。
+指定できる値：
+<UL>
+<LI><TT>single</TT>: 1ページにすべて配置
+<LI><TT>continuous</TT>: ページを連続して配置
+<LI><TT>two</TT>: 2ページ単位（見開き）で配置
+<LI><TT>default</TT>: ビューアのデフォルト設定によって配置
+</UL>
+デフォルトの値は<TT>continuous</TT>です。
+</BLOCKQUOTE>
+<H6></H6>
+<HR>
+<DIV ALIGN="CENTER"><A HREF="index.htm">目次</A></DIV>
+</BODY>
+</HTML>

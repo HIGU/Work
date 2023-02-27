@@ -1,0 +1,359 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<style type='text/css'>
+<!--
+th {
+    background-color:   blue;
+    color:              yellow;
+    font-size:          10pt;
+    font-weight:        bold;
+    font-family:        monospace;
+}
+a:hover {
+    background-color:   blue;
+    color:              white;
+}
+a:active {
+    background-color:   gold;
+    color:              black;
+}
+a {
+    color:   blue;
+}
+-->
+</style>
+</head>
+<body>
+<center>
+    <!--------------- ここから本文の表を表示する -------------------->
+    <table bgcolor='#d6d3ce' align='center' border='1' cellspacing='0' cellpadding='3'>
+        <tr><td> <!----------- ダミー(デザイン用) ------------>
+    <table class='winbox_field' width='100%' bgcolor='#d6d3ce' align='center' border='1' cellspacing='0' cellpadding='3'>
+        <THEAD>
+            <!-- テーブル ヘッダーの表示 -->
+            <tr>
+                <td width='700' bgcolor='#ffffc6' align='center' colspan='7'>
+                2022年10月
+                    リース資産
+                </td>
+            </tr>
+            <tr>
+                <th class='winbox' nowrap width='10'>No.</th>        <!-- 行ナンバーの表示 -->
+                <th class='winbox' nowrap>グループ番号</th>
+                <th class='winbox' nowrap>リース資産No</th>
+                <th class='winbox' nowrap>リース名称</th>
+                <th class='winbox' nowrap>取得金額</th>
+                <th class='winbox' nowrap>取得年月</th>
+                <th class='winbox' nowrap>年間リース料</th>
+            </tr>
+        </THEAD>
+        <TFOOT>
+            <!-- 現在はフッターは何もない -->
+        </TFOOT>
+        <TBODY>
+            <!--  bgcolor='#ffffc6' 薄い黄色 -->
+            <!-- サンプル<td rowspan='2' colspan='3' width='200' align='center' class='pt10b' bgcolor='#ffffc6'>  </td> -->
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>1</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test1</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>1</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>100</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/01</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>100</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>2</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test2</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>2</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>200</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/02</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>200</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>3</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test3</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>3</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>300</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/03</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>300</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>4</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test4</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>4</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>400</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/04</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>400</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>5</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test5</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>5</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>500</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/05</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>500</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>6</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test6</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>6</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>600</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/06</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>600</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>7</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test7</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>7</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>700</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/07</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>700</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>8</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test8</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>8</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>800</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/08</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>800</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>9</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test9</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>9</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>900</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/09</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>900</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>10</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test10</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>10</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>1,000</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/10</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>1,000</div></td>
+        </tr>
+        </TBODY>
+    </table>
+        </td></tr>
+    </table> <!----------------- ダミーEnd ------------------>
+    <!--------------- ここから本文の表を表示する -------------------->
+    <table bgcolor='#d6d3ce' align='center' border='1' cellspacing='0' cellpadding='3'>
+        <tr><td> <!----------- ダミー(デザイン用) ------------>
+    <table class='winbox_field' width='100%' bgcolor='#d6d3ce' align='center' border='1' cellspacing='0' cellpadding='3'>
+        <THEAD>
+            <!-- テーブル ヘッダーの表示 -->
+            <tr>
+                <td width='900' bgcolor='#ffffc6' align='center' colspan='10'>
+             2022年10月
+                固定資産
+                </td>
+            </tr>
+            <tr>
+                <th class='winbox' nowrap width='10'>No.</th>        <!-- 行ナンバーの表示 -->
+            <th class='winbox' nowrap>グループ番号</th>
+            <th class='winbox' nowrap>固定資産No</th>
+            <th class='winbox' nowrap>資産名称</th>
+            <th class='winbox' nowrap>取得金額</th>
+            <th class='winbox' nowrap>取得年月</th>
+            <th class='winbox' nowrap>耐用年数</th>
+            <th class='winbox' nowrap>年間率</th>
+                <th class='winbox' nowrap>償却額</th>
+                <th class='winbox' nowrap>期末簿価金額</th>
+            </tr>
+        </THEAD>
+        <TFOOT>
+            <!-- 現在はフッターは何もない -->
+        </TFOOT>
+        <TBODY>
+            <!--  bgcolor='#ffffc6' 薄い黄色 -->
+            <!-- サンプル<td rowspan='2' colspan='3' width='200' align='center' class='pt10b' bgcolor='#ffffc6'>  </td> -->
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>1</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test1</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>1</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>100</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/01</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>1</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>10</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>100</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>100</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>2</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test2</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>2</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>200</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/02</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>2</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>20</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>200</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>200</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>3</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test3</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>3</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>300</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/03</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>3</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>30</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>300</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>300</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>4</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test4</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>4</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>400</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/04</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>4</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>40</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>400</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>400</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>5</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test5</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>5</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>500</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/05</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>5</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>50</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>500</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>500</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>6</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test6</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>6</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>600</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/06</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>6</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>60</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>600</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>600</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>7</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test7</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>7</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>700</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/07</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>7</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>70</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>700</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>700</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>8</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test8</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>8</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>800</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/08</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>8</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>80</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>800</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>800</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>9</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test9</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>9</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>900</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/09</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>9</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>90</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>900</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>900</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'><div class='pt10b'>10</div></td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='center'><div class='pt9'>test10</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>10</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>1,000</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/10</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>1</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>10</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>100</div></td>
+            <td class='winbox' nowrap align='center'><div class='pt9'>100</div></td>
+        </tr>
+            <tr>
+                <th class='winbox_field' colspan='4' rowspan='10' align='right' border='1' cellspacing='0' cellpadding='3'>各グループ減価償却費合計</th>
+            <tr>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'>100</th>
+                <th class='winbox_field' colspan='2' rowspan='1' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+            </tr>
+            <tr>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'>200</th>
+                <th class='winbox_field' colspan='2' rowspan='1' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+            </tr>
+            <tr>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'>300</th>
+                <th class='winbox_field' colspan='2' rowspan='1' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+            </tr>
+            <tr>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'>400</th>
+                <th class='winbox_field' colspan='2' rowspan='1' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+            </tr>
+            <tr>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'>500</th>
+                <th class='winbox_field' colspan='2' rowspan='1' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+            </tr>
+            <tr>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'>600</th>
+                <th class='winbox_field' colspan='2' rowspan='1' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+            </tr>
+            <tr>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'>700</th>
+                <th class='winbox_field' colspan='2' rowspan='1' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+            </tr>
+            <tr>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'>800</th>
+                <th class='winbox_field' colspan='2' rowspan='1' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+            </tr>
+            <tr>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+<th class='winbox_field' colspan='2' align='right' border='1' cellspacing='0' cellpadding='3'>900</th>
+                <th class='winbox_field' colspan='2' rowspan='1' align='right' border='1' cellspacing='0' cellpadding='3'></th>
+            </tr>
+            </tr>
+        </TBODY>
+    </table>
+        </td></tr>
+    </table> <!----------------- ダミーEnd ------------------>
+</center>
+</body>
+</html>

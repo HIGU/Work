@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Shift_JIS">
+<TITLE>Cell</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="fpdf.css">
+</HEAD>
+<BODY>
+<H2>Cell</H2>
+<TT>Cell(<B>float</B> w [, <B>float</B> h [, <B>string</B> txt [, <B>mixed</B> border [, <B>int</B> ln [, <B>string</B> align [, <B>int</B> fill [, <B>mixed</B> link]]]]]]])</TT>
+<H4 CLASS='st'>バージョン</H4>
+1.0
+<H4 CLASS='st'>説明</H4>
+表（セル(長方形)）を表示します。
+オプションで境界線(ボーダー)、背景色、文字を指定できます。
+カレントの位置は、表（セル）の左上の角になります。表示するテキストの位置を指定できます。(左右alignまたはcenter)
+このメンバ関数がコールされた後、カレントの位置は右、または次の行へ移動します。
+テキストにリンクを張ることも可能です。
+<BR>
+もし自動改ページ機能がON(enabled)になっていて、ページの範囲を超えて表（セル）が展開される場合、
+表（セル）が出力される前に改ページが行われます。
+<H4 CLASS='st'>パラメータ</H4>
+<TT><U>w</U></TT>
+<BLOCKQUOTE>
+セルの幅。もし<TT>0</TT>ならば、表（セル）は右マージンまで伸びます。
+</BLOCKQUOTE>
+<TT><U>h</U></TT>
+<BLOCKQUOTE>
+セルの高さ。
+デフォルトの値は<TT>0</TT>です。
+</BLOCKQUOTE>
+<TT><U>txt</U></TT>
+<BLOCKQUOTE>
+表示する文字列。
+デフォルトの値は空文字です。
+</BLOCKQUOTE>
+<TT><U>border</U></TT>
+<BLOCKQUOTE>
+もし、表の周りに境界線（ボーダー）が必要なら指定します。
+値は、数字で指定する場合、以下のように指定します。
+<UL>
+<LI><TT>0</TT>: 境界線なし
+<LI><TT>1</TT>: 境界線あり
+</UL>
+または、値は文字列で以下のように指定できます。
+順序は関係なく、下記の中から複数、またはすべてを指定することもできます。
+<UL>
+<LI><TT>L</TT>: left
+<LI><TT>T</TT>: top
+<LI><TT>R</TT>: right
+<LI><TT>B</TT>: bottom
+</UL>
+デフォルトの値は<TT>0</TT>です。
+</BLOCKQUOTE>
+<TT><U>ln</U></TT>
+<BLOCKQUOTE>
+メンバ関数がコールされたあと、カレント位置をどこにするかを指定します。
+指定できる値：
+<UL>
+<LI><TT>0</TT>: 右へ移動
+<LI><TT>1</TT>: 次の行の開始位置へ移動
+<LI><TT>2</TT>: 下へ移動
+</UL>
+<TT>1</TT>を指定することは<TT>0</TT>を指定し、Ln()メンバ関数を次にコールすることと同じになります。
+デフォルトの値は: <TT>0</TT>です。
+</BLOCKQUOTE>
+<TT><U>align</U></TT>
+<BLOCKQUOTE>
+テキストの位置を設定します。
+指定できる値：
+<UL>
+<LI><TT>L</TT> または空文字: 左寄せ(left align)※デフォルト値
+<LI><TT>C</TT>: センタリング(center)
+<LI><TT>R</TT>: 右寄せ(right align)
+</UL>
+</BLOCKQUOTE>
+<TT><U>fill</U></TT>
+<BLOCKQUOTE>
+表（セル）に背景色をセットする場合<TT>1</TT>、
+透過色にするばあい<TT>0</TT>を指定します。
+デフォルトの値は: <TT>0</TT>です。
+</BLOCKQUOTE>
+<TT><U>link</U></TT>
+<BLOCKQUOTE>
+URLかAddLink()メンバ関数によって返された識別子を指定します。
+</BLOCKQUOTE>
+<H4 CLASS='st'>例</H4>
+<TABLE WIDTH="100%" BGCOLOR="#E0E0E0"><TR><TD>
+<TT>
+//フォントを設定<BR>
+$pdf-&gt;SetFont('Arial','B',16);<BR>
+//8 cm右へ移動<BR>
+$pdf-&gt;Cell(80);<BR>
+//20*10 mm の境界線で囲まれた表(セル)にセンタリングされたテキストを表示し、次の行へ移動します。<BR>
+$pdf-&gt;Cell(20,10,'Title',1,1,'C');
+</TT>
+</TD></TR></TABLE><BR>
+<H4 CLASS='st'>参照</H4>
+<A HREF="setfont.htm">SetFont()</A>,
+<A HREF="setdrawcolor.htm">SetDrawColor()</A>,
+<A HREF="setfillcolor.htm">SetFillColor()</A>,
+<A HREF="settextcolor.htm">SetTextColor()</A>,
+<A HREF="setlinewidth.htm">SetLineWidth()</A>,
+<A HREF="addlink.htm">AddLink()</A>,
+<A HREF="ln.htm">Ln()</A>,
+<A HREF="multicell.htm">MultiCell()</A>,
+<A HREF="write.htm">Write()</A>,
+<A HREF="setautopagebreak.htm">SetAutoPageBreak()</A>.
+<H6></H6>
+<HR>
+<DIV ALIGN="CENTER"><A HREF="index.htm">目次</A></DIV>
+</BODY>
+</HTML>

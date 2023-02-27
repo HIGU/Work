@@ -1,0 +1,302 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<script type='text/javascript' src='../assemblyRate_actAllocate.js'></script>
+<link rel='stylesheet' href='../assemblyRate_actAllocate.css' type='text/css'>
+</head>
+<body>
+<center>
+    <table class=border-none border=0 cellpadding=0 cellspacing=0 nowrap>
+        <col class=border-none nowrap width=108 style='mso-width-source:userset;mso-width-alt:3456;width:81pt'>
+        <col class=border-none nowrap width=107 style='mso-width-source:userset;mso-width-alt:3424;width:80pt'>
+        <col class=border-none nowrap width=73 style='mso-width-source:userset;mso-width-alt:2336;width:55pt'>
+        <col class=border-none nowrap width=125 style='mso-width-source:userset;mso-width-alt:4000;width:94pt'>
+        <col class=border-none nowrap width=18 style='mso-width-source:userset;mso-width-alt:576;width:14pt'>
+        <col class=border-none nowrap width=53 style='mso-width-source:userset;mso-width-alt:1696;width:40pt'>
+        <col class=border-none nowrap width=100 style='mso-width-source:userset;mso-width-alt:3200;width:75pt'>
+        <col class=border-none nowrap width=72 style='mso-width-source:userset;mso-width-alt:2304;width:54pt'>
+        <col class=border-none nowrap width=125 style='mso-width-source:userset;mso-width-alt:4000;width:94pt'>
+        <col class=border-none nowrap width=25 style='mso-width-source:userset;mso-width-alt:800;width:19pt'>
+        <col class=border-none nowrap width=140 style='mso-width-source:userset;mso-width-alt:4480;width:105pt'>
+        <col class=border-none nowrap width=88 span=4>
+        <tr>
+            <td class=border-none colspan=2></td>
+            <td colspan=3 nowrap class=16pt>間接費配賦率</td>
+            <td class=16pt colspan=6 nowrap>202212迄実績（04月～12月）</td>
+        </tr>
+        <tr>
+            <td colspan=3 class=bold-11pt align=left>加工費・組立費の実際発生額</td>
+            <td colspan=7 class=border-none></td>
+            <td class=border-none>(単位：千円)</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-top:.5pt solid windowtext;border-left:.5pt solid windowtext'>製造部門経費</td>
+            <td class=border-none style='border-top:.5pt solid windowtext'>製造1課(518)</td>
+            <td class=border-none style='border-top:.5pt solid windowtext'>104</td>
+            <td class=border-none style='border-top:.5pt solid windowtext;border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none></td>
+            <td colspan=4 class=bold-11pt nowrap>配賦率の計算(間接配賦経費／実際発生額)</td>
+            <td class=border-none></td>
+            <td class=back_orange style='border-bottom:none'>間接部門合計e+f</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>第1 NC(519)</td>
+            <td class=border-none>104</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+            <td colspan=6 class=border-none></td>
+            <td class=back_orange style='border-top:none;border-bottom:none'>104</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>第4 NC(520)</td>
+            <td class=border-none>104</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none></td>
+            <td colspan=3 class=border-none-left style='border-top:.5pt solid windowtext;border-left:.5pt solid windowtext'>１）工場間接費</td>
+            <td colspan=2 class=border-none style='border-top:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-top:.5pt solid windowtext;border-right:.5pt solid windowtext'>　</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>製造2課(547)</td>
+            <td class=border-none>104</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>製造</td>
+            <td class=border-none>104</td>
+            <td colspan=2 class=border-none></td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>第5 PF(527)</td>
+            <td class=border-none>104</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>+　C組立</td>
+            <td class=border-none>104</td>
+            <td colspan=2 class=border-none></td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>2次加工(528)</td>
+            <td class=border-none>104</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-bottom:.5pt solid windowtext'>- 直接費</td>
+            <td class=border-none style='border-bottom:.5pt solid windowtext'>104</td>
+            <td colspan=2 class=border-none></td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>特注(556)</td>
+            <td class=border-none>104</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>カプラ合計</td>
+            <td class=back_blue style='border:none'>104</td>
+            <td colspan=2 class=border-none></td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-bottom:.5pt solid windowtext;border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-top:.5pt solid windowtext;border-bottom:.5pt solid windowtext'>合計</td>
+            <td class=back_green style='border-left:none;border-right:none'>104</td>
+            <td class=border-none-left style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext'>(a)</td>
+            <td class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>リニア組立</td>
+            <td class=back_blue style='border:none'>104</td>
+            <td colspan=2 class=border-none></td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+        </tr>
+        <tr>
+            <td colspan=5 class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td colspan=4 class=border-none></td>
+            <td class=bold-11pt align=center style='border-right:.5pt solid windowtext;border-top:.5pt solid windowtext;border-left:.5pt solid windowtext'>202212</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-top:.5pt solid windowtext;border-left:.5pt solid windowtext' nowrap>C組立部門経費</td>
+            <td class=border-none style='border-top:.5pt solid windowtext' nowrap>組立1課(176)</td>
+            <td class=border-none style='border-top:.5pt solid windowtext'>104</td>
+            <td class=border-none style='border-top:.5pt solid windowtext;border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>間接配賦経費</td>
+            <td class=border-none-center>÷</td>
+            <td class=border-none nowrap>経費+外注ASSY費</td>
+            <td class=border-none-center>＝</td>
+            <td class=bold-11pt style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;border-left:.5pt solid windowtext' nowrap>工場間接費配賦率</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>　</td>
+            <td class=border-none>　</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>カプラ</td>
+            <td class=border-none>104</td>
+            <td class=border-none-center>÷</td>
+            <td class=border-none>104</td>
+            <td class=border-none-center>＝</td>
+            <td class=back_blue_red>104%</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>ＭＡ係(522)</td>
+            <td class=border-none>104</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>リニア</td>
+            <td class=border-none>104</td>
+            <td class=border-none-center>÷</td>
+            <td class=border-none>104</td>
+            <td class=border-none-center>＝</td>
+            <td class=back_blue_red style='border-bottom:.5pt solid windowtext'>104%</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>ＨＡ係(523)</td>
+            <td class=border-none>104</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none></td>
+            <td class=border-none style='border-bottom:.5pt solid windowtext;border-left:.5pt solid windowtext'>　</td>
+            <td class=back_orange style='border-top:none;border-right:none;border-left:none'>104</td>
+            <td class=border-none-left style='border-bottom:.5pt solid windowtext'>(e)</td>
+            <td colspan=2 class=border-none style='border-bottom:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-bottom:.5pt solid windowtext;border-right:.5pt solid windowtext'>　</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>C特注(525)</td>
+            <td class=border-none>104</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none></td>
+            <td colspan=6 class=border-none-left style='border-top:none;border-left:.5pt solid windowtext;border-right:.5pt solid windowtext' nowrap>２）調達部門費（間接部門経費配賦額／外注費）</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-bottom:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-bottom:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-left:.5pt solid windowtext'></td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td colspan=4 class=border-none></td>
+            <td class=bold-11pt align=center style='border-right:.5pt solid windowtext;border-top:.5pt solid windowtext;border-left:.5pt solid windowtext'>202211</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>合計</td>
+            <td class=back_green style='border:none'>104</td>
+            <td class=border-none-left style='border-right:.5pt solid windowtext'>(b)</td>
+            <td class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none nowrap>間接配賦経費</td>
+            <td class=border-none-center>÷</td>
+            <td class=border-none>外注費</td>
+            <td class=border-none-center>＝</td>
+            <td class=bold-11pt style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext;border-left:.5pt solid windowtext'>調達部門費配賦率</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext;border-bottom:.5pt solid windowtext'>　</td>
+            <td class=class=border-none style='border-bottom:.5pt solid windowtext'>C経費</td>
+            <td class=back_green style='border-top:none;border-right:none;border-left:none'>104</td>
+            <td class=border-none-left style='border-bottom:.5pt solid windowtext;border-right:.5pt solid windowtext'>(c)=(a+b)</td>
+            <td class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext' nowrap>カプラ</td>
+            <td class=border-none>104</td>
+            <td class=border-none-center>÷</td>
+            <td class=border-none>104</td>
+            <td class=border-none-center>＝</td>
+            <td class=back_blue_red>104%</td>
+        </tr>
+        <tr>
+            <td colspan=5 class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>リニア</td>
+            <td class=border-none>104</td>
+            <td class=border-none-center>÷</td>
+            <td class=border-none>104</td>
+            <td class=border-none-center>＝</td>
+            <td class=back_blue_red style='border-bottom:.5pt solid windowtext'>104%</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-top:.5pt solid windowtext;border-left:.5pt solid windowtext'>L組立部門経費</td>
+            <td class=border-none style='border-top:.5pt solid windowtext'>L組立課(551)</td>
+            <td class=border-none style='border-top:.5pt solid windowtext'>104</td>
+            <td class=border-none style='border-top:.5pt solid windowtext;border-right:.5pt solid windowtext'>　</td>
+            <td class=border-none></td>
+            <td class=border-none style='border-left:.5pt solid windowtext;border-bottom:.5pt solid windowtext'>　</td>
+            <td class=back_orange style='border-top:none;border-right:none;border-left:none'>104</td>
+            <td class=border-none-left style='border-bottom:.5pt solid windowtext'>(f)</td>
+            <td colspan=2 class=border-none style='border-bottom:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext'>　</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>L組立(175)</td>
+            <td class=border-none>104</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>バイモル(560)</td>
+            <td class=border-none'>104</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none>第4組立L(572)</td>
+            <td class=border-none>104</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-bottom:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-bottom:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-right:.5pt solid windowtext'>　</td>
+        </tr>
+        <tr>
+            <td class=border-none style='border-left:.5pt solid windowtext;border-bottom:.5pt solid windowtext'>　</td>
+            <td class=border-none style='border-bottom:.5pt solid windowtext'>合計（L経費）</td>
+            <td class=back_green style='border-right:none;border-left:none;border-top:none'>104</td>
+            <td class=border-none-left style='border-right:.5pt solid windowtext;border-bottom:.5pt solid windowtext'>(d)</td>
+        </tr>
+        <tr>
+            <td class=bold-11pt>外注費の実績</td>
+            <td class=border-none style='border-left:.5pt solid windowtext'>C外注費</td>
+            <td class=back_yellow>104</td>
+            <td class=back_green style='border-bottom:none;border-top:none;border-left:none' nowrap>直接部門合計c+d</td>
+        </tr>
+        <tr>
+            <td class=border-none></td>
+            <td class=border-none style='border-bottom:.5pt solid windowtext;border-left:.5pt solid windowtext'>L外注費</td>
+            <td class=back_yellow style='border-bottom:.5pt solid windowtext'>104</td>
+            <td class=back_green style='border-top:none;border-left:none'>104</td>
+        </tr>
+        <tr>
+            <td class=border-none>　</td>
+        </tr>
+        <tr>
+            <td class=bold-11pt>外注ASSY費</td>
+            <td class=border-none style='border-top:.5pt solid windowtext;border-left:.5pt solid windowtext'>C外注ASSY</td>
+            <td class=light_blue style='border-top:.5pt solid windowtext'>104</td>
+        </tr>
+        <tr>
+            <td class=border-none></td>
+            <td class=border-none style='border-bottom:.5pt solid windowtext;border-left:.5pt solid windowtext'>L外注ASSY</td>
+            <td class=light_blue style='border-bottom:.5pt solid windowtext'>104</td>
+        </tr>
+    </table>
+</body>
+</html>

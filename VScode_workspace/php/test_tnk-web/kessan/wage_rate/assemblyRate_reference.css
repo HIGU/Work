@@ -1,0 +1,263 @@
+/****************************************************************************/
+/* 組立賃率照会画面                                               (CSS file)*/
+/* Copyright (C) 2007-2014 Norihisa.Ohya      usoumu@nitto-kohki.co.jp      */
+/* Changed history                                                          */
+/* 2007/11/14 Created   assemblyRate_reference.css                          */
+/* 2008/01/10 機械賃率の表示のmachine_rateと手作業賃率のlabor_rateの        */
+/*            文字サイズを11から12に変更                                    */
+/*            タイトル部のmachine_rate_titleとlabor_rate_titleを追加        */
+/* 2014/06/16 win7になりページ幅が合わず印刷が切れてしまうので              */
+/*            0.95に縮小して印刷するように変更                              */
+/*            ↑ なくても余白でいけそうなので解除                           */
+/****************************************************************************/
+
+.border-none
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ 明朝", serif;
+	mso-font-charset:128;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+    border:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	white-space:nowrap;}
+.border-on
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ 明朝", serif;
+	mso-font-charset:128;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:general;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	mso-protection:unlocked visible;
+	white-space:nowrap;}
+.pt9
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ 明朝", serif;
+	mso-font-charset:128;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	mso-protection:unlocked visible;
+	white-space:nowrap;}
+.machine_rate
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:12.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ 明朝", serif;
+	mso-font-charset:128;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#CCFFCC;
+	mso-pattern:auto none;
+	mso-protection:unlocked visible;
+	white-space:nowrap;}
+.machine_rate_title
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ 明朝", serif;
+	mso-font-charset:128;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;
+	background:#CCFFCC;
+	mso-pattern:auto none;
+	mso-protection:unlocked visible;
+	white-space:nowrap;}
+.assist
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ 明朝", serif;
+	mso-font-charset:128;
+	mso-number-format:"\#\,\#\#0\;\\-\#\,\#\#0";
+	text-align:general;
+	vertical-align:bottom;
+	border-top:none;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	background:#CC99FF;
+	mso-pattern:auto none;
+	white-space:nowrap;}
+.man_expense
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ 明朝", serif;
+	mso-font-charset:128;
+	mso-number-format:"\#\,\#\#0\;\\-\#\,\#\#0";
+	text-align:general;
+	vertical-align:bottom;
+	background:#FF8080;
+	mso-pattern:auto none;
+	white-space:nowrap;}
+.direct_expense
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ 明朝", serif;
+	mso-font-charset:128;
+	mso-number-format:"\#\,\#\#0\;\\-\#\,\#\#0";
+	text-align:general;
+	vertical-align:bottom;
+	background:#99CCFF;
+	mso-pattern:auto none;
+	white-space:nowrap;}
+.labor_rate
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:12.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ 明朝", serif;
+	mso-font-charset:128;
+	mso-number-format:Fixed;
+	text-align:general;
+	vertical-align:bottom;
+	border:2.0pt double windowtext;
+	background:#FFFFCC;
+	mso-pattern:auto none;
+	white-space:nowrap;}
+.labor_rate_title
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ 明朝", serif;
+	mso-font-charset:128;
+	mso-number-format:Fixed;
+	text-align:general;
+	vertical-align:bottom;
+	border:2.0pt double windowtext;
+	background:#FFFFCC;
+	mso-pattern:auto none;
+	white-space:nowrap;}
+.assemble
+	{padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:"ＭＳ 明朝", serif;
+	mso-font-charset:128;
+	mso-number-format:"\#\,\#\#0\;\\-\#\,\#\#0";
+	text-align:general;
+	vertical-align:bottom;
+	background:#FFCC99;
+	mso-pattern:auto none;
+	white-space:nowrap;}
+.pt11b
+    {font-size:     11pt;
+    font-weight:    bold;
+    font-family:    monospace;}
+.pt11
+    {font-size:     11pt;
+    font-weight:    nomal;
+    font-family:    monospace;}
+.pt11bb
+    {font-size:     11pt;
+    font-weight:    bold;
+    color:          blue;
+    font-family:    monospace;}
+.pt11br
+    {font-size:     11pt;
+    font-weight:    bold;
+    color:          red;
+    font-family:    monospace;}
+input.readonly {
+    background-color:   #d6d3ce;
+    font-weight:        bold;
+}
+.pagebreak {
+    page-break-before: always;
+}

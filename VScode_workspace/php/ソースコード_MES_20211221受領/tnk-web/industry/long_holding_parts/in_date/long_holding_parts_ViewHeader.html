@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=EUC-JP'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<title>長期滞留部品header部</title>
+<script type='text/javascript' src='/base_class.js'></script>
+<link rel='stylesheet' href='/menu_form.css' type='text/css' media='screen'>
+<link rel='stylesheet' href='long_holding_parts.css' type='text/css' media='screen'>
+<style type='text/css'>
+body {
+    background-image:none;
+}
+</style>
+<script type='text/javascript' src='long_holding_parts.js'></script>
+</head>
+<body onLoad='LongHoldingParts.highlight();'>
+<center>
+    <table width='100%' bgcolor='#d6d3ce' border='1' cellspacing='0' cellpadding='1'>
+        <tr><td> <!----------- ダミー(デザイン用) ------------>
+    <table class='winbox_field' width='100%' border='1' cellspacing='0' cellpadding='3'>
+        <tr>
+                <th class='winbox' width=' 5%'><div class='pt11b'>No.</div></th>
+            <a href='long_holding_parts_Main.php?targetSortItem=tana' target='_parent' style='text-decoration:none;' onMouseover="status='棚番 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width=' 5%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='棚番 順でソートします。' id='tana'><div class='pt11b'>棚番</div></th>
+            </a>
+            <a href='long_holding_parts_Main.php?targetSortItem=parts' target='_parent' style='text-decoration:none;' onMouseover="status='部品番号 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='11%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='部品番号 順でソートします。' id='parts'><div class='pt11b'>部品番号</div></th>
+            </a>
+            <a href='long_holding_parts_Main.php?targetSortItem=name' target='_parent' style='text-decoration:none;' onMouseover="status='部品名 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='16%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='部品名 順でソートします。' id='name'><div class='pt11b'>部 品 名</div></th>
+            </a>
+            <a href='long_holding_parts_Main.php?targetSortItem=parent' target='_parent' style='text-decoration:none;' onMouseover="status='親機種 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='16%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='親機種 順でソートします。' id='parent'><div class='pt11b'>親 機 種</div></th>
+            </a>
+            <a href='long_holding_parts_Main.php?targetSortItem=date' target='_parent' style='text-decoration:none;' onMouseover="status='入庫日 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='11%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='入庫日 順でソートします。' id='date'><div class='pt11b'>入庫日</div></th>
+            </a>
+            <a href='long_holding_parts_Main.php?targetSortItem=in_pcs' target='_parent' style='text-decoration:none;' onMouseover="status='入庫数 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width=' 8%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='入庫数 順でソートします。' id='in_pcs'><div class='pt11b'>入庫数</div></th>
+            </a>
+            <a href='long_holding_parts_Main.php?targetSortItem=stock' target='_parent' style='text-decoration:none;' onMouseover="status='在庫数 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width=' 8%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='在庫数 順でソートします。' id='stock'><div class='pt11b'>現在庫</div></th>
+            </a>
+            <a href='long_holding_parts_Main.php?targetSortItem=tanka' target='_parent' style='text-decoration:none;' onMouseover="status='最新単価 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='10%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='最新単価 順でソートします。' id='tanka'><div class='pt11b'>最新単価</div></th>
+            </a>
+            <a href='long_holding_parts_Main.php?targetSortItem=price' target='_parent' style='text-decoration:none;' onMouseover="status='最新単価 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='10%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='最新単価 順でソートします。' id='price'><div class='pt11b'>金　額</div></th>
+            </a>
+        </tr>
+    </table>
+        </td></tr>
+    </table> <!----------------- ダミーEnd ------------------>
+</center>
+</body>
+</html>

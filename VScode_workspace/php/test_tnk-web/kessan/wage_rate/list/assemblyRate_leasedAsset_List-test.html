@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<style type='text/css'>
+<!--
+th {
+    background-color:   blue;
+    color:              yellow;
+    font-size:          10pt;
+    font-weight:        bold;
+    font-family:        monospace;
+}
+a:hover {
+    background-color:   blue;
+    color:              white;
+}
+a:active {
+    background-color:   gold;
+    color:              black;
+}
+a {
+    color:   blue;
+}
+-->
+</style>
+</head>
+<body>
+<center>
+    <form name='entry_form' action='assemblyRate_leasedAsset_Main.php' method='post'>
+        <table bgcolor='#d6d3ce' width='300' align='center' border='1' cellspacing='0' cellpadding='3'>
+            <tr><td> <!----------- ダミー(デザイン用) ------------>
+        <table class='winbox_field' width='100%' bgcolor='#d6d3ce' align='center' border='1' cellspacing='0' cellpadding='3'>
+        <THEAD>
+            <!-- テーブル ヘッダーの表示 -->
+            <tr>
+                <td bgcolor='#ffffc6' align='center' colspan='20'>
+                    リース資産台帳
+                </td>
+            </tr>
+            <tr>
+                <th class='winbox' nowrap width='10'>No</th>        <!-- 行ナンバーの表示 -->
+        <th class='winbox' nowrap>グループ名</th>
+        <th class='winbox' nowrap>リース資産No.</th>
+        <th class='winbox' nowrap>資産名称</th>
+        <th class='winbox' nowrap>取得金額</th>
+        <th class='winbox' nowrap>取得年月</th>
+        <th class='winbox' nowrap>年間リース</th>
+        <th class='winbox' nowrap>終了年月</th>
+            </tr>
+        </THEAD>
+        <TFOOT>
+            <!-- 現在はフッターは何もない -->
+        </TFOOT>
+        <TBODY>
+            <!--  bgcolor='#ffffc6' 薄い黄色 -->
+            <!-- サンプル<td rowspan='2' colspan='3' width='200' align='center' class='pt10b' bgcolor='#ffffc6'>  </td> -->
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                <a href='../assemblyRate_leasedAsset_Main.php?number=0&wage_ym=' target='_parent' style='text-decoration:none;'>
+                1
+                </a>
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>test1</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>1</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>100</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/01</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>1</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2026/01</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                <a href='../assemblyRate_leasedAsset_Main.php?number=1&wage_ym=' target='_parent' style='text-decoration:none;'>
+                2
+                </a>
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>test2</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>2</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>200</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/02</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>2</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2026/02</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                <a href='../assemblyRate_leasedAsset_Main.php?number=2&wage_ym=' target='_parent' style='text-decoration:none;'>
+                3
+                </a>
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>test3</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>3</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>300</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/03</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>3</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2026/03</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                <a href='../assemblyRate_leasedAsset_Main.php?number=3&wage_ym=' target='_parent' style='text-decoration:none;'>
+                4
+                </a>
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>test4</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>4</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>400</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/04</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>4</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2026/04</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                <a href='../assemblyRate_leasedAsset_Main.php?number=4&wage_ym=' target='_parent' style='text-decoration:none;'>
+                5
+                </a>
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>test5</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>5</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>500</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/05</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>5</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2026/05</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                <a href='../assemblyRate_leasedAsset_Main.php?number=5&wage_ym=' target='_parent' style='text-decoration:none;'>
+                6
+                </a>
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>test6</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>6</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>600</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/06</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>6</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2026/06</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                <a href='../assemblyRate_leasedAsset_Main.php?number=6&wage_ym=' target='_parent' style='text-decoration:none;'>
+                7
+                </a>
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>test7</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>7</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>700</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/07</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>7</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2026/07</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                <a href='../assemblyRate_leasedAsset_Main.php?number=7&wage_ym=' target='_parent' style='text-decoration:none;'>
+                8
+                </a>
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>test8</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>8</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>800</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/08</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>8</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2026/08</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                <a href='../assemblyRate_leasedAsset_Main.php?number=8&wage_ym=' target='_parent' style='text-decoration:none;'>
+                9
+                </a>
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>test9</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>9</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>900</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/09</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>9</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2026/09</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                <a href='../assemblyRate_leasedAsset_Main.php?number=9&wage_ym=' target='_parent' style='text-decoration:none;'>
+                10
+                </a>
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>test10</div></td>
+<td class='winbox' nowrap align='center'><div class='pt9'>10</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>1,000</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/10</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>10</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2026/10</div></td>
+        </tr>
+        </TBODY>
+        </table>
+            </td></tr>
+        </table> <!----------------- ダミーEnd ------------------>
+    </form>
+</center>
+</body>
+</html>

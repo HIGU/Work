@@ -1,0 +1,299 @@
+<?php
+//////////////////////////////////////////////////////////////////////////////
+// ¥×¥í¥°¥é¥à³«È¯°ÍÍê½ñ ºîÀ®¥Õ¥©¡¼¥à                                        //
+// Copyright(C) 2002-2004 Kazuhiro.Kobayashi tnksys@nitto-kohki.co.jp       //
+// ÊÑ¹¹·ÐÎò                                                                 //
+// 2002/02/12 ¿·µ¬ºîÀ® dev_req_submit.php                                   //
+// 2002/08/09 register_globals = Off ÂÐ±þ                                   //
+// 2003/12/12 define¤µ¤ì¤¿Äê¿ô¤Ç¥Ç¥£¥ì¥¯¥È¥ê¤È¥á¥Ë¥å¡¼Ì¾¤ò»ÈÍÑ¤¹¤ë          //
+// 2004/02/24 ³ÎÇ§ÍÑ¤Ë¼Ò°÷ÈÖ¹æ¤Î¤ßÆþÎÏ¤·¤¿»þ¤Ç¤âÂ¨¼Ò°÷Ì¾¤¬½Ð¤ë¤è¤¦¤ËÊÑ¹¹    //
+// 2004/07/17 MenuHeader()¥¯¥é¥¹¤ò¿·µ¬ºîÀ®¤·¥Ç¥¶¥¤¥ó¡¦Ç§¾ÚÅù¤Î¥í¥¸¥Ã¥¯Åý°ì  //
+//////////////////////////////////////////////////////////////////////////////
+ini_set('error_reporting', E_ALL);      // E_ALL='2047' debug ÍÑ
+// ini_set('display_errors', '1');         // Error É½¼¨ ON debug ÍÑ ¥ê¥ê¡¼¥¹¸å¥³¥á¥ó¥È
+session_start();                        // ini_set()¤Î¼¡¤Ë»ØÄê¤¹¤ë¤³¤È Script ºÇ¾å¹Ô
+require_once ('../function.php');       // TNK Á´¶¦ÄÌ function
+require_once ('../MenuHeader.php');     // TNK Á´¶¦ÄÌ menu class
+require_once ('../tnk_func.php');
+access_log();                           // Script Name ¤Ï¼«Æ°¼èÆÀ
+
+///// TNK ¶¦ÍÑ¥á¥Ë¥å¡¼¥¯¥é¥¹¤Î¥¤¥ó¥¹¥¿¥ó¥¹¤òºîÀ®
+$menu = new MenuHeader();               // Ç§¾Ú¥Á¥§¥Ã¥¯¤â¹Ô¤Ã¤Æ¤¤¤ë
+
+////////////// ¥µ¥¤¥ÈÀßÄê
+$menu->set_site(4, 2);                  // site_index=4(¥×¥í¥°¥é¥à³«È¯) site_id=2(°ÍÍê½ñºîÀ®¡¦Á÷¿®)
+////////////// ¥«¥ì¥ó¥È¥¹¥¯¥ê¥×¥È¤Î¥¢¥É¥ì¥¹ÀßÄê
+// $menu->set_self($_SERVER['PHP_SELF']);
+////////////// ¥ê¥¿¡¼¥ó¥¢¥É¥ì¥¹ÀßÄê
+// $menu->set_RetUrl(DEV_MENU);         // ¥ê¥¿¡¼¥ó¥¢¥É¥ì¥¹¤ò¼«Æ°¼èÆÀ¤ËÊÑ¹¹
+//////////// ¥¿¥¤¥È¥ëÌ¾(¥½¡¼¥¹¤Î¥¿¥¤¥È¥ëÌ¾¤È¥Õ¥©¡¼¥à¤Î¥¿¥¤¥È¥ëÌ¾)
+$menu->set_title('¥×¥í¥°¥é¥à³«È¯°ÍÍê½ñ ºîÀ®¡¦Á÷¿®');
+//////////// É½Âê¤ÎÀßÄê
+$menu->set_caption('³«È¯°ÍÍê½ñºîÀ® ¥á¥Ë¥å¡¼');
+
+if (isset($_POST['iraisya'])) {
+    /////// ¼Ò°÷¤ÎÌ¾Á°¤ò¼èÆÀ SQL
+    $_SESSION['s_dev_iraisya']    = $_POST['iraisya'];
+    $iraisya    = $_POST['iraisya'];
+    $query_user = "select name from user_detailes where uid='{$iraisya}'";
+    $res_user = array();
+    if($rows_user=getResult($query_user,$res_user)) {
+        $user_name = rtrim($res_user[0]['name']);
+    } else {
+        $user_name = 'Ì¤ÅÐÏ¿';
+    }
+} else {
+    $user_name = '';
+    $iraisya   = '';
+}
+
+if (isset($_POST['dev_chk_submit'])) {
+    $dev_chk_submit = $_POST['dev_chk_submit'];
+} else {
+    $dev_chk_submit = '';
+}
+
+if ($dev_chk_submit == '³ÎÇ§') {
+    if ($_POST['mokuteki'] == '') {
+        $dev_chk_submit = '';
+        $_SESSION['s_sysmsg'] = 'ÌÜÅª¤¬Ì¤ÆþÎÏ¤Ç¤¹¡ª';
+    }
+    if ($_POST['naiyou'] == '') {
+        $dev_chk_submit = '';
+        $_SESSION['s_sysmsg'] = 'ÆâÍÆ¤¬Ì¤ÆþÎÏ¤Ç¤¹¡ª';
+    }
+    // session_register('s_dev_iraibusho','s_dev_iraisya','s_dev_mokuteki','s_dev_naiyou');
+    // session_register('s_dev_yosoukouka','s_dev_bikou');
+    $_SESSION['s_dev_iraibusho']  = $_POST['iraibusho'];
+    $_SESSION['s_dev_mokuteki']   = $_POST['mokuteki'];
+    $_SESSION['s_dev_naiyou']     = $_POST['naiyou'];
+    $_SESSION['s_dev_yosoukouka'] = $_POST['yosoukouka'];
+    $_SESSION['s_dev_bikou']      = $_POST['bikou'];
+    $iraibusho  = $_POST['iraibusho'];
+    $mokuteki   = $_POST['mokuteki'];
+    $naiyou     = $_POST['naiyou'];
+    $yosoukouka = $_POST['yosoukouka'];
+    $bikou      = $_POST['bikou'];
+} elseif ($dev_chk_submit == '½¤Àµ') {
+    $iraibusho  = $_SESSION['s_dev_iraibusho'];
+    $iraisya    = $_SESSION['s_dev_iraisya'];
+    $mokuteki   = $_SESSION['s_dev_mokuteki'];
+    $naiyou     = $_SESSION['s_dev_naiyou'];
+    $yosoukouka = $_SESSION['s_dev_yosoukouka'];
+    $bikou      = $_SESSION['s_dev_bikou'];
+    // $user_name  = '';
+} else {
+    // $user_name  = '';
+    $iraibusho = '';
+    $mokuteki = '';
+    $naiyou   = '';
+    $yosoukouka = '';
+    $bikou    = '';
+}
+
+/////////// HTML Header ¤ò½ÐÎÏ¤·¤Æ¥­¥ã¥Ã¥·¥å¤òÀ©¸æ
+$menu->out_html_header();
+
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-JP">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title><?= $menu->out_title() ?></title>
+<style type="text/css">
+<!--
+select {
+    background-color:teal;
+    color:white;
+}
+textarea {
+    background-color:black;
+    color:white;
+}
+input.sousin {
+    background-color:red;
+}
+input.text {
+    background-color:black;
+    color:white;
+}
+.pt {
+    font-size:11pt;
+}
+-->
+</style>
+<?= $menu->out_site_java() ?>
+<?= $menu->out_css() ?>
+<script language="JavaScript">
+<!--
+/* ½é´üÆþÎÏ¥Õ¥©¡¼¥à¤Î¥¨¥ì¥á¥ó¥È¤Ë¥Õ¥©¡¼¥«¥¹¤µ¤»¤ë */
+function set_focus(){
+    <?php
+    if ($user_name == '') {
+        echo "document.input_form.iraisya.focus();\n";
+        echo "document.input_form.iraisya.select();\n";
+    } elseif ($mokuteki == '') {
+        echo "document.input_form.mokuteki.focus();\n";
+        echo "document.input_form.mokuteki.select();\n";
+    } elseif ($naiyou == '') {
+        echo "document.input_form.naiyou.focus();\n";
+        echo "document.input_form.naiyou.select();\n";
+    }
+    ?>
+}
+// -->
+</script>
+<script language="JavaScript" src="./dev_req.js?id=2">
+</script>
+</head>
+<body onload='set_focus()'>
+    <center>
+<?= $menu->out_title_border() ?>
+        <hr color='navy'>
+        <table width=100% border='0'>
+            <tr>
+            <?php if($dev_chk_submit == '³ÎÇ§') { ?>
+                <form action='dev_req_insert.php' method='post'>
+                <td align='center'><input class='sousin' type='submit' name='dev_chk_submit' value='Á÷¿®' ></td>
+                </form>
+                <form action='<?= $menu->out_self() ?>' method='post'>
+                <td align='center'><input type='submit' name='dev_chk_submit' value='½¤Àµ' ></td>
+            <?php } else { ?>
+                <form name='input_form' action='<?= $menu->out_self() ?>' method='post' onSubmit='return chk_dev_req_submit(this)'>
+                <td align='center'><input type='submit' name='dev_chk_submit' value='³ÎÇ§' ></td>
+            <?php } ?>
+            </tr>
+        </table>
+        <table width='100%' cellspacing='0' cellpadding='2' border='1' bgcolor='#e6e6fa'>
+            <tr>
+                <td align='center' width='20'>­¡</td>
+                <td align='left'>°ÍÍêNo</td>
+                <td align='left'>
+                    °ÍÍêNo(¼õÉÕNo)¤ÏÁ÷¿®»þ¤Ë¼«Æ°¤Ç¼è¤é¤ì¤Þ¤¹¡£
+                </td>
+            </tr>
+            <tr>
+                <td align='center' width='20'>­¢</td>
+                <td align='left'>°ÍÍêÆü</td>
+                <td align='left'>
+                    <?php $iraibi=date("Y-m-d");echo $iraibi; ?>
+                </td>
+            </tr>
+            <tr>
+                <td align='center' width='20'>­£</td>
+                <td align='left'>°ÍÍêÉô½ð</td>
+                <td align="left">
+                
+                <?php
+                if($dev_chk_submit != "³ÎÇ§"){
+                    print("<select name='iraibusho'>\n");
+                    $query_section="select * from section_master where sflg=1 order by sid asc";
+                    $res_section=array();
+                    if($rows_section=getResult($query_section,$res_section)){
+                        for($i=0;$i<$rows_section;$i++){
+                            echo("<option ");
+                            if($iraibusho==$res_section[$i][0])    // ¤Ê¤¼¤« sid ¤¬»È¤¨¤º¿ô»ú¤Î 0 ¤Ë¤·¤¿¡£
+                                echo("selected ");
+                            echo("value='" . $res_section[$i][0] . "'>" . rtrim($res_section[$i]['section_name']) . "</option>\n");
+                        }
+                    }
+                    print("</select>\n");
+                }else{
+                    $query_section="select * from section_master where sid = $iraibusho ";
+                    $res_section=array();
+                    if($rows_section=getResult($query_section,$res_section))
+                        print(rtrim($res_section[0]['section_name']));
+                    else
+                        print($iraibusho);
+                }
+                ?>
+                </td>
+            </tr>
+            <tr>
+                <td align='center' width='20'>­¤</td>
+                <td align='left'>°ÍÍê¼Ô</td>
+                <td align="left">
+                    °ÍÍê¼Ô¤Î¼Ò°÷No
+                    <?php
+                    if ($dev_chk_submit != '³ÎÇ§') {
+                        echo "<input class='text' type='text' name='iraisya' size='7' maxlength='6' value='", ltrim($iraisya), "'>\n";
+                    } else {
+                        echo "$iraisya\n";
+                    }
+                    if ($user_name != '') {
+                        echo "<font size='3'>{$user_name}</font></td>\n";
+                    } else {
+                        echo "--------\n";
+                    }
+                    ?>
+                </td>
+            </tr>
+            <tr>
+                <td align='center' width='20'>­¥</td>
+                <td align='left'>ÌÜÅªËô¤Ï¥¿¥¤¥È¥ë</td>
+                <td align='left'>
+                    <?php
+                    if($dev_chk_submit != "³ÎÇ§"){
+                        echo("<textarea class='pt' name='mokuteki' cols='50' rows='2' wrap='soft'>" . $mokuteki . "</textarea>\n");
+                        echo("<font size='1'>¼«Æ°¤Ç²þ¹Ô¤·¤Þ¤¹¤Î¤Ç²þ¹Ô¥­¡¼¤Ï²¡¤µ¤Ê¤¤¤Ç²¼¤µ¤¤¡£</font>\n");
+                    }else{
+                        print("$mokuteki\n");
+                    }
+                    ?>
+                </td>
+            </tr>
+            <tr>
+                <td align='center' width='20'>­¦</td>
+                <td align='left'>Æâ¡¡¡¡ÍÆ</td>
+                <td align='left'>
+                    <?php
+                    if($dev_chk_submit != "³ÎÇ§")
+                        echo("<textarea class='pt' name='naiyou' cols='80' rows='6' wrap='soft'>" . $naiyou . "</textarea>\n");
+                    else
+                        print("$naiyou\n");
+                    ?>
+                </td>
+            </tr>
+            <tr>
+                <td align='center' width='20'>­§</td>
+                <td align='left' nowrap>Í½ÁÛ¸ú²Ì</td>
+                <td align='left'>
+                    <?php
+                    if($dev_chk_submit != "³ÎÇ§"){
+                        print("<input class='text' type='text' name='yosoukouka' size='11' maxlength='9' value='" . ltrim($yosoukouka) . "'>\n");
+                        print("¹©¿ô(Ê¬)¡¿Ç¯¡¡¡Ê¾ÊÎ¬²ÄÇ½¡Ë\n");
+                    }else
+                        if($yosoukouka=="")
+                            print("-----\n");
+                        else
+                            print("$yosoukouka Ê¬¡¿Ç¯\n");
+                    ?>
+                </td>
+            </tr>
+            <tr>
+                <td align='center' width='20'>­¨</td>
+                <td align='left'>·×»»¼°Ëô¤ÏÈ÷¹Í</td>
+                <td align='left'>
+                    <?php
+                    if($dev_chk_submit != "³ÎÇ§"){
+                        echo("<textarea class='pt' name='bikou' cols='50' rows='2' wrap='soft'>" . $bikou . "</textarea>\n");
+                        echo("<font size='1'>Í½ÁÛ¸ú²Ì¹©¿ô(Ê¬)¤Î·×»»¼°Ëô¤ÏÀâÌÀ¡¦È÷¹Í(¾ÊÎ¬²Ä)</font>\n");
+                    }else
+                        if($bikou=="")
+                            print("-----\n");
+                        else
+                            print("$bikou\n");
+                    ?>
+                </td>
+            </tr>
+            </form>
+        </table>
+        <table width='100%' border='0'>
+            <form action='<?= $menu->out_RetUrl() ?>' method='post'>
+                <tr><td align='center'><input type='submit' name='dev_chk_submit' value='Ìá¤ë' ></td></tr>
+            </form>
+        </table>
+    </center>
+</body>
+</html>

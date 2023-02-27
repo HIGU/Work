@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<LINK rel="stylesheet" href="../com/css.css" type="text/css">
+<SCRIPT language="JavaScript" SRC="../com/popup.js"></SCRIPT>
+<Script Language="JavaScript">
+function NewEdit() {
+    top.location.href = "運転日報EDIT.html";
+}
+function ViewList() {
+    top.MainFream.location.href = "運転日報一覧MAIN.html";
+}
+function SearchItem(target1,target2) {
+    var val = ShowDialog("部品マスタ検索.html",target1,600,400);
+    if(val != null  &&  typeof(val) != "undefined") {
+        target1.value = val[0];
+        target2.value = val[1];
+    }
+}
+</Script>
+</head>
+<body>
+<Div class="TITLE">機械運転日報一覧</Div>
+<br>
+    <center>
+        <table border="1">
+            <tr>
+                <td style="width:100;" class="HED">運転日</td>
+                <td style="width:400;">
+                    <input type="text" name="FromYear"  value="" size="4"class="NUM">/<input type="text" name="FromMonth" value="" size="2"class="NUM">/<input type="text" name="FromDay"   value="" size="2"class="NUM"> ～
+                    <input type="text" name="ToYear"    value="" size="4"class="NUM">/<input type="text" name="ToMonth"   value="" size="2"class="NUM">/<input type="text" name="ToDay"     value="" size="2"class="NUM"> 
+                </td>
+            </tr>
+            <tr>
+                <td style="width:100;" class="HED">日報確定</td>
+                <td style="width:400;">
+                    <input type="checkbox" name="A" value="true" ID="A" checked><label for="A">確定済み</label>
+                    <input type="checkbox" name="A" value="true" ID="B" checked><label for="B">確定まち</label>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <input type="button" value="一覧表示" style="width:80;" onClick="ViewList()">
+        <input type="button" value="新規登録" style="width:80;" onClick="NewEdit()">
+    </center>
+</form>
+</body>
+</html>

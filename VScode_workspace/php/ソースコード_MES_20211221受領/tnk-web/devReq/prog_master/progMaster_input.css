@@ -1,0 +1,198 @@
+/****************************************************************************/
+/* プログラム管理 プログラムの登録  CSS file                                */
+/* Copyright (C) 2010 Norihisa.Ohya norihisa_ooya@nitto-kohki.co.jp         */
+/* Changed history                                                          */
+/* 2010/01/26 Created  progMaster_input.css                                 */
+/****************************************************************************/
+
+.AutoUpper {
+    text-transform:     uppercase;
+}
+.AutoLower {
+    text-transform:     lowercase;
+}
+.AutoCapital {
+    text-transform:     capitalize; /* 単語の１文字目を大文字へ */
+}
+
+.pt8 {
+    font-size:   8pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt9 {
+    font-size:   9pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10 {
+    font-size:   10pt;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10b {
+    font-size:   10pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt11b {
+    font-size:   11pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt12b {
+    font-size:   12pt;
+    font-weight: bold;
+    font-family: monospace;
+}
+th {
+    background-color: yellow;
+    color:            blue;
+    font-size:        10pt;
+    font-weight:      bold;
+    font-family:      monospace;
+}
+/************/
+/*table {*/
+/*    border-top:    1.0pt outset #bdaa90;*/
+/*    border-right:  1.0pt outset white;*/
+/*    border-bottom: 1.0pt outset white;*/
+/*    border-left:   0.5pt outset #bdaa90;*/
+/*}*/
+/*td {*/
+/*    border-top:    1.0pt outset #bdaa90;*/
+/*    border-right:  1.0pt outset white;*/
+/*    border-bottom: 1.0pt outset white;*/
+/*    border-left:   0.5pt outset #bdaa90;*/
+/*}*/
+/***************/
+.tuborgbox {
+    border-style:           solid;
+    border-width:           1px;
+    border-top-color:       #FFFFFF;
+    border-left-color:      #FFFFFF;
+    border-right-color:     #AAAAAA;
+    border-bottom-color:    #AAAAAA;
+}
+.tuborgboxsimple {
+    border-style:           solid;
+    border-width:           1px;
+    border-color:           #AAAAAA;
+}
+.rappsbox {
+    border-style:           solid;
+    border-width:           1px;
+    border-top-color:       #FFFFFF;
+    border-left-color:      #FFFFFF;
+    border-right-color:     #DFDFDF;
+    border-bottom-color:    #DFDFDF;
+}
+.rappsboxsimple {
+    border-style:           solid;
+    border-width:           1px;
+    border-color:           #DFDFDF;
+}
+.winbox {
+    border-style:           solid;
+    border-width:           1px;
+    border-top-color:       #FFFFFF;
+    border-left-color:      #FFFFFF;
+    border-right-color:     #999999;
+    border-bottom-color:    #999999;
+    /* background-color:#d6d3ce; */
+}
+.winboxb {
+    border-style:           solid;
+    border-width:           1px;
+    border-top-color:       #FFFFFF;
+    border-left-color:      #FFFFFF;
+    border-right-color:     #999999;
+    border-bottom-color:    #000000;
+    /* background-color:#d6d3ce; */
+}
+.winbox_field {
+    border-style:           solid;
+    border-width:           1px;
+    border-top-color:       #999999;
+    border-left-color:      #999999;
+    border-right-color:     #FFFFFF;
+    border-bottom-color:    #FFFFFF;
+    /* background-color:#d6d3ce; */
+}
+.winbox_org {
+    border-style:           solid;
+    border-width:           1px;
+    border-top-color:       #FFFFFF;
+    border-left-color:      #FFFFFF;
+    border-right-color:     #bdaa90;
+    border-bottom-color:    #bdaa90;
+    /* background-color:#d6d3ce; */
+}
+.winbox_field_org {
+    border-style:           solid;
+    border-width:           1px;
+    border-top-color:       #bdaa90;
+    border-left-color:      #bdaa90;
+    border-right-color:     #FFFFFF;
+    border-bottom-color:    #FFFFFF;
+    /* background-color:#d6d3ce; */
+}
+body {
+    /* ここにbodyを指定すれば HTMLタグは必要ない */
+    background-image:       url(/img/t_nitto_logo4.png);
+    background-repeat:      no-repeat;
+    background-attachment:  fixed;
+    background-position:    right bottom;
+}
+a:hover {
+    background-color:       blue;
+    color:                  white;
+}
+a {
+    color:                  blue;
+}
+
+
+
+.s_radio {
+    color:              white;
+    background-color:   blue;
+    font-size:          11pt;
+    font-weight:        bold;
+}
+.n_radio {
+    font-size:          11pt;
+}
+
+th {
+    font-size:          11pt;
+    font-weight:        bold;
+    color:              white;
+    background-color:   teal;
+}
+td {
+    font-size:          11pt;
+    font-weight:        normal;
+}
+caption {
+    font-size:          11pt;
+    font-weight:        bold;
+}
+input {
+    font-size:          11pt;
+    font-weight:        bold;
+}
+select {
+    background-color:   lightblue;
+    color:              black;
+    font-size:          11pt;
+    font-weight:        bold;
+}
+a {
+    color:              blue;
+}
+a:hover {
+    background-color:   blue;
+    color:              white;
+}
+

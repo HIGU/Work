@@ -1,0 +1,113 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<title>出庫時間集計照会</title>
+<script type='text/javascript' src='/base_class.js'></script>
+<link rel='stylesheet' href='/menu_form.css' type='text/css' media='screen'>
+<link rel='stylesheet' href='../act_summary.css' type='text/css' media='screen'>
+<style type='text/css'>
+<!--
+body {
+    background-image:none;
+}
+-->
+</style>
+<script type='text/javascript' src='../act_summary.js'></script>
+</head>
+<body style='background-color:#d6d3ce;'>  <!--  -->
+<center>
+<table width='100%' bgcolor='#d6d3ce' border='1' cellspacing='0' cellpadding='1'>
+    <tr><td> <!----------- ダミー(デザイン用) ------------>
+<table class='winbox_field' width='100%' border='1' cellspacing='0' cellpadding='3'>
+    <tr>
+        <td class='winbox' width='16%' align='right' colspan='3'>&nbsp;</td>
+        <td class='winbox total' width='20%' align='right' >経　費　計</td>
+        <td class='winbox total' width='12%' align='right' >100</td>
+        <td class='winbox total' width='12%' align='right' >100</td>
+        <td class='winbox target' width='12%' align='right' >100</td>
+        <td class='winbox total' width='14%' align='right' >100</td>
+        <td class='winbox total' width='14%' align='right' >100</td>
+    </tr>
+    <tr>
+        <td class='winbox' width=' 4%' align='right' >1</td>
+        <td class='winbox' width=' 6%' align='right' >dummy0</td>
+        <td class='winbox' width=' 6%' align='left'  >dummy0</td>
+        <td class='winbox' width='20%' align='left'  >dummy0</td>
+        <td class='winbox' width='12%' align='right' >100</td>
+        <td class='winbox' width='12%' align='right' >100</td>
+        <td class='winbox target' width='12%' align='right' >100</td>
+        <td class='winbox' width='14%' align='right' >100</td>
+        <td class='winbox' width='14%' align='right' >100</td>
+    </tr>
+    <tr>
+        <td class='winbox' width=' 4%' align='right' >2</td>
+        <td class='winbox' width=' 6%' align='right' >dummy1</td>
+        <td class='winbox' width=' 6%' align='left'  >dummy1</td>
+        <td class='winbox' width='20%' align='left'  >dummy1</td>
+        <td class='winbox' width='12%' align='right' >100</td>
+        <td class='winbox' width='12%' align='right' >100</td>
+        <td class='winbox target' width='12%' align='right' >100</td>
+        <td class='winbox' width='14%' align='right' >100</td>
+        <td class='winbox' width='14%' align='right' >100</td>
+    </tr>
+    <tr>
+        <td class='winbox' width=' 4%' align='right' >3</td>
+        <td class='winbox' width=' 6%' align='right' >dummy2</td>
+        <td class='winbox' width=' 6%' align='left'  >dummy2</td>
+        <td class='winbox' width='20%' align='left'  >dummy2</td>
+        <td class='winbox' width='12%' align='right' >100</td>
+        <td class='winbox' width='12%' align='right' >100</td>
+        <td class='winbox target' width='12%' align='right' >100</td>
+        <td class='winbox' width='14%' align='right' >100</td>
+        <td class='winbox' width='14%' align='right' >100</td>
+    </tr>
+    <tr>
+        <td class='winbox' width=' 4%' align='right' >4</td>
+        <td class='winbox' width=' 6%' align='right' >dummy3</td>
+        <td class='winbox' width=' 6%' align='left'  >dummy3</td>
+        <td class='winbox' width='20%' align='left'  >dummy3</td>
+        <td class='winbox' width='12%' align='right' >100</td>
+        <td class='winbox' width='12%' align='right' >100</td>
+        <td class='winbox target' width='12%' align='right' >100</td>
+        <td class='winbox' width='14%' align='right' >100</td>
+        <td class='winbox' width='14%' align='right' >100</td>
+    </tr>
+    <tr>
+        <td class='winbox' width=' 4%' align='right' >5</td>
+        <td class='winbox' width=' 6%' align='right' >dummy4</td>
+        <td class='winbox' width=' 6%' align='left'  >dummy4</td>
+        <td class='winbox' width='20%' align='left'  >dummy4</td>
+        <td class='winbox' width='12%' align='right' >100</td>
+        <td class='winbox' width='12%' align='right' >100</td>
+        <td class='winbox target' width='12%' align='right' >100</td>
+        <td class='winbox' width='14%' align='right' >100</td>
+        <td class='winbox' width='14%' align='right' >100</td>
+    </tr>
+    <tr>
+        <td class='winbox' width='16%' align='right' colspan='3'>&nbsp;</td>
+        <td class='winbox total' width='20%' align='right'>労　務　費　計</td>
+        <td class='winbox total' width='12%' align='right' >100</td>
+        <td class='winbox total' width='12%' align='right' >100</td>
+        <td class='winbox target' width='12%' align='right' >100</td>
+        <td class='winbox total' width='14%' align='right' >100</td>
+        <td class='winbox total' width='14%' align='right' >100</td>
+    </tr>
+    <tr>
+        <td class='winbox total' width='36%' align='right' colspan='4'>部　門　合　計</td>
+        <td class='winbox total' width='12%' align='right' >100</td>
+        <td class='winbox total' width='12%' align='right' >100</td>
+        <td class='winbox target' width='12%' align='right' >100</td>
+        <td class='winbox total' width='14%' align='right' >100</td>
+        <td class='winbox total' width='14%' align='right' >100</td>
+    </tr>
+</table>
+    </td></tr>
+</table> <!----------------- ダミーEnd ------------------>
+
+</center>
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<style type='text/css'>
+<!--
+th {
+    background-color:   blue;
+    color:              yellow;
+    font-size:          10pt;
+    font-weight:        bold;
+    font-family:        monospace;
+}
+a:hover {
+    background-color:   blue;
+    color:              white;
+}
+a:active {
+    background-color:   gold;
+    color:              black;
+}
+a {
+    color:   blue;
+}
+-->
+</style>
+</head>
+<body>
+<center>
+    <form name='entry_form' action='smallSum_assetsView_Main.php' method='post'>
+        <table bgcolor='#d6d3ce' width='300' align='center' border='1' cellspacing='0' cellpadding='3'>
+            <tr><td> <!----------- ダミー(デザイン用) ------------>
+        <table class='winbox_field' width='100%' bgcolor='#d6d3ce' align='center' border='1' cellspacing='0' cellpadding='3'>
+        <THEAD>
+            <!-- テーブル ヘッダーの表示 -->
+            <tr>
+                <td bgcolor='#ffffc6' align='center' colspan='20'>
+                    少額資産管理台帳
+                </td>
+            </tr>
+            <tr>
+                <th class='winbox' nowrap width='10'>No</th>        <!-- 行ナンバーの表示 -->
+        <th class='winbox' nowrap>管理部門</th>
+        <th class='winbox' nowrap>設置場所</th>
+        <th class='winbox' nowrap>品目</th>
+        <th class='winbox' nowrap>メーカー名・型式</th>
+        <th class='winbox' nowrap>購入年月日</th>
+        <th class='winbox' nowrap>購入価格</th>
+        <th class='winbox' nowrap>除却年月日</th>
+        <th class='winbox' nowrap>備考</th>
+            </tr>
+        </THEAD>
+        <TFOOT>
+            <!-- 現在はフッターは何もない -->
+        </TFOOT>
+        <TBODY>
+            <!--  bgcolor='#ffffc6' 薄い黄色 -->
+            <!-- サンプル<td rowspan='2' colspan='3' width='200' align='center' class='pt10b' bgcolor='#ffffc6'>  </td> -->
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                1
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>1</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>test1</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>name1</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>model1</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/01/01</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>100</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/01/01</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy1</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                2
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>2</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>test2</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>name2</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>model2</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/02/01</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>200</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/02/01</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy2</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                3
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>3</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>test3</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>name3</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>model3</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/03/01</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>300</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/03/01</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy3</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                4
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>4</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>test4</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>name4</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>model4</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/04/01</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>400</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/04/01</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy4</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                5
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>5</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>test5</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>name5</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>model5</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/05/01</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>500</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/05/01</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy5</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                6
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>6</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>test6</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>name6</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>model6</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/06/01</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>600</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/06/01</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy6</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                7
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>7</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>test7</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>name7</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>model7</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/07/01</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>700</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/07/01</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy7</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                8
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>8</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>test8</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>name8</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>model8</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/08/01</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>800</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/08/01</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy8</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                9
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>9</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>test9</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>name9</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>model9</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/09/01</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>900</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/09/01</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy9</div></td>
+        </tr>
+        <tr>
+            <td class='winbox' nowrap align='right'>
+                10
+            </td>    <!-- 行ナンバーの表示 -->
+<td class='winbox' nowrap align='left'><div class='pt9'>10</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>test10</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>name10</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>model10</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/10/01</div></td>
+<td class='winbox' nowrap align='right'><div class='pt9'>1,000</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>2022/10/01</div></td>
+<td class='winbox' nowrap align='left'><div class='pt9'>dummy10</div></td>
+        </tr>
+        </TBODY>
+        </table>
+            </td></tr>
+        </table> <!----------------- ダミーEnd ------------------>
+    </form>
+</center>
+</body>
+</html>

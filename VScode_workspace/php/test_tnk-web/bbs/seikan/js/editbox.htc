@@ -1,0 +1,251 @@
+<public:component tagName=editBox><public:defaults viewLinkContent/></public:component>
+<style type="text/css">
+td{
+	font-size:12px;
+}
+input{
+	border:inset 2px;
+}
+</style>
+<table width="95%">
+<form method="post" action="" name="fm1">
+<input type="hidden" name="m" value="write">
+<tr>
+<td width=1% nowrap align=right valign=top>Ì¾Á° : </td>
+<td width=99%>
+<script language=javascript>
+<!--
+document.write("<input type=\"text\" size=\"20\" name=\"name\" autocomplete=\"off\" value=\""+cname+"\"></td>");
+//-->
+</script><noscript>
+<input type="text" size="20" name="name" autocomplete="off" value=""></td>
+</noscript>
+</tr>
+<tr>
+<td width=1% nowrap align=right valign=top>¥¿¥¤¥È¥ë : </td>
+<td width=99%><input type="text" size="80" name="title" autocomplete="off"></td>
+</tr>
+<tr>
+<td width=1% nowrap align=right valign=top>¥á¥Ã¥»¡¼¥¸ :</td>
+<td width=99%>
+
+<div unselectable="on" style="width:725;">
+<script language="javascript">
+<!--
+function submitparam() {
+    document.all.message.innerText = "-m-"+document.all.editbox.innerHTML;
+    document.all.fm1.submit();
+}
+function markup(tag) {
+    t = document.selection.createRange();
+    selText = t.text;
+    t.pasteHTML("<"+tag+">"+selText+"</"+tag+">");
+    t = "<"+tag+">"+selText+"</"+tag+">";
+}
+function insertTag(tag) {
+    t = document.selection.createRange();
+    tt = t.text;
+    t.pasteHTML(tag);
+}
+//-->
+</script>
+
+<!-- ÊÔ½¸£Â£Ï£Ø -->
+<div id="editbox" align="left" style="font-size:12px;height:100;width:560;background-color:white;padding:2px;
+border:inset 2px;overflow=auto;" contenteditable></div>
+<!-- /ÊÔ½¸£Â£Ï£Ø -->
+
+<!-- ¥Ü¥¿¥ó -->
+<!-- document.execCommand("ForeColor",false,document.color[document.color.selectedIndex].value); -->
+<button unselectable="On" onclick='document.execCommand("Copy");editbox.focus();'><img src="btn/copy.gif"></button>
+<button unselectable="On" onclick='document.execCommand("Cut");editbox.focus();'><img src="btn/cut.gif"></button>
+<button unselectable="On" onclick='document.execCommand("Paste")'><img src="btn/paste.gif"></button>
+&nbsp;
+<select name="color" onchange='document.execCommand("ForeColor",false,this[this.selectedIndex].value);this.selectedIndex=0;'>
+<option value="">¿§
+<option value="aliceblue" style="background-color:aliceblue;color:aliceblue;">¢£
+<option value="antiquewhite" style="background-color:antiquewhite;color:antiquewhite;">¢£
+<option value="aqua" style="background-color:aqua;color:aqua;">¢£
+<option value="aquamarine" style="background-color:aquamarine;color:aquamarine;">¢£
+<option value="azure" style="background-color:azure;color:azure;">¢£
+<option value="beige" style="background-color:beige;color:beige;">¢£
+<option value="bisque" style="background-color:bisque;color:bisque;">¢£
+<option value="black" style="background-color:black;color:black;">¢£
+<option value="blanchedalmond" style="background-color:blanchedalmond;color:blanchedalmond;">¢£
+<option value="blue" style="background-color:blue;color:blue;">¢£
+<option value="blueviolet" style="background-color:blueviolet;color:blueviolet;">¢£
+<option value="brown" style="background-color:brown;color:brown;">¢£
+<option value="burlywood" style="background-color:burlywood;color:burlywood;">¢£
+<option value="cadetblue" style="background-color:cadetblue;color:cadetblue;">¢£
+<option value="chartreuse" style="background-color:chartreuse;color:chartreuse;">¢£
+<option value="chocolate" style="background-color:chocolate;color:chocolate;">¢£
+<option value="coral" style="background-color:coral;color:coral;">¢£
+<option value="cornflowerblue" style="background-color:cornflowerblue;color:cornflowerblue;">¢£
+<option value="cornsilk" style="background-color:cornsilk;color:cornsilk;">¢£
+<option value="crimson" style="background-color:crimson;color:crimson;">¢£
+<option value="cyan" style="background-color:cyan;color:cyan;">¢£
+<option value="darkblue" style="background-color:darkblue;color:darkblue;">¢£
+<option value="darkcyan" style="background-color:darkcyan;color:darkcyan;">¢£
+<option value="darkgoldenrod" style="background-color:darkgoldenrod;color:darkgoldenrod;">¢£
+<option value="darkgray" style="background-color:darkgray;color:darkgray;">¢£
+<option value="darkgreen" style="background-color:darkgreen;color:darkgreen;">¢£
+<option value="darkkhaki" style="background-color:darkkhaki;color:darkkhaki;">¢£
+<option value="darkmagenta" style="background-color:darkmagenta;color:darkmagenta;">¢£
+<option value="darkolivegreen" style="background-color:darkolivegreen;color:darkolivegreen;">¢£
+<option value="darkorange" style="background-color:darkorange;color:darkorange;">¢£
+<option value="darkorchid" style="background-color:darkorchid;color:darkorchid;">¢£
+<option value="darkred" style="background-color:darkred;color:darkred;">¢£
+<option value="darksalmon" style="background-color:darksalmon;color:darksalmon;">¢£
+<option value="darkseagreen" style="background-color:darkseagreen;color:darkseagreen;">¢£
+<option value="darkslateblue" style="background-color:darkslateblue;color:darkslateblue;">¢£
+<option value="darkslategray" style="background-color:darkslategray;color:darkslategray;">¢£
+<option value="darkturquoise" style="background-color:darkturquoise;color:darkturquoise;">¢£
+<option value="darkviolet" style="background-color:darkviolet;color:darkviolet;">¢£
+<option value="deeppink" style="background-color:deeppink;color:deeppink;">¢£
+<option value="deepskyblue" style="background-color:deepskyblue;color:deepskyblue;">¢£
+<option value="dimgray" style="background-color:dimgray;color:dimgray;">¢£
+<option value="dodgerblue" style="background-color:dodgerblue;color:dodgerblue;">¢£
+<option value="firebrick" style="background-color:firebrick;color:firebrick;">¢£
+<option value="floralwhite" style="background-color:floralwhite;color:floralwhite;">¢£
+<option value="forestgreen" style="background-color:forestgreen;color:forestgreen;">¢£
+<option value="fuchsia" style="background-color:fuchsia;color:fuchsia;">¢£
+<option value="gainsboro" style="background-color:gainsboro;color:gainsboro;">¢£
+<option value="ghostwhite" style="background-color:ghostwhite;color:ghostwhite;">¢£
+<option value="gold" style="background-color:gold;color:gold;">¢£
+<option value="goldenrod" style="background-color:goldenrod;color:goldenrod;">¢£
+<option value="gray" style="background-color:gray;color:gray;">¢£
+<option value="green" style="background-color:green;color:green;">¢£
+<option value="greenyellow" style="background-color:greenyellow;color:greenyellow;">¢£
+<option value="honeydew" style="background-color:honeydew;color:honeydew;">¢£
+<option value="hotpink" style="background-color:hotpink;color:hotpink;">¢£
+<option value="indianred" style="background-color:indianred;color:indianred;">¢£
+<option value="indigo" style="background-color:indigo;color:indigo;">¢£
+<option value="ivory" style="background-color:ivory;color:ivory;">¢£
+<option value="khaki" style="background-color:khaki;color:khaki;">¢£
+<option value="lavender" style="background-color:lavender;color:lavender;">¢£
+<option value="lavenderblush" style="background-color:lavenderblush;color:lavenderblush;">¢£
+<option value="lawngreen" style="background-color:lawngreen;color:lawngreen;">¢£
+<option value="lemonchiffon" style="background-color:lemonchiffon;color:lemonchiffon;">¢£
+<option value="lightblue" style="background-color:lightblue;color:lightblue;">¢£
+<option value="lightcoral" style="background-color:lightcoral;color:lightcoral;">¢£
+<option value="lightcyan" style="background-color:lightcyan;color:lightcyan;">¢£
+<option value="lightgoldenrodyellow" style="background-color:lightgoldenrodyellow;color:lightgoldenrodyellow;">¢£
+<option value="lightgreen" style="background-color:lightgreen;color:lightgreen;">¢£
+<option value="lightgrey" style="background-color:lightgrey;color:lightgrey;">¢£
+<option value="lightpink" style="background-color:lightpink;color:lightpink;">¢£
+<option value="lightsalmon" style="background-color:lightsalmon;color:lightsalmon;">¢£
+<option value="lightseagreen" style="background-color:lightseagreen;color:lightseagreen;">¢£
+<option value="lightskyblue" style="background-color:lightskyblue;color:lightskyblue;">¢£
+<option value="lightslategray" style="background-color:lightslategray;color:lightslategray;">¢£
+<option value="lightsteelblue" style="background-color:lightsteelblue;color:lightsteelblue;">¢£
+<option value="lightyellow" style="background-color:lightyellow;color:lightyellow;">¢£
+<option value="lime" style="background-color:lime;color:lime;">¢£
+<option value="limegreen" style="background-color:limegreen;color:limegreen;">¢£
+<option value="linen" style="background-color:linen;color:linen;">¢£
+<option value="magenta" style="background-color:magenta;color:magenta;">¢£
+<option value="maroon" style="background-color:maroon;color:maroon;">¢£
+<option value="mediumaquamarine" style="background-color:mediumaquamarine;color:mediumaquamarine;">¢£
+<option value="mediumblue" style="background-color:mediumblue;color:mediumblue;">¢£
+<option value="mediumorchid" style="background-color:mediumorchid;color:mediumorchid;">¢£
+<option value="mediumpurple" style="background-color:mediumpurple;color:mediumpurple;">¢£
+<option value="mediumseagreen" style="background-color:mediumseagreen;color:mediumseagreen;">¢£
+<option value="mediumslateblue" style="background-color:mediumslateblue;color:mediumslateblue;">¢£
+<option value="mediumspringgreen" style="background-color:mediumspringgreen;color:mediumspringgreen;">¢£
+<option value="mediumturquoise" style="background-color:mediumturquoise;color:mediumturquoise;">¢£
+<option value="mediumvioletred" style="background-color:mediumvioletred;color:mediumvioletred;">¢£
+<option value="midnightblue" style="background-color:midnightblue;color:midnightblue;">¢£
+<option value="mintcream" style="background-color:mintcream;color:mintcream;">¢£
+<option value="mistyrose" style="background-color:mistyrose;color:mistyrose;">¢£
+<option value="moccasin" style="background-color:moccasin;color:moccasin;">¢£
+<option value="navajowhite" style="background-color:navajowhite;color:navajowhite;">¢£
+<option value="navy" style="background-color:navy;color:navy;">¢£
+<option value="oldlace" style="background-color:oldlace;color:oldlace;">¢£
+<option value="olive" style="background-color:olive;color:olive;">¢£
+<option value="olivedrab" style="background-color:olivedrab;color:olivedrab;">¢£
+<option value="orange" style="background-color:orange;color:orange;">¢£
+<option value="orangered" style="background-color:orangered;color:orangered;">¢£
+<option value="orchid" style="background-color:orchid;color:orchid;">¢£
+<option value="palegoldenrod" style="background-color:palegoldenrod;color:palegoldenrod;">¢£
+<option value="palegreen" style="background-color:palegreen;color:palegreen;">¢£
+<option value="paleturquoise" style="background-color:paleturquoise;color:paleturquoise;">¢£
+<option value="palevioletred" style="background-color:palevioletred;color:palevioletred;">¢£
+<option value="papayawhip" style="background-color:papayawhip;color:papayawhip;">¢£
+<option value="peachpuff" style="background-color:peachpuff;color:peachpuff;">¢£
+<option value="peru" style="background-color:peru;color:peru;">¢£
+<option value="pink" style="background-color:pink;color:pink;">¢£
+<option value="plum" style="background-color:plum;color:plum;">¢£
+<option value="powderblue" style="background-color:powderblue;color:powderblue;">¢£
+<option value="purple" style="background-color:purple;color:purple;">¢£
+<option value="red" style="background-color:red;color:red;">¢£
+<option value="rosybrown" style="background-color:rosybrown;color:rosybrown;">¢£
+<option value="royalblue" style="background-color:royalblue;color:royalblue;">¢£
+<option value="saddlebrown" style="background-color:saddlebrown;color:saddlebrown;">¢£
+<option value="salmon" style="background-color:salmon;color:salmon;">¢£
+<option value="sandybrown" style="background-color:sandybrown;color:sandybrown;">¢£
+<option value="seagreen" style="background-color:seagreen;color:seagreen;">¢£
+<option value="seashell" style="background-color:seashell;color:seashell;">¢£
+<option value="sienna" style="background-color:sienna;color:sienna;">¢£
+<option value="silver" style="background-color:silver;color:silver;">¢£
+<option value="skyblue" style="background-color:skyblue;color:skyblue;">¢£
+<option value="slateblue" style="background-color:slateblue;color:slateblue;">¢£
+<option value="slategray" style="background-color:slategray;color:slategray;">¢£
+<option value="snow" style="background-color:snow;color:snow;">¢£
+<option value="springgreen" style="background-color:springgreen;color:springgreen;">¢£
+<option value="steelblue" style="background-color:steelblue;color:steelblue;">¢£
+<option value="tan" style="background-color:tan;color:tan;">¢£
+<option value="teal" style="background-color:teal;color:teal;">¢£
+<option value="thistle" style="background-color:thistle;color:thistle;">¢£
+<option value="tomato" style="background-color:tomato;color:tomato;">¢£
+<option value="turquoise" style="background-color:turquoise;color:turquoise;">¢£
+<option value="violet" style="background-color:violet;color:violet;">¢£
+<option value="wheat" style="background-color:wheat;color:wheat;">¢£
+<option value="white" style="background-color:white;color:white;">¢£
+<option value="whitesmoke" style="background-color:whitesmoke;color:whitesmoke;">¢£
+<option value="yellow" style="background-color:yellow;color:yellow;">¢£
+<option value="yellowgreen" style="background-color:yellowgreen;color:yellowgreen;">¢£
+</select>
+&nbsp;
+<button unselectable="On" onclick='document.execCommand("Bold");editbox.focus();' title="ÂÀ»ú"><img src="btn/bold.gif"></button>
+<button unselectable="On" onclick='document.execCommand("Italic");editbox.focus();' title="¼ÐÂÎ"><img src="btn/ita.gif"></button>
+<button unselectable="On" onclick='document.execCommand("Underline");editbox.focus();' title="²¼Àþ"><img src="btn/und.gif"></button>
+<button unselectable="On" onclick='document.execCommand("StrikeThrough");editbox.focus();' title="¼è¤ê¾Ã¤·Àþ"><img src="btn/str.gif"></button>
+<button unselectable="On" onclick='document.execCommand("CreateLink");editbox.focus();'><img src="btn/link.gif"></button>
+&nbsp;
+<button unselectable="On" onclick='document.execCommand("InsertOrderedList");editbox.focus();' title="ÈÖ¹æÉÕ¤­ŽØŽ½ŽÄ"><img src="btn/lst1.gif"></button>
+<button unselectable="On" onclick='document.execCommand("InsertUnorderedList");editbox.focus();' title="µ­¹æÉÕ¤­ŽØŽ½ŽÄ"><img src="btn/lst2.gif"></button>
+<button unselectable="On" onclick='document.execCommand("Indent");editbox.focus();' title="ÃÊÍî"><img src="btn/outdent.gif"></button>
+<button unselectable="On" onclick='document.execCommand("Outdent");editbox.focus();' title="ÃÊÍî²ò½ü"><img src="btn/indent.gif"></button>
+&nbsp;
+<button unselectable="On" onclick='document.execCommand("JustifyLeft");editbox.focus();' title="º¸´ó¤»"><img src="btn/left.gif"></button>
+<button unselectable="On" onclick='document.execCommand("JustifyCenter");editbox.focus();' title="Ãæ±û´ó¤»"><img src="btn/cent.gif"></button>
+<button unselectable="On" onclick='document.execCommand("JustifyRight");editbox.focus();' title="±¦´ó¤»"><img src="btn/right.gif"></button>
+&nbsp;
+<button unselectable="On" onclick='javascript:markup("big");editbox.focus();'><img src="btn/big.gif"></button>
+<button unselectable="On" onclick='javascript:markup("small");editbox.focus();'><img src="btn/small.gif"></button>
+<button unselectable="On" onclick='javascript:insertTag("<hr>");'><img src="btn/hr.gif"></button>
+
+<!--
+<button unselectable="On" onclick='document.execCommand("SuperScript");editbox.focus();' title="¾åÉÕ¤­"><B>¢¬</B></button>
+<button unselectable="On" onclick='document.execCommand("SubScript");editbox.focus();' title="²¼ÉÕ¤­"><B>¢­</B></button>
+<button unselectable="On" onclick='javascript:alert(document.all.editbox.innerHTML)'><B>¥Ý¥Ã¥×</B></button>
+-->
+
+<!-- /¥Ü¥¿¥ó -->
+
+<textarea style="display:none" name="message"></textarea>
+
+</div>
+
+</td>
+</tr>
+<tr>
+<td width=1% nowrap align=right valign=top>ºï½ü¥­¡¼ : </td>
+<td width=99%><input type="password" size="9" name="delkey"></td>
+</tr>
+<tr>
+<td width=1% nowrap></td>
+<td width=99%><input type="button" value="¡¡¡¡Åê¹Æ¡¡¡¡" style="border:outset 1px;" onclick="javascript:submitparam()">
+</td>
+</tr>
+</form>
+</table>

@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Shift_JIS">
+<TITLE>SetCompression</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="fpdf.css">
+</HEAD>
+<BODY>
+<H2>SetCompression</H2>
+<TT>SetCompression(<B>boolean</B> compress)</TT>
+<H4 CLASS='st'>バージョン</H4>
+1.4
+<H4 CLASS='st'>説明</H4>
+ページの圧縮の有効/無効を設定します。
+有効にした場合、各ページ内の描画内容は圧縮され、およそ半分程度になります。
+訳者注：自信なし。原文は以下。
+Activates or deactivates page compression. When activated, the internal representation of
+each page is compressed, which leads to a compression ratio of about 2 for the resulting
+document.
+<BR>
+圧縮はデフォルトでonになっています。
+<BR>
+<BR>
+<B>注意: </B>Zlib拡張(extension)が有効になっている必要があります。もしZlibが見つからない場合、圧縮はoffになります。
+訳者注：phpをコンパイルする際にZlibを有効にする必要があります
+<H4 CLASS='st'>パラメータ</H4>
+<TT><U>compress</U></TT>
+<BLOCKQUOTE>
+圧縮を有効にする場合、Boolean型で設定します。
+訳者注：Boolean型ですので、true/falseが該当すると思われます。
+</BLOCKQUOTE>
+<H6></H6>
+<HR>
+<DIV ALIGN="CENTER"><A HREF="index.htm">目次</A></DIV>
+</BODY>
+</HTML>

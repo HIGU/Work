@@ -1,0 +1,86 @@
+/****************************************************************************/
+/* 総材料費の比較    (CSS file)                                             */
+/* Copyright (C) 2011 Norihisa.Ohya norihisa_ooya@nitto-kohki.co.jp         */
+/* Changed history                                                          */
+/* 2011/06/22 Created  material_compare.css                                 */
+/****************************************************************************/
+
+.pt8 {
+    font-size:   0.6em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt9 {
+    font-size:   0.7em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10 {
+    font-size:   0.8em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10b {
+    font-size:   0.8em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt11 {
+    font-size:   0.9em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt11b {
+    font-size:   0.9em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt12 {
+    font-size:   1.0em;
+    font-family: monospace;
+}
+.pt12b {
+    font-size:   1.0em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt13b {
+    font-size:   1.1em;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+.pt14b {
+    font-size:   1.2em;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+th {
+    /*******
+    background-color:   yellow;
+    color:              blue;
+    *******/
+    background-color:   #ceffce;
+    color:              black;
+    font-size:          0.9em;
+    font-weight:        bold;
+    font-family:        monospace;
+}
+body {
+    /* ここにbodyを指定すれば HTMLタグは必要ない */
+    background-image:       url(/img/t_nitto_logo4.png);
+    background-repeat:      no-repeat;
+    background-attachment:  fixed;
+    background-position:    right bottom;
+}
+a {
+    color:                  blue;
+}
+a:hover {
+    background-color:       blue;
+    color:                  white;
+}
+a:active {
+    background-color:       gold;
+    color:                  black;
+}
+

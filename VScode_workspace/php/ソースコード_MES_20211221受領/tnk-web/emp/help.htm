@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN">
+<html>
+<head>
+<title>DB help</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+</head>
+<body bgcolor="white">
+
+<div align="left">
+  <table width="100%">
+    <tr>
+      <td width="100%" bgcolor="#003E7C">
+        <p align="center"><font color="white">データの表示</font></td>
+    </tr>
+    <tr>
+      <td width="100%">
+        <p><font>select&nbsp;<span style="background-color: teal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+        from&nbsp;</font><font color="white"><span style="background-color: purple">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><font>&nbsp;;</font></p>
+        <p><font color="white"><span style="background-color: teal">&nbsp;&nbsp;&nbsp;</span></font><font color="white"><span style="background-color: teal">&nbsp; 
+        </span></font>　表示したいフィールドを指定します。すべてを表示したい場合は&quot;*&quot;を入力してください。</p>
+        <p><font color="white"><span style="background-color: purple">&nbsp;&nbsp;&nbsp;&nbsp; 
+        </span></font>　表示したいフィールドがあるテーブルを指定します。</p>
+        <hr>
+        <p><font>例1：　select * from user_detailes;</font></p>
+        <p><font>　　　↑user_detailesテーブルからすべてのフィールドを</font>表示<font>します。</font></p>
+        <p><font>例2：　select uid,name from user_detailes;</font></p>
+        <p><font>　　　↑user_detailesテーブルからuidとnameというフィールドを</font>表示<font>します。</font></p>
+        <p>　</p>
+      </td>
+    </tr>
+  </table>
+</div>
+<table width="100%">
+  <tr>
+    <td width="100%" bgcolor="#003E7C">
+      <p align="center"><font color="white">フィールドの入力内容を変更する</font></td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <p><font>update&nbsp;</font><font color="white"><span style="background-color: purple">&nbsp;&nbsp;&nbsp; 
+      &nbsp;</span></font><font> set&nbsp;</font><font color="white"><span style="background-color: teal">&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></font><font>=</font><span style="background-color: maroon"><font color="white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></span><font> 
+      </font><font>where&nbsp;</font><font color="white"><span style="background-color: olive">&nbsp;&nbsp; 
+      &nbsp;</span></font><font>&nbsp;;</font></p>
+      <p><font color="white"><span style="background-color: purple">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><font color="purple">&nbsp; 
+      </font>変更したいフィールドがあるテーブルを指定します。</p>
+      <p><font color="white"><span style="background-color: teal">&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></font><font></font>　<font>変更したいフィールドを指定します。</font></p>
+      <p><font color="white"><span style="background-color: maroon">&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span>　</font><font>変更する内容を入力。空白にしたい場合には&quot;NULL&quot;を入力してください。</font></p>
+      <p><font color="white"><span style="background-color: olive">&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></font><font>　行（変更するユーザー）を指定します。これを入力しない場合、すべての行に変更した内容が適用されるので注意。</font></p>
+      <hr>
+      <br>
+      <font>例1：　update user_capacity set cid=2 where uid=1;</font>
+      <p><font>　　　↑</font><font>user_capacityテーブルでuidが1のユーザーのcidを2に変更します。</font></p>
+      <p><font>例2：　update user_detailes set info=NULL where uid='000000';</font></p>
+      <p><font>　　　↑</font><font>user_detailesテーブルでuidが1のユーザーのinfoを空白に変更します。</font></p>
+      <p>　</p>
+    </td>
+  </tr>
+</table>
+<table width="100%">
+  <tr>
+    <td width="100%" bgcolor="#003E7C">
+      <p align="center"><font color="white">データを登録する</font></td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <p><font>insert into&nbsp;</font><font color="white"><span style="background-color: purple">&nbsp;&nbsp;&nbsp; 
+      &nbsp;</span></font><font> values (</font><font color="white"><span style="background-color: maroon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><font>,'</font><font color="white"><span style="background-color: maroon">&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></font><font>')</font><font>&nbsp;;</font></p>
+      <p><font color="white"><span style="background-color: purple">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><font color="purple">&nbsp; 
+      </font>データを登録するテーブルを指定します。</p>
+      <p><font color="white"><span style="background-color: maroon">&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span>　</font><font>登録する内容を入力。文字列は' 'で囲む必要があります。</font></p>
+      <hr>
+      <p><font>例： </font><font>insert into section_master values (8,'生産部',1);</font></p>
+      <p><font>　　　↑section_master テーブルのsidフィールドに8、section_nameフィールドに&quot;生産部&quot;、sflgフィールドに1というデータを登録します。</font></p>
+      <p>　</p>
+    </td>
+  </tr>
+</table>
+<table width="100%">
+  <tr>
+    <td width="100%" bgcolor="#003E7C">
+      <p align="center"><font color="white">行を削除する</font></td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <p><font>delete from&nbsp;</font><font color="white"><span style="background-color: purple">&nbsp;&nbsp;&nbsp; 
+      &nbsp;</span></font><font>&nbsp;where&nbsp;</font><font color="white"><span style="background-color: olive">&nbsp;&nbsp; 
+      &nbsp;</span></font><font>&nbsp;;</font></p>
+      <p><font color="white"><span style="background-color: purple">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><font color="purple">&nbsp; 
+      </font>削除したいフィールドがあるテーブルを指定します。</p>
+      <p><font color="white"><span style="background-color: olive">&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></font><font>　行を指定します。これを入力しない場合、すべての行に変更した内容が適用されるので注意。</font></p>
+      <hr>
+      <p><font>例： delete from user_detailes where uid='000000';</font></p>
+      <p><font>　　　↑user_detailes テーブルのuidが1の行を削除します。</font></p>
+      <p>　</p>
+    </td>
+  </tr>
+</table>
+<table width="100%">
+  <tr>
+    <td width="100%" bgcolor="#003E7C">
+      <p align="center"><font color="white">パターンマッチング検索</font></td>
+  </tr>
+  <tr>
+    <td width="100%">
+      <p><font>select </font><font color="white"><span style="background-color: teal">&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></font><font>&nbsp;from&nbsp;</font><font color="white"><span style="background-color: purple">&nbsp;&nbsp;&nbsp; 
+      &nbsp;</span></font><font> </font><font>where&nbsp;</font><font color="white"><span style="background-color: teal">&nbsp;&nbsp;&nbsp; 
+      </span></font><font color="black">like</font><font>&nbsp;</font><font color="white"><span style="background-color: maroon">&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span></font><font>&nbsp;;</font></p>
+      <font color="white">
+      <p><font color="white"><span style="background-color: purple">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><font color="purple">&nbsp; 
+      </font><font color="black">表示したいフィールドがあるテーブルを指定します。</p>
+      <p><font color="white"><span style="background-color: teal">&nbsp;&nbsp;&nbsp; 
+      </span></font>　フィールドを指定します。</p>
+      <p><font color="white"><span style="background-color: maroon">&nbsp;&nbsp;&nbsp;&nbsp; 
+      </span>　</font><font color="black">文字列を入力。文字列は'</font></font></font><font color="black">% 
+      %</font><font color="white"><font color="black">'で囲む必要があります。</font></p>
+      <hr>
+      <font color="white">
+      <p><font color="black">例1：select * from user_detailes where address 
+      like '%宇都宮%';</font></p>
+      <p><font color="black">　　↑user_detailes テーブルのaddressフィールドの中に'宇都宮'という文字列がある行すべてを表示します。</font></p>
+      </font>
+      <p><font color="black">例2：select * from user_detailes where name like 
+      '%木%' and uid like '%0%';</font></p>
+      <p><font color="black">　　↑user_detailes テーブルのnameフィールドの中に'木'という文字列があり、なおかつuidの中に'0'という文字列が含まれる行すべてを表示します。</font></p>
+      <p>　</p>
+      </font></td>
+  </tr>
+</table>
+<hr size="3" color="#003E7C">
+<p><font>※：　ユーザーを削除する場合はデータベース操作からではなく、ユーザーの情報修正にある[情報の抹消]から行ってください。</font></p>
+<p><font>※：　１度に複数のフィールドを指定する場合、フィールドとフィールドの間に&quot;,&quot;を入れてください。</font></p>
+<p><font>※：　１度に複数のクエリーを実行する場合、クエリーとクエリーの間に&quot;;&quot;を入れてください。</font></p>
+
+</body>
+</html>

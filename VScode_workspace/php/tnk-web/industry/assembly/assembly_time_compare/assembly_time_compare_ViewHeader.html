@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<title>組立の完成一覧header部</title>
+<script type='text/javascript' src='/base_class.js'></script>
+<link rel='stylesheet' href='/menu_form.css' type='text/css' media='screen'>
+<link rel='stylesheet' href='assembly_time_compare.css' type='text/css' media='screen'>
+<style type='text/css'>
+body {
+    background-image:none;
+}
+</style>
+<script type='text/javascript' src='assembly_time_compare.js'></script>
+</head>
+<body onLoad='AssemblyTimeCompare.highlight();'>
+<center>
+    <table width='100%' bgcolor='#d6d3ce' border='1' cellspacing='0' cellpadding='1'>
+        <tr><td> <!----------- ダミー(デザイン用) ------------>
+    <table class='winbox_field' width='100%' border='1' cellspacing='0' cellpadding='3'>
+        <tr>
+            <th class='winbox' width=' 5%'>No.</th>
+            <a href='assembly_time_compare_Main.php?targetSortItem=line' target='_parent' style='text-decoration:none;' onMouseover="status='ライン グループ 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width=' 3%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='ライン グループ 順でソートします。' id='line'>G</th>
+            </a>
+            <a href='assembly_time_compare_Main.php?targetSortItem=plan' target='_parent' style='text-decoration:none;' onMouseover="status='計画番号 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='10%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='計画番号 順でソートします。' id='plan'>計画番号</th>
+            </a>
+            <a href='assembly_time_compare_Main.php?targetSortItem=assy' target='_parent' style='text-decoration:none;' onMouseover="status='製品番号 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='12%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='製品番号 順でソートします。' id='assy'>製品番号</th>
+            </a>
+            <a href='assembly_time_compare_Main.php?targetSortItem=name' target='_parent' style='text-decoration:none;' onMouseover="status='製品名 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='19%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='製品名 順でソートします。' id='name'>製 品 名</th>
+            </a>
+            <a href='assembly_time_compare_Main.php?targetSortItem=pcs' target='_parent' style='text-decoration:none;' onMouseover="status='完成数 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width=' 7%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='完成数 順でソートします。' id='pcs'>完成</th>
+            </a>
+            <a href='assembly_time_compare_Main.php?targetSortItem=date' target='_parent' style='text-decoration:none;' onMouseover="status='完成日 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='12%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='完成日 順でソートします。' id='date'>完成日</th>
+            </a>
+            <!-- <th class='winbox' width=' 8%'>完了番</th> -->
+            <a href='assembly_time_compare_Main.php?targetSortItem=in_no' target='_parent' style='text-decoration:none;' onMouseover="status='入庫場所 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width=' 5%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='入庫場所 順でソートします。' id='in_no'>入庫</th>
+            </a>
+            <th class='winbox' width='11%'>工番</th>
+            <a href='assembly_time_compare_Main.php?targetSortItem=res' target='_parent' style='text-decoration:none;' onMouseover="status='実績工数 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width=' 8%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='実績工数 順でソートします。' id='res'>実績</th>
+            </a>
+            <a href='assembly_time_compare_Main.php?targetSortItem=reg' target='_parent' style='text-decoration:none;' onMouseover="status='登録工数 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width=' 8%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='登録工数 順でソートします。' id='reg'>登録</th>
+            </a>
+        </tr>
+    </table>
+        </td></tr>
+    </table> <!----------------- ダミーEnd ------------------>
+</center>
+</body>
+</html>

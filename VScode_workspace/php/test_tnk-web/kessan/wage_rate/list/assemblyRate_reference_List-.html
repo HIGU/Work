@@ -1,0 +1,698 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<script type='text/javascript' src='../assemblyRate_reference.js'></script>
+<link rel='stylesheet' href='../assemblyRate_reference.css' type='text/css'>
+</head>
+<body>
+<center>
+    <table x:str border=0 cellpadding=0 cellspacing=0 width=664 class=border-none style='border-collapse:collapse;table-layout:fixed;width:559pt'>
+        <col class=border-none width=16 style='mso-width-source:userset;mso-width-alt:512;width:0pt'>
+        <col class=border-none width=16 style='mso-width-source:userset;mso-width-alt:512;width:49pt'>
+        <col class=border-none width=88 style='mso-width-source:userset;mso-width-alt:2816;width:50pt'>
+        <col class=border-none width=32 style='mso-width-source:userset;mso-width-alt:1024;width:35pt'>
+        <col class=border-none width=69 style='mso-width-source:userset;mso-width-alt:2208;width:50pt'>
+        <col class=border-none width=81 style='mso-width-source:userset;mso-width-alt:2592;width:50pt'>
+        <col class=border-none width=68 style='mso-width-source:userset;mso-width-alt:2176;width:38pt'>
+        <col class=border-none width=43 style='mso-width-source:userset;mso-width-alt:1376;width:50pt'>
+        <col class=border-none width=76 style='mso-width-source:userset;mso-width-alt:2432;width:47pt'>
+        <col class=border-none width=89 style='mso-width-source:userset;mso-width-alt:2848;width:68pt'>
+        <col class=border-none width=89 style='mso-width-source:userset;mso-width-alt:2848;width:62pt'>
+        <col class=border-none width=102 style='mso-width-source:userset;mso-width-alt:3264;width:63pt'>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none width=16 style='height:15.0pt;width:12pt'></td>
+            <br>
+            <td colspan=4 class=border-none width=273><font size = 4><B>組立自動機の賃率計算</B></font></td>
+            <td colspan=7 class=border-none><B><font size = 4>202211迄実績（01 月～ 11 月）</font></B></td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td class=border-none colspan=12 align=right>円</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td colspan=2 class=border-on align=center style='border-bottom:none'>グループ名</td>
+            <td class=border-on rowspan=2 style='border-bottom:none'>　</td>
+            <td class=border-on align=right style='border-bottom:none'>千円</td>
+            <td class=border-on style='border-bottom:none'>実績　分</td>
+            <td class=border-on align=right style='border-bottom:none'>円</td>
+            <td class=pt9 colspan=2>付帯作業者経費(千円)</td>
+            <td class=machine_rate_title align=center style='border-top:1.0pt solid windowtext'><B>202211</B></td>
+            <td class=border-on align=center style='border-bottom:none'>202201</td>
+            <td class=border-on align=center style='border-bottom:none'>202211</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td colspan=2 class=border-on align=center style='border-bottom:none;border-top:none'>機械番号</td>
+            <td class=border-on align=center style='border-bottom:none;border-top:none'>直接経費</td>
+            <td class=border-on align=center style='border-bottom:none;border-top:none'>稼働時間</td>
+            <td class=border-on align=center style='border-bottom:none;border-top:none'>賃率</td>
+            <td class=pt9 colspan=2 style='border-top:none'>作業者数(社員/パート)</td>
+            <td class=machine_rate_title align=center><B>実際賃率</B></td>
+            <td class=border-on align=center style='border-bottom:none;border-top:none'>実際賃率</td>
+            <td class=border-on align=center style='border-bottom:none;border-top:none'>標準賃率</td>
+        </tr>
+    <tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+    <td rowspan=1 colspan=2 class=border-on align=center valign=middle style='border-bottom:none'>test</td>
+    <td class=border-on style='border-bottom:none'><center>賃</center></td>
+    <td class=border-on align=right style='border-bottom:none'>100</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-right:none;border-bottom:none'>　</td>
+    <td class=border-on align=right style='border-left:none;border-bottom:none'>100</td>
+    <td class=machine_rate rowspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-none><center>減</center></td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+<td class=border-none><center>修</center></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+<td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-on style='border-top:.5pt dotted windowtext;border-bottom:none'><center>計</center></td>
+    <td class=border-on align=right style='border-top:.5pt dotted windowtext;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>10</td>
+    <td class=border-none>10人 /</td>
+    <td class=border-none>10人</td>
+<td class=machine_rate align=right><B>---</B></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+    <td rowspan=1 colspan=2 class=border-on align=center valign=middle style='border-bottom:none'>test</td>
+    <td class=border-on style='border-bottom:none'><center>賃</center></td>
+    <td class=border-on align=right style='border-bottom:none'>100</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-right:none;border-bottom:none'>　</td>
+    <td class=border-on align=right style='border-left:none;border-bottom:none'>100</td>
+    <td class=machine_rate rowspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-none><center>減</center></td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+<td class=border-none><center>修</center></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+<td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-on style='border-top:.5pt dotted windowtext;border-bottom:none'><center>計</center></td>
+    <td class=border-on align=right style='border-top:.5pt dotted windowtext;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>10</td>
+    <td class=border-none>10人 /</td>
+    <td class=border-none>10人</td>
+<td class=machine_rate align=right><B>---</B></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+    <td rowspan=1 colspan=2 class=border-on align=center valign=middle style='border-bottom:none'>test</td>
+    <td class=border-on style='border-bottom:none'><center>賃</center></td>
+    <td class=border-on align=right style='border-bottom:none'>100</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-right:none;border-bottom:none'>　</td>
+    <td class=border-on align=right style='border-left:none;border-bottom:none'>100</td>
+    <td class=machine_rate rowspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-none><center>減</center></td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+<td class=border-none><center>修</center></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+<td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-on style='border-top:.5pt dotted windowtext;border-bottom:none'><center>計</center></td>
+    <td class=border-on align=right style='border-top:.5pt dotted windowtext;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>10</td>
+    <td class=border-none>10人 /</td>
+    <td class=border-none>10人</td>
+<td class=machine_rate align=right><B>---</B></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+    <td rowspan=1 colspan=2 class=border-on align=center valign=middle style='border-bottom:none'>test</td>
+    <td class=border-on style='border-bottom:none'><center>賃</center></td>
+    <td class=border-on align=right style='border-bottom:none'>100</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-right:none;border-bottom:none'>　</td>
+    <td class=border-on align=right style='border-left:none;border-bottom:none'>100</td>
+    <td class=machine_rate rowspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-none><center>減</center></td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+<td class=border-none><center>修</center></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+<td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-on style='border-top:.5pt dotted windowtext;border-bottom:none'><center>計</center></td>
+    <td class=border-on align=right style='border-top:.5pt dotted windowtext;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>10</td>
+    <td class=border-none>10人 /</td>
+    <td class=border-none>10人</td>
+<td class=machine_rate align=right><B>---</B></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+    <td rowspan=1 colspan=2 class=border-on align=center valign=middle style='border-bottom:none'>test</td>
+    <td class=border-on style='border-bottom:none'><center>賃</center></td>
+    <td class=border-on align=right style='border-bottom:none'>100</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-right:none;border-bottom:none'>　</td>
+    <td class=border-on align=right style='border-left:none;border-bottom:none'>100</td>
+    <td class=machine_rate rowspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-none><center>減</center></td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+<td class=border-none><center>修</center></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+<td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-on style='border-top:.5pt dotted windowtext;border-bottom:none'><center>計</center></td>
+    <td class=border-on align=right style='border-top:.5pt dotted windowtext;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>10</td>
+    <td class=border-none>10人 /</td>
+    <td class=border-none>10人</td>
+<td class=machine_rate align=right><B>---</B></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+    <td rowspan=1 colspan=2 class=border-on align=center valign=middle style='border-bottom:none'>test</td>
+    <td class=border-on style='border-bottom:none'><center>賃</center></td>
+    <td class=border-on align=right style='border-bottom:none'>100</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-right:none;border-bottom:none'>　</td>
+    <td class=border-on align=right style='border-left:none;border-bottom:none'>100</td>
+    <td class=machine_rate rowspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-none><center>減</center></td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+<td class=border-none><center>修</center></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+<td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-on style='border-top:.5pt dotted windowtext;border-bottom:none'><center>計</center></td>
+    <td class=border-on align=right style='border-top:.5pt dotted windowtext;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>10</td>
+    <td class=border-none>10人 /</td>
+    <td class=border-none>10人</td>
+<td class=machine_rate align=right><B>---</B></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+    <td rowspan=1 colspan=2 class=border-on align=center valign=middle style='border-bottom:none'>test</td>
+    <td class=border-on style='border-bottom:none'><center>賃</center></td>
+    <td class=border-on align=right style='border-bottom:none'>100</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-right:none;border-bottom:none'>　</td>
+    <td class=border-on align=right style='border-left:none;border-bottom:none'>100</td>
+    <td class=machine_rate rowspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-none><center>減</center></td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+<td class=border-none><center>修</center></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+<td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-on style='border-top:.5pt dotted windowtext;border-bottom:none'><center>計</center></td>
+    <td class=border-on align=right style='border-top:.5pt dotted windowtext;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>10</td>
+    <td class=border-none>10人 /</td>
+    <td class=border-none>10人</td>
+<td class=machine_rate align=right><B>---</B></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+    <td rowspan=1 colspan=2 class=border-on align=center valign=middle style='border-bottom:none'>test</td>
+    <td class=border-on style='border-bottom:none'><center>賃</center></td>
+    <td class=border-on align=right style='border-bottom:none'>100</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-right:none;border-bottom:none'>　</td>
+    <td class=border-on align=right style='border-left:none;border-bottom:none'>100</td>
+    <td class=machine_rate rowspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-none><center>減</center></td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+<td class=border-none><center>修</center></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+<td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-on style='border-top:.5pt dotted windowtext;border-bottom:none'><center>計</center></td>
+    <td class=border-on align=right style='border-top:.5pt dotted windowtext;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>10</td>
+    <td class=border-none>10人 /</td>
+    <td class=border-none>10人</td>
+<td class=machine_rate align=right><B>---</B></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+    <td rowspan=1 colspan=2 class=border-on align=center valign=middle style='border-bottom:none'>test</td>
+    <td class=border-on style='border-bottom:none'><center>賃</center></td>
+    <td class=border-on align=right style='border-bottom:none'>100</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-right:none;border-bottom:none'>　</td>
+    <td class=border-on align=right style='border-left:none;border-bottom:none'>100</td>
+    <td class=machine_rate rowspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-none><center>減</center></td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+<td class=border-none><center>修</center></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+<td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-on style='border-top:.5pt dotted windowtext;border-bottom:none'><center>計</center></td>
+    <td class=border-on align=right style='border-top:.5pt dotted windowtext;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>10</td>
+    <td class=border-none>10人 /</td>
+    <td class=border-none>10人</td>
+<td class=machine_rate align=right><B>---</B></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+    <td rowspan=1 colspan=2 class=border-on align=center valign=middle style='border-bottom:none'>test</td>
+    <td class=border-on style='border-bottom:none'><center>賃</center></td>
+    <td class=border-on align=right style='border-bottom:none'>100</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-right:none;border-bottom:none'>　</td>
+    <td class=border-on align=right style='border-left:none;border-bottom:none'>100</td>
+    <td class=machine_rate rowspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+    <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-none><center>減</center></td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+<td class=border-none><center>修</center></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+<td class=border-none style='border-right:1.0pt solid windowtext'></td>
+</tr>
+<tr height=20 style='mso-height-source:userset;height:15.0pt'>
+    <td height=20 class=border-none style='height:15.0pt'></td>
+<td colspan=2 class=border-on align=center style='border-top:none;border-bottom:none'>1</td>
+    <td class=border-on style='border-top:.5pt dotted windowtext;border-bottom:none'><center>計</center></td>
+    <td class=border-on align=right style='border-top:.5pt dotted windowtext;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+    <td class=border-on align=right style='border-top:none;border-bottom:none'>10</td>
+    <td class=border-none>10人 /</td>
+    <td class=border-none>10人</td>
+<td class=machine_rate align=right><B>---</B></td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+<td class=border-on align=right style='border-top:none;border-bottom:none'>---</td>
+</tr>
+</tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td rowspan=4 colspan=2 class=border-on align=center valign=middle>合計</td>
+            <td class=border-on style='border-bottom:none'><center>賃</center></td>
+            <td class=border-on align=right style='border-bottom:none'>100</td>
+            <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+            <td class=border-on rowspan=3 style='border-bottom:none'>　</td>
+            <td class=border-on rowspan=4 style='border-right:none'>　</td>
+            <td class=man_expense align=right style='border-left:none;border-top:1.0pt solid windowtext;border-right:1.0pt solid windowtext'>100</td>
+            <td class=border-on rowspan=4 colspan=3>　</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none><center>減</center></td>
+            <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+            <td class=border-none rowspan=2 style='border-right:1.0pt solid windowtext'>　</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none><center>修</center></td>
+            <td class=border-on align=right style='border-top:none;border-bottom:none'>100</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-on align=center style='border-top:.5pt dotted windowtext'>計</td>
+            <td class=direct_expense align=right align=right style='border-top:.5pt dotted black;border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext'>100</td>
+            <td class=border-on align=right style='border-top:none'>100</td>
+            <td class=border-on align=right style='border-top:none'>10</td>
+            <td class=border-on style='border-top:none;border-left:none'>　</td>
+        </tr>
+        <tr class='pagebreak'></tr>
+        <tr height=30 style='height:20.0pt'>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none width=16 style='height:15.0pt;width:12pt'></td>
+            <td colspan=4 class=border-none width=273><font size = 4><B>組立手作業の賃率計算</B></font></td>
+            <td colspan=7 class=border-none><B><font size = 4>202211迄実績（01 月～ 11 月）</font></B></td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=machine_rate_title style='border-left:none'>全体</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>Ｃ組立経費(千円)</td>
+            <td class=border-none align=right>100</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>Ｌ組立経費</td>
+            <td class=border-none align=right>100</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>横川応援経費加算</td>
+            <td class=assist align=right>100</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3 align=right style='border-top:1.0pt solid windowtext'>計</td>
+            <td class=border-none align=right>100</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>自動組立機直接経費減額</td>
+            <td class=direct_expense align=right>10</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>自動組立機作業経費減額</td>
+            <td class=man_expense align=right>10</td>
+            <td></td>
+            <td></td>
+            <td colspan=3 class=labor_rate_title align=center><B>202211実際賃率</B></td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none align=right colspan=3 style='border-top:1.0pt solid windowtext'>合計</td>
+            <td class=border-none align=right style='border-top:1.0pt solid windowtext'>112</td>
+            <td class=border-none align=center>÷</td>
+            <td class=border-none>Ａ＝</td>
+            <td class=labor_rate align=right>10</td>
+            <td class=border-none>円／分</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>組立作業時間計</td>
+            <td class=assemble align=right>100</td>
+            <td class=border-none>Ａ</td>
+            <td></td>
+            <td colspan=3 class=border-on align=center>202211実際賃率</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 style='height:15.0pt'></td>
+            <td align=right colspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+            <td align=right style='border-top:1.0pt solid windowtext'>　</td>
+            <td>　</td>
+            <td></td>
+        <td class=border-on align=right>---</td>
+            <td class=border-on style='border-right:none;border-bottom:none'>円／分</td>
+        </tr>
+        <tr height=20 style='height:15.0pt'>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+           <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=machine_rate_title style='border-left:none'>カプラ</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>Ｃ組立経費(千円)</td>
+            <td class=border-none align=right>100</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=2>Ｌ組立経費</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>横川応援経費加算</td>
+            <td class=assist align=right>100</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none align=right colspan=3 style='border-top:1.0pt solid windowtext'>計</td>
+            <td class=border-none align=right>100</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>自動組立機直接経費減額</td>
+            <td class=direct_expense align=right>10</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>自動組立機作業経費減額</td>
+            <td class=man_expense align=right>10</td>
+            <td></td>
+            <td></td>
+            <td colspan=3 class=labor_rate_title align=center><B>202211実際賃率</B></td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none align=right colspan=3 style='border-top:1.0pt solid windowtext'>合計</td>
+            <td class=border-none align=right style='border-top:1.0pt solid windowtext'>100</td>
+            <td class=border-none align=center>÷</td>
+            <td class=border-none>Ｂ＝</td>
+            <td class=labor_rate align=right>10</td>
+            <td class=border-none>円／分</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>組立作業時間計</td>
+            <td class=assemble align=right>100</td>
+            <td class=border-none>Ｂ</td>
+            <td></td>
+            <td colspan=3 class=border-on align=center>202211実際賃率</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 style='height:15.0pt'></td>
+            <td colspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+            <td align=right style='border-top:1.0pt solid windowtext'>　</td>
+            <td>　</td>
+            <td></td>
+        <td class=border-on align=right>---</td>
+            <td class=border-on style='border-right:none;border-bottom:none'>円／分</td>
+        </tr>
+        <tr height=20 style='height:15.0pt'>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=machine_rate_title style='border-left:none'>リニア</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>Ｃ組立経費(千円)</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>Ｌ組立経費</td>
+            <td class=border-none align=right>100</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>横川応援経費加算</td>
+            <td class=assist align=right>100</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none align=right colspan=3 style='border-top:1.0pt solid windowtext'>計</td>
+            <td class=border-none align=right>100</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>自動組立機直接経費減額</td>
+            <td class=direct_expense align=right>10</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>自動組立機作業経費減額</td>
+            <td class=man_expense align=right>10</td>
+            <td></td>
+            <td></td>
+            <td colspan=3 class=labor_rate_title align=center><B>202211実際賃率</B></td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none align=right colspan=3 style='border-top:1.0pt solid windowtext'>合計</td>
+            <td class=border-none align=right style='border-top:1.0pt solid windowtext'>100</td>
+            <td class=border-none align=center>÷</td>
+            <td class=border-none>Ｃ＝</td>
+            <td class=labor_rate align=right>10</td>
+            <td class=border-none>円／分</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td class=border-none colspan=3>組立作業時間計</td>
+            <td class=assemble align=right>100</td>
+            <td class=border-none>Ｃ</td>
+            <td></td>
+            <td colspan=3 class=border-on align=center>202211実際賃率</td>
+        </tr>
+        <tr height=20 style='mso-height-source:userset;height:15.0pt'>
+            <td height=20 class=border-none style='height:15.0pt'></td>
+            <td colspan=3 style='border-top:1.0pt solid windowtext'>　</td>
+            <td align=right style='border-top:1.0pt solid windowtext'>　</td>
+            <td>　</td>
+            <td></td>
+        <td class=border-on align=right>---</td>
+            <td class=border-on style='border-right:none;border-bottom:none'>円／分</td>
+        </tr>
+    </table>
+</center>
+</body>
+</html>

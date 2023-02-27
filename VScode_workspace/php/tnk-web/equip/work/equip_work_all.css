@@ -1,0 +1,108 @@
+/****************************************************************************/
+/* 設備稼動管理システムの 現在運転一覧 表示         MVC View 部 (CSS file)  */
+/* Copyright (C) 2007      Kazuhiro.Kobayashi tnksys@nitto-kohki.co.jp      */
+/* Changed history                                                          */
+/* 2007/05/24 Created  equip_work_all.css                                   */
+/****************************************************************************/
+
+input.bg {
+    /* background-image: url(/img/border_silver_button.gif); */
+    background-image: url(/img/border_silver_retButton.gif);
+    background-repeat: repeat;
+}
+.pt8 {
+    font-size:   0.6em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt9 {
+    font-size:   0.7em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10 {
+    font-size:   0.8em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10b {
+    font-size:   0.8em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt11b {
+    font-size:   0.9em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt12b {
+    font-size:   1.0em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt13b {
+    font-size:   1.1em;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+.pt14b {
+    font-size:   1.2em;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+select {
+    background-color:   teal;
+    color:              white;
+}
+.sub_font {
+    font-size:          0.95em;
+    font-weight:        bold;
+    font-family:        monospace;
+}
+.pick_font {
+    font-size:          0.75em;
+    font-weight:        bold;
+    font-family:        monospace;
+}
+table {
+    font-size:          1.0em;
+    font-weight:        bold;
+    /* font-family:        monospace; */
+}
+th {
+    font-size:          0.95em;
+    font-weight:        bold;
+    font-family:        monospace;
+    color:              blue;
+    background-color:   yellow;
+}
+.item {
+    position:           absolute;
+    top:                90px;
+    left:               0px;
+}
+.msg {
+    position:           absolute;
+    top:                100px;
+    left:               350px;
+}
+body {
+    /* ここにbodyを指定すれば HTMLタグは必要ない */
+    background-image:       url(/img/t_nitto_logo4.png);
+    background-repeat:      no-repeat;
+    background-attachment:  fixed;
+    background-position:    right bottom;
+}
+a {
+    color:                  blue;
+    text-decoration:        none;
+}
+a:hover {
+    background-color:       blue;
+    color:                  white;
+}
+.list tr.mouseOver
+{
+    background-color:       #ceffce;
+}
+

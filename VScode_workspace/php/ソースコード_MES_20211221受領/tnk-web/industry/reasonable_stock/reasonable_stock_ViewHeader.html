@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=EUC-JP'>
+<meta http-equiv='Content-Style-Type' content='text/css'>
+<meta http-equiv='Content-Script-Type' content='text/javascript'>
+<title>適正在庫数header部</title>
+<script type='text/javascript' src='/base_class.js'></script>
+<link rel='stylesheet' href='/menu_form.css' type='text/css' media='screen'>
+<link rel='stylesheet' href='reasonable_stock.css' type='text/css' media='screen'>
+<style type='text/css'>
+body {
+    background-image:none;
+}
+</style>
+<script type='text/javascript' src='reasonable_stock.js'></script>
+</head>
+<body onLoad='ReasonableStock.highlight();'>
+<center>
+    <table width='100%' bgcolor='#d6d3ce' border='1' cellspacing='0' cellpadding='1'>
+        <tr><td> <!----------- ダミー(デザイン用) ------------>
+    <table class='winbox_field' width='100%' border='1' cellspacing='0' cellpadding='3'>
+        <tr>
+                <th class='winbox' width=' 5%'>No.</th>
+            <a href='reasonable_stock_Main.php?targetSortItem=tana' target='_parent' style='text-decoration:none;' onMouseover="status='棚番 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width=' 6%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='棚番 順でソートします。' id='tana'>棚番</th>
+            </a>
+            <a href='reasonable_stock_Main.php?targetSortItem=parts' target='_parent' style='text-decoration:none;' onMouseover="status='部品番号 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='12%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='部品番号 順でソートします。' id='parts'>部品番号</th>
+            </a>
+            <a href='reasonable_stock_Main.php?targetSortItem=name' target='_parent' style='text-decoration:none;' onMouseover="status='部品名 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='27%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='部品名 順でソートします。' id='name'>部 品 名</th>
+            </a>
+            <a href='reasonable_stock_Main.php?targetSortItem=date' target='_parent' style='text-decoration:none;' onMouseover="status='入庫日 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='12%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='入庫日 順でソートします。' id='date'>入庫日</th>
+            </a>
+            <a href='reasonable_stock_Main.php?targetSortItem=in_pcs' target='_parent' style='text-decoration:none;' onMouseover="status='入庫数 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width=' 9%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='入庫数 順でソートします。' id='in_pcs'>入庫数</th>
+            </a>
+            <a href='reasonable_stock_Main.php?targetSortItem=stock' target='_parent' style='text-decoration:none;' onMouseover="status='在庫数 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width=' 9%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='在庫数 順でソートします。' id='stock'>現在庫</th>
+            </a>
+            <a href='reasonable_stock_Main.php?targetSortItem=tanka' target='_parent' style='text-decoration:none;' onMouseover="status='最新単価 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='10%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='最新単価 順でソートします。' id='tanka'>最新単価</th>
+            </a>
+            <a href='reasonable_stock_Main.php?targetSortItem=price' target='_parent' style='text-decoration:none;' onMouseover="status='最新単価 順でソートします。'; return true;" onMouseout="status='';">
+                <th class='winbox' width='10%' onMouseover="document.body.style.cursor='hand';" onMouseout="document.body.style.cursor='auto';" title='最新単価 順でソートします。' id='price'>金　額</th>
+            </a>
+        </tr>
+    </table>
+        </td></tr>
+    </table> <!----------------- ダミーEnd ------------------>
+</center>
+</body>
+</html>

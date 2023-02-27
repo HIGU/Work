@@ -1,0 +1,111 @@
+/****************************************************************************/
+/* 会社の基本カレンダー用クラスデザイン              MVC View 部 (CSS file) */
+/* Copyright (C) 2006-2006 Kazuhiro.Kobayashi tnksys@nitto-kohki.co.jp      */
+/* Changed history                                                          */
+/* 2006/06/21 Created  calendar.css                                         */
+/* 2006/06/27 CalendarTnkClass Ver1.10 に対応 日毎のスタイル詳細設定を追加  */
+/* 2006/07/10 class onMouseOver を追加しHTMLソースから完全にstyle指定を削除 */
+/*            この calendar.css は Ver1.14 対応版                           */
+/****************************************************************************/
+
+@charset "UTF-8"; 
+
+/* カレンダークラスのトップ指定 以下 全て継承を前提 */
+.calendar {
+    border:             1px solid #cccccc; 
+    border-collapse:    collapse; 
+    font-size:          0.9em;
+}
+
+/* カレンダーのテーブルデザイン */
+.calendar th {
+    height:             1.6em;
+    text-align:         center;
+}
+.calendar tr {
+    text-align:         right;
+    vertical-align:     center;
+}
+.calendar td {
+    width:              1.8em;
+    height:             1.7em;      /* フォントサイズに影響される */
+    border:             1px solid #cccccc; 
+    padding:            0.3em;
+}
+/* カレンダーのテーブルフッターのデザイン 現在は使用していない */
+.calendar .tf {
+    width:              12.6em;
+    border:             1px solid #cccccc; 
+    padding:            0.3em; 
+    text-align:         center;
+}
+/* カレンダーのアンカーリンク指定 現在は使用していない */
+.calendar a {
+    color:              blue;
+    text-decoration:    none;
+}
+.calendar a:hover {
+    background-color:   blue;
+    color:              white;
+}
+.calendar a:active {
+    background-color:   white;
+    color:              red;
+}
+/* 当月のカレンダータイトルの背景色 */
+.calendar .currentTitle {
+    background-color:   #ffffcc;
+    color:              blue;
+    background-image:   url(/img/border_silver_retButton.gif);
+    background-repeat:  repeat;
+}
+/* 当月以外のカレンダータイトルの背景色 */
+.calendar .title {
+    background-color:   #d6d3ce;
+    background-image:   url(/img/border_silver_retButton.gif);
+    background-repeat:  repeat;
+}
+/* 曜日の項目欄 全曜日 共通 */
+.calendar .weekClass {
+    text-align:         center;
+}
+/* 曜日・休日・平日等に対する背景色やフォントの設定 */
+/* 0=平日, 1=土日の曜日名欄, 2=休日, 3=当月以外の日, 4=当日, 5=指定日(クリックした日), 6=休日と4/5が重複した日 */
+/* $this->bgcolor = array("class='class0'", "class='class1'", "class='class2'", "class='class3'", "class='class4'", "class='class5'", "class='class6'"); */
+.calendar .class0 {
+    background-color:   #eeeeee;
+    font-weight:        bold;
+}
+.calendar .class1 {
+    background-color:   #ccffff;
+}
+.calendar .class2 {
+    background-color:   #ffcccc;
+    font-weight:        normal;
+    /* color:white; */
+}
+.calendar .class3 {
+    /* background-color:   #ffffff; 白指定から透明へ */
+    background-color:   transparent;
+}
+.calendar .class4 {
+    background-color:   #ffffcc;
+    color:              blue;
+    font-weight:        bold;
+}
+.calendar .class5 {
+    background-color:   #ceffce; /* エメラルドグリーン */
+    color:              blue;
+    font-weight:        bold;
+}
+.calendar .class6 {
+    background-color:   #ffcccc;
+    font-weight:        bold;
+    color:              blue;
+}
+/* onMouseOver時の設定 */
+.calendar .classOnMouseOver {
+    background-color:   blue;
+    color:              white;
+    font-weight:        bold;
+}

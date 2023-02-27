@@ -1,0 +1,243 @@
+/****************************************************************************/
+/* 総材料費の登録                                     MVC View 部 (CSS file)*/
+/* Copyright (C) 2007      Kazuhiro.Kobayashi tnksys@nitto-kohki.co.jp      */
+/* Changed history                                                          */
+/* 2007/06/21 Created   materialCost_entry.css                              */
+/****************************************************************************/
+
+input.bg {
+    /* background-image: url(/img/border_silver_button.gif); */
+    background-image: url(/img/border_silver_retButton.gif);
+    background-repeat: repeat;
+}
+.pt8 {
+    font-size:   0.6em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt9 {
+    font-size:   0.7em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10 {
+    font-size:   0.8em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt10b {
+    font-size:   0.8em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt11 {
+    font-size:   0.9em;
+    font-weight: normal;
+    font-family: monospace;
+}
+.pt11b {
+    font-size:   0.9em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt12 {
+    font-size:   1.0em;
+    font-family: monospace;
+}
+.pt12b {
+    font-size:   1.0em;
+    font-weight: bold;
+    font-family: monospace;
+}
+.pt13b {
+    font-size:   1.1em;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+.pt14b {
+    font-size:   1.2em;
+    font-weight: bold;
+    /* font-family: monospace; */
+}
+.factorFont {
+    font-size:      0.75em;
+    font-weight:    normal;
+    font-family:    none;
+    color:          red;
+}
+th {
+    font-size:          1.0em;
+    font-weight:        bold;
+    /*
+    color:              white;
+    background-color:   teal;
+    */
+    color:              black;
+    background-color:   #ceffce;
+}
+td {
+    font-size:          1.0em;
+    font-weight:        bold;
+}
+caption {
+    font-size:          1.0em;
+    font-weight:        bold;
+}
+.caption_color {
+    font-family:        monospace;
+    /*
+    color:              white;
+    background-color:   blue;
+    color:              black;
+    background-color:   #ffffc6;
+    */
+    color:              black;
+    background-color:   #ceffce;
+}
+input {
+    font-size:          0.9em;
+    font-weight:        bold;
+}
+input.addButton
+{
+    background-color:   #ceffce;
+    border-color:       #ceffce;
+    font-family:        ＭＳ Ｐゴシック;
+    font-size:          1.0em;
+    font-weight:        bold;
+    color:              blue;
+    padding:            0px;
+    width:              60px;
+}
+input.delButton 
+{
+    background-color:   #9CBACE;
+    border-color:       #9CBACE;
+    font-family:        ＭＳ Ｐゴシック;
+    font-size:          1.0em;
+    font-weight:        bold;
+    color:              red;
+    padding:            0px;
+    width:              54px;
+    height:             23px;
+}
+input.editButton 
+{
+    background-color:   #9CBACE;
+    border-color:       #9CBACE;
+    font-family:        ＭＳ Ｐゴシック;
+    font-size:          1.0em;
+    font-weight:        bold;
+    color:              blue;
+    padding:            0px;
+    width:              54px;
+    height:             23px;
+}
+input.updateButton 
+{
+    background-color:   #9CBACE;
+    border-color:       #9CBACE;
+    font-family:        ＭＳ Ｐゴシック;
+    font-size:          1.0em;
+    font-weight:        bold;
+    color:              yellow;
+    padding:            0px;
+    width:              54px;
+    height:             23px;
+}
+input.cancelButton 
+{
+    background-color:   #9CBACE;
+    border-color:       #9CBACE;
+    font-family:        ＭＳ Ｐゴシック;
+    font-size:          1.0em;
+    font-weight:        bold;
+    color:              blue;
+    padding:            0px;
+    width:              44px;
+    height:             23px;
+}
+.list tr.mouseOver input.delButton
+{
+    font-family:        ＭＳ Ｐゴシック;
+    font-size:          1.0em;
+    font-weight:        bold;
+    color:              yellow;
+    padding:            0px;
+    width:              60px;
+    height:             23px;
+}
+.list tr.mouseOver input.editButton
+{
+    font-family:        ＭＳ Ｐゴシック;
+    font-size:          1.0em;
+    font-weight:        bold;
+    color:              yellow;
+    padding:            0px;
+    width:              60px;
+    height:             23px;
+}
+.list tr.mouseOver input.updateButton
+{
+    font-family:        ＭＳ Ｐゴシック;
+    font-size:          1.0em;
+    font-weight:        bold;
+    color:              yellow;
+    padding:            0px;
+    width:              60px;
+    height:             23px;
+}
+select {
+    background-color:   lightblue;
+    color:              black;
+    font-size:          0.9em;
+    font-weight:        bold;
+}
+.TimeEdit select {
+    background-color:   lightblue;
+    color:              black;
+    font-size:          1.2em;
+    font-weight:        bold;
+}
+.center {
+    text-align:         center;
+}
+.right {
+    text-align:         right;
+}
+.left {
+    text-align:         left;
+}
+.fc_yellow {
+    color:              yellow;
+    background-color:   blue;
+}
+.fc_red {
+    color:              red;
+    background-color:   blue;
+}
+.s_radio {
+    color:              white;
+    background-color:   blue;
+    font-size:          0.9em;
+    font-weight:        bold;
+}
+.n_radio {
+    font-size:          0.9em;
+}
+body {
+    /* ここにbodyを指定すれば HTMLタグは必要ない */
+    background-image:       url(/img/t_nitto_logo4.png);
+    background-repeat:      no-repeat;
+    background-attachment:  fixed;
+    background-position:    right bottom;
+}
+a {
+    color:                  blue;
+    text-decoration:        none;
+}
+a:hover {
+    background-color:       blue;
+    color:                  white;
+}
+

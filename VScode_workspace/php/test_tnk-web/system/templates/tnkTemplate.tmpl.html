@@ -1,0 +1,168 @@
+<patTemplate:tmpl name="page">
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>{PAGE_TITLE}</TITLE>
+{PAGE_MENU_SITE_URL}
+
+<!--    ファイル指定の場合
+<script language='JavaScript' src='template.js?{PAGE_UNIQUE}'>
+</script>
+-->
+
+<script language="JavaScript">
+<!--
+/* 入力文字が数字かどうかチェック */
+function isDigit(str) {
+    var len=str.length;
+    var c;
+    for (i=1; i<len; i++) {
+        c = str.charAt(i);
+        if ((c < "0") || (c > "9")) {
+            return true;
+        }
+    }
+    return false;
+}
+/* 初期入力フォームのエレメントにフォーカスさせる */
+function set_focus(){
+//    document.form_name.element_name.focus();      // 初期入力フォームがある場合はコメントを外す
+//    document.form_name.element_name.select();
+}
+// -->
+</script>
+
+<!-- スタイルシートのファイル指定をコメント HTMLタグ コメントは入れ子に出来ない事に注意
+<link rel='stylesheet' href='template.css?{PAGE_UNIQUE}' type='text/css' media='screen'>
+-->
+
+<style type="text/css">
+<!--
+.pt8 {
+    font:normal 8pt;
+    font-family: monospace;
+}
+.pt10 {
+    font:normal 10pt;
+    font-family: monospace;
+}
+.pt10b {
+    font:bold 10pt;
+    font-family: monospace;
+}
+.pt11b {
+    font:bold 11pt;
+}
+.pt12b {
+    font:bold 12pt;
+    font-family: monospace;
+}
+.title_font {
+    font:bold 13.5pt;
+    font-family: monospace;
+}
+.today_font {
+    font-size: 10.5pt;
+    font-family: monospace;
+}
+.corporate_name {
+    font:bold 10pt;
+    font-family: monospace;
+}
+.margin0 {
+    margin:0%;
+}
+th {
+    background-color:#ffffc6;
+    color:blue;
+    font:bold 11pt;
+    font-family: monospace;
+}
+-->
+</style>
+</HEAD>
+<BODY class='margin0' onLoad='set_focus()'>
+    <center>
+        <!----------------- ここは タイトルを表示する ------------------->
+        <table width='100%' bgcolor='#d6d3ce'  cellspacing='0' cellpadding='1' border='1'>
+            <tr><td> <!----------- ダミー(デザイン用) ------------>
+        <table width='100%' bordercolordark='white' bordercolorlight='#bdaa90' bgcolor='#d6d3ce' cellspacing='0' cellpadding='1' border='1'>
+            <tr>
+                <form name='return_form' method='post' action='{PAGE_RETURN_URL}'>
+                    <td width='60' bgcolor='blue' align='center' valign='center'>
+                        <input class='pt12b' type='submit' name='return' value='戻る'>
+                    </td>
+                </form>
+                <td class='title_font' colspan='1' bgcolor='#d6d3ce' align='center'>
+                    {PAGE_HEADER_TITLE}
+                </td>
+                <td class='today_font' colspan='1' bgcolor='#d6d3ce' align='center' width='140'>
+                    {PAGE_HEADER_TODAY}
+                </td>
+            </tr>
+        </table>
+            </td></tr>
+        </table> <!----------------- ダミーEnd ------------------>
+        
+        <!----------------- ここは 前頁 次頁 のフォーム ---------------->
+        <table width='100%' cellspacing="0" cellpadding="0" border='0'>
+            <form name='page_form' method='post' action='{PAGE_CURRENT_URL}'>
+                <tr>
+                    <td align='left'>
+                        <table align='left' border='2' cellspacing='0' cellpadding='0'>
+                            <td align='left'>
+                                <input class='pt10b' type='submit' name='backward' value='前頁'>
+                            </td>
+                        </table>
+                    </td>
+                    <td align='center' class='pt11b'>
+                        {PAGE_BODY_TITLE}
+                    </td>
+                    <td align='right'>
+                        <table align='right' border='2' cellspacing='0' cellpadding='0'>
+                            <td align='right'>
+                                <input class='pt10b' type='submit' name='forward' value='次頁'>
+                            </td>
+                        </table>
+                    </td>
+                </tr>
+            </form>
+        </table>
+        
+        <!--------------- ここから本文の表を表示する -------------------->
+        <table width='100%' bgcolor='#d6d3ce' align='center' cellspacing="0" cellpadding="3" border='1'>
+            <tr><td> <!----------- ダミー(デザイン用) ------------>
+        <table width='100%' bordercolordark='white' bordercolorlight='#bdaa90' bgcolor='#d6d3ce' align='center' cellspacing="0" cellpadding="3" border='1'>
+            <THEAD>
+                <!-- テーブル ヘッダーの表示 -->
+                <tr>
+                    <th width='10'>No.</th>        <!-- 行ナンバーの表示 -->
+                    <patTemplate:tmpl name="item">     <!-- フィールド数分繰返し -->
+                    <th>{ITEM_FIELD}</th>
+                    </patTemplate:tmpl>
+                </tr>
+            </THEAD>
+            <TFOOT>
+                <!-- 現在はフッターは何もない -->
+            </TFOOT>
+            <TBODY>
+                <patTemplate:tmpl name="tbody_rows">
+                <tr>
+                    <td class='pt10b' align='right'>{TBODY_DSP_NUM}</td>    <!-- 行ナンバーの表示 -->
+                    
+                        <!--  bgcolor='#ffffc6' 薄い黄色 --> 
+                    <td align='center' class='pt10b'>{TBODY_FIELD0}</td>
+                    <td align='left'   class='pt10b'>{TBODY_FIELD1}</td>
+                        <!-- サンプル<td rowspan='2' colspan='3' width='200' align='center' class='pt10b' bgcolor='#ffffc6'>　</td> -->
+                </tr>
+                </patTemplate:tmpl>
+            </TBODY>
+        </table>
+            </td></tr>
+        </table> <!----------------- ダミーEnd ------------------>
+    </center>
+</BODY>
+</HTML>
+</patTemplate:tmpl>

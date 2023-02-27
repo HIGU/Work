@@ -1,0 +1,221 @@
+FAQ（よくある質問と回答）
+メインページ ≫≫ 本家FAQ
+
+目次 
+ FPDFのライセンスは？使用制限等は？ 
+ PDFを生成するときよく変なのが画面に出るけど、何？ 
+ 生成したPDFを IEで見ると空白ページになっちゃうんだけど、なんで？ 
+ postメソッドを使ってパラメタを送ったら PDF に値がでないんだけど 
+ PHPセッションを使うと、IEがPDFを表示しないでダウンロードするように要求してくるんだけど 
+ SSLで接続してるとき IE で PDFファイルを開けないんだけど 
+ スクリプトを実行するとこんなメッセージが出てくるんだけど＞"FPDF error: Don't alter the locale before including class file" 
+ PNGを置こうとしたらAcrobatがこんな文句を言うんだけど＞ "There was an error processing a page. A drawing error occurred" 
+ 画像を置こうとしたらAcrobatがこんな文句を言うんだけど＞ "There was an error processing a page. Wrong operand type" 
+ 画像を実寸でPDFに貼りたいんだけど pixel を mm に変換できる？ 
+ PDFを生成させようとしたらこんなエラーが出るんだけど＞Warning: Cannot add header information - headers already sent by (output started at script.php:X) 
+  Headerメソッドの中で変数を表示させようとしたら何も表示されないんだけど 
+ 私が作ったPDFクラスはHeaderメソッドとFooterメソッドを再定義してあるのに、何も出てこないんだけど 
+ 改行ができません。MultiCellで表示する文字列の中に\nを置いてるんだけど.. 
+ ユーロ記号をおいたけどダメでした 
+ 正確な寸法で枠を描いたのに印刷すると寸法がずれるんです 
+ ページの全面を使いたいんだけど、印刷すると必ず周囲にマージンがあります。どうやったらマージンをなくせますか？ 
+ FPDFで生成できるPDFファイルのサイズ制限は？ 
+ FPDFで 既存PDFファイルを編集できる？ 
+ PHPとインデックスPDFファイルでサーチエンジンを作りたいんだけど、FPDFでできる？ 
+ FPDF で HTMLページを PDFに変換できるの？ 
+ 既存のPDFファイルを FPDF で連結できる？ 
+ PDFの保護機能はどうやったら使えますか？文書からテキストをコピーされたり修正されたくないんです 
+ 
+
+
+FPDFのライセンスは？使用制限等は？ 
+FPDF はフリーウェアです（FPDF はソースを最初から書き起こしたものです）。 
+使用上の制限は何もありません。
+
+あなたは、自分のアプリケーションにこれを自由に組み込んで構いません。
+商用でも非商用でも構いませんし、編集してもそのままの形でも構いません。
+
+トップに戻る 
+PDFを生成するときよく変なのが画面に出るけど、何？ 
+この変な文字は、PDF の実際の中身です。画面に出てしまうのは IE のバグです。
+最初にHTMLページを受信して、次に同じ URL から PDF を受信した場合、IE はAcrobat を起動せずにPDF の中身を直接表示してしまうのです。
+開発中にはよくこういうことが起きます：
+スクリプトにエラーがあって HTML ページが出力され、修正後の実行で PDF が出力される、というような場合です。
+
+この問題を解決するのは簡単です。IE を閉じて開きなおして下さい。他の URL に行って戻ってくるという手もあります。
+
+開発中、こういった不便さを避けるには、生成したPDF をファイルに直接出力させて、そのファイルをエクスプローラで開くという手があります。
+トップに戻る 
+生成したPDFを IEで見ると空白ページになっちゃうんだけど、なんで？ 
+　まず最初に、ブラウザーに対してPDFの後に何も送っていないことをチェックしてください（空白１つや改行１つでさえも）。Output()メソッドの呼び出しの直後にexitステートメントを置けば確実です。
+　もしそれでもうまくいかないようなら、あなたはいわゆる「空白ページ症候群」の被害者です。IEをAcrobatプラグインと組み合わせて使うと、全てのバージョンにおいて、幾つものバグに悩まされるのです。あなたのアプリケーションを、IEのできるだけ多くのバージョンでテストするべきです（インターネット上であれば）。問題が起きるのは大抵POSTメソッドを使うときですので、POSTメソッドを避けることを強くお勧めします（POSTメソッドは他の問題の元にもなるので尚更です。次の質問を見て下さい）。GETの方がうまくいきますが、URLがあまりに長くなる場合には失敗するかもしれません: 45文字より長いクエリー文字列を使ってはならないのです。ですが、この制限を超えられるコツがあります。URLが .pdf で終わるようにすれば、IEをだますことができるのです。
+　フォームを使っているのでしたら、その最後にhiddenフィールドを追加できます：
+
+
+<INPUT TYPE="HIDDEN" NAME="ext" VALUE=".pdf">  
+
+　PHPセッションの使用もよくトラブルの元になります（キャッシュ防止用HTTPヘッダの使用を避けて下さい）。回避策については質問5を見て下さい。
+　確かなやり方でこういった問題を全て避けるのには、主な技法が2つあります：
+
+- プラグインを停止してAcrobatをヘルパーアプリケーションとして用いる方法
+　この方法は次のようにして行ないます。Acrobatを起動して、File - Preferences - General - "Web Browser Integration" のチェックを外します（Acrobat 5の場合は: Edit - Preferences - Options - "Display PDF in Browser"）。
+次に、IEでPDFを読み込むと、"開く(O)"か"保存(S)"かを選択するダイアログボックスが表示されるので、"この種類のファイルであれば常に警告する(W)"のチェクを外して "開く(O)" を選びます。これで、PDFファイルは自動的に、IEの外側のAcrobatウインドウで開かれるようになります。
+　この手段には欠点があります。クライアントの設定変更が要ることです。イントラネットでは可能ですがインターネット向きではありません。
+
+- リダイレクションの技法を使う方法
+　サーバ上の一時ファイルにPDFを生成して、クライアントをそのファイルにリダイレクトさせます（これにはJavaScriptを使います、Location HTTPヘッダーは同じくトラブルの元になるので使いません）。たとえば、スクリプトの最後に次のように書きます：
+
+
+//Determine a temporary file name in the current directory$file=basename(tempnam(getcwd(),'tmp'));//Save PDF to file$pdf->Output($file);//JavaScript redirectionecho"<HTML><SCRIPT>document.location='getpdf.php?f=$file';</SCRIPT></HTML>"; 
+
+　そしてgetpdf.php という次のようなファイルを作ります：
+
+
+<?php$f=$HTTP_GET_VARS['f'];//Check file (don't skip it!)if(substr($f,0,3)!='tmp' or strpos($f,'/') or strpos($f,'\\'))    die('Incorrect file name');if(!file_exists($f))    die('File does not exist');//Handle special IE request if neededif($HTTP_SERVER_VARS['HTTP_USER_AGENT']=='contype'){    Header('Content-Type: application/pdf');    exit;}//Output PDFHeader('Content-Type: application/pdf');Header('Content-Length: '.filesize($f));readfile($f);//Remove fileunlink($f);exit;?>  
+
+　この手段はたいていの場合にうまくいきますが、IE6ではまだトラブルにあうかもしれません。"究極"の手段は、一時ファイルに直接リダイレクトさせることです。従って、そのファイル名は .pdf で終わっていなければなりません：
+
+
+//Determine a temporary file name in the current directory$file=basename(tempnam(getcwd(),'tmp'));rename($file,$file.'.pdf');$file.='.pdf';//Save PDF to file$pdf->Output($file);//JavaScript redirectionecho"<HTML><SCRIPT>document.location='$file';</SCRIPT></HTML>"; 
+
+この手段は動的なPDFを静的なものにすることで全てのトラブルを避けることができます。しかし、一時ファイルを削除するために「掃除」を行なわなければなりません。たとえば：
+
+
+function CleanFiles($dir){    //Delete temporary files    $t=time();    $h=opendir($dir);    while($file=readdir($h))    {        if(substr($file,0,3)=='tmp' and substr($file,-4)=='.pdf')        {            $path=$dir.'/'.$file;            if($t-filemtime($path)>3600)                @unlink($path);        }    }    closedir($h);}  
+
+この関数は、指定されたディレクトリ内にあって作られて1時間以上たった、tmp*.pdfというファイル名形式に当てはまるファイルを全て削除します。この関数をどこでも好きなところ、たとえばPDFを生成するスクリプトの中で呼ぶことができます。
+
+註：PDFは新しいウインドウで開く必要があります。リダイレクションのため、前に戻ることができないからです。
+
+トップに戻る 
+postメソッドを使ってパラメタを送ったら PDF に値がでないんだけど 
+それは IE のいくつかのバージョンで見られる問題です。
+（特に 5.5の最初のバージョン）
+
+動くようにするために必要な情報は、一つ前の質問を見て下さい
+
+トップに戻る 
+PHPセッションを使うと、IEがPDFを表示しないでダウンロードするように要求してくるんだけど 
+IEのバージョンによって起きる問題です。回避するには、次の1行を session_start() の前に追加します：
+
+
+session_cache_limiter('private');  
+
+あるいは、質問3 で説明されているようにリダイレクトを使います。
+
+トップに戻る 
+SSLで接続してるとき IE で PDFファイルを開けないんだけど 
+それは、次の行を追加すると直るかもしれません：
+
+
+Header('Pragma: public');  
+
+トップに戻る 
+スクリプトを実行するとこんなメッセージが出てくるんだけど＞"FPDF error: Don't alter the locale before including class file" 
+小数点がカンマに設定されているときにファイルを include すると、PHPのバグで小数値が切捨てられてしまいます。
+そのため、class を include する前には setlocale() を呼び出すべきではありません。Unix においては、LC_ALL 環境変数の設定も行うべきではありません。
+これは setlocale() の呼び出しと同じ意味を持ちます。
+
+※訳註：日本では小数点をカンマにすることは殆どないと思いますので大丈夫ですね。
+トップに戻る 
+PNGを置こうとしたらAcrobatがこんな文句を言うんだけど＞ "There was an error processing a page. A drawing error occurred" 
+Acrobat 5 にはバグがあって、透明色を使った単色（1bit/pix）の画像を表示することができません。
+透明色を使うのをやめるか、画像を16色（4bit/pix）以上で保存して下さい。
+
+トップに戻る 
+画像を置こうとしたらAcrobatがこんな文句を言うんだけど＞ "There was an error processing a page. Wrong operand type" 
+画像の次元数が1次元以上である必要があります；
+
+言い換えると、画像の高さと幅の両方がゼロであってはなりません
+
+トップに戻る 
+画像を実寸でPDFに貼りたいんだけど pixel を mm に変換できる？ 
+画像には「実寸」がありません。ドキュメントの中で与えられる寸法は任意のものです。
+ただし、もし解像度が一定に決まっていれば（例えば画面でよく使われる解像度である72dpi で固定されていれば）、ピクセル単位での横幅と解像度の比率で寸法が決まります。
+トップに戻る 
+PDFを生成させようとしたらこんなエラーが出るんだけど＞Warning: Cannot add header information - headers already sent by (output started at script.php:X) 
+PDF 自身の他にはブラウザに何も送信してはいけません：HTML も駄目、空白も駄目、空行も駄目、PDF の前でも後でも駄目です。
+このエラーメッセージが出るときは、スクリプトの X 行目で、何かが出力されています。
+
+トップに戻る 
+Headerメソッドの中で変数を表示させようとしたら何も表示されないんだけど 
+globalキーワードを使います。　例えば：
+
+
+function Header(){    global $title;    $this->SetFont('Arial','B',15);    $this->Cell(0,10,$title,1,1,'C');}  トップに戻る 
+私が作ったPDFクラスはHeaderメソッドとFooterメソッドを再定義してあるのに、何も出てこないんだけど 
+オブジェクトを、FPDF クラスではなく、その PDF クラスで生成して下さい：
+
+
+$pdf=new PDF();  
+
+
+トップに戻る 
+改行ができません。MultiCellで表示する文字列の中に\nを置いてるんだけど.. 
+
+その文字列を、シングルクォートで囲むのではなく、ダブルクォートで囲むようにして下さい。
+
+トップに戻る 
+ユーロ記号をおいたけどダメでした 
+標準フォントの128番がユーロ記号になっています。
+こんな定数定義をしておくと便利です：
+
+
+define('EURO',chr(128));  
+
+トップに戻る 
+正確な寸法で枠を描いたのに印刷すると寸法がずれるんです 
+寸法が大事なときには、印刷ダイアログボックスの "Fit to page" オプションのチェックを外してください。
+
+トップに戻る 
+ページの全面を使いたいんだけど、印刷すると必ず周囲にマージンがあります。どうやったらマージンをなくせますか？ 
+どんなプリンターにも物理的にマージンがあります（機種によって違います）。
+ですので、マージンをなくして紙全体に印刷するのは不可能です。
+
+トップに戻る 
+FPDFで生成できるPDFファイルのサイズ制限は？ 
+明確な制限は設けていませんが、いくつか制約条件があります：
+
+- PHPスクリプトに割り当てられる最大メモリサイズのデフォルトは 8MB に設定されています。
+　　巨大なドキュメント、特に画像入りのものは、ファイルをメモリ内で構築するときに この限界に到達するかもしれません。
+　　このパラメータは php.ini ファイルの中で設定できます。
+
+
+- １回の処理の最大実行時間はデフォルトで 30秒に設定されています（これを超えるとタイムアウトとなります）。
+　　もちろん、この限界にも簡単に到達するかもしれません。
+　　このパラメータはphp.iniファイルの中で設定できます。
+　　動的にset_time_limit()でも変更できます。
+
+
+- ブラウザは普通、5分でタイムアウトします。PDF を直接ブラウザに送っていてこの限界に達すると、PDFが失われてしまいます。ですので、巨大なドキュメントを作る場合は、ファイルに作成することをお勧めします。
+　　作成中、ブラウザには適当なデータを次々に送り続けます（たとえば「page 1」「page 2」…を、flush()で強制出力します）。
+　　ドキュメント作成が完了したら、そのドキュメントへの JavaScript でのリダイレクトか、リンクを送ります。
+
+註：ブラウザがタイムアウトしてしまっても、スクリプトはサーバ上で動き続けているかもしれません。
+トップに戻る 
+FPDFで 既存PDFファイルを編集できる？ 
+できません。
+トップに戻る 
+PHPとインデックスPDFファイルでサーチエンジンを作りたいんだけど、FPDFでできる？ 
+FPDF ではできません。
+GPL の C のユーティリティに pdftotext というものがあり、これは PDF からテキストを抽出できます。pdftotext は Xpdfパッケージで供給されています：
+
+http://www.foolabs.com/xpdf/ 
+トップに戻る 
+FPDF で HTMLページを PDFに変換できるの？ 
+できません。
+GPL の C のユーティリティに htmldoc というものがあり、これはそういうことができて良い結果が得られます：
+
+http://www.easysw.com/htmldoc/ 
+トップに戻る 
+既存のPDFファイルを FPDF で連結できる？ 
+できません。
+
+フリーの C のユーティリティがあって、それを使えばその作業ができます：
+
+http://thierry.schmit.free.fr/dev/mbtPdfAsm/enMbtPdfAsm2.html 
+トップに戻る 
+PDFの保護機能はどうやったら使えますか？文書からテキストをコピーされたり修正されたくないんです 
+今はできません。
+保護機能は将来的には実装される予定です。
+

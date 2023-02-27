@@ -1,0 +1,53 @@
+/****************************************************************************/
+/* 全社共有 不適合報告書の照会・メンテ MVC View 部 (CSS file)               */
+/* Copyright (C) 2008 Norihisa.Ohya usoumu@nitto-kohki.co.jp                */
+/* Changed history                                                          */
+/* 2008/05/30 Created  unfit_report.css                                     */
+/* 2008/08/29 masterstで本稼動開始                                          */
+/****************************************************************************/
+
+@charset "UTF-8"; 
+
+.calendar {
+    border:             1px solid #cccccc; 
+    border-collapse:    collapse; 
+    font-size:          0.9em
+}
+
+.calendar th {
+    height:             2em;
+    text-align:         center
+}
+
+.calendar tr {
+    text-align:         right; 
+    vertical-align:     center
+}
+
+.calendar td {
+    width:              1.8em; 
+    height:             1.8em; 
+    border:             1px solid #cccccc; 
+    padding:            0.3em;
+}
+
+.calendar .tf {
+    width:              12.6em;
+    border:             1px solid #cccccc; 
+    padding:            0.3em; 
+    text-align:         center;
+}
+
+.calendar a {
+    color:              blue;
+    text-decoration:    none;
+}
+.calendar a:hover {
+    background-color:   blue;
+    color:              white;
+}
+.calendar a:active {
+    background-color:   white;
+    color:              red;
+}
+

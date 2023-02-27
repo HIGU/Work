@@ -1,0 +1,46 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=Shift_JIS">
+<TITLE>AddPage</TITLE>
+<LINK TYPE="text/css" REL="stylesheet" HREF="fpdf.css">
+</HEAD>
+<BODY>
+<H2>AddPage</H2>
+<TT>AddPage([<B>string</B> orientation])</TT>
+<H4 CLASS='st'>バージョン</H4>
+1.0
+<H4 CLASS='st'>説明</H4>
+ドキュメントに新規ページを追加します。
+もしすでにページが存在するのならば、Footer()メンバ関数が自動的に呼び出され、フッタを追加します。
+フッタの追加が完了したら、新規ページが追加されます。
+設定された左マージンと上マージンを参照し、ページの左上に現在の位置がセットされ、
+Header()メンバ関数がヘッダーを自動的に表示するために呼び出されます。
+<BR>
+すでにフォントが設定されていた場合、自動的にその設定を受け継ぎます。
+同じフォントを続けて利用したい場合は、SetFont()メンバメソッドを改めて実行する必要はありません。
+同様のことが色と線の幅についても言えます。
+<BR>
+座標の基準点は左上の隅になり、下方向へ増加します。
+訳者注：原文は縦座標について述べています。横座標は右方向へ増加します。つまり、左上が(x,y=0,0)となっているということです。
+<H4 CLASS='st'>パラメータ</H4>
+<TT><U>orientation</U></TT>
+<BLOCKQUOTE>
+ページの方向を指定できます。
+指定可能な値（完全一致する必要があります）：
+<UL>
+<LI><TT>P</TT> または <TT>Portrait</TT>
+<LI><TT>L</TT> または <TT>Landscape</TT>
+</UL>
+（何も入力しなかった場合の）デフォルトの値は<TT>P</TT>です。
+訳者注：Portraitは縦長、Landscapeは横長を意味します。
+</BLOCKQUOTE>
+<H4 CLASS='st'>参照</H4>
+<A HREF="fpdf.htm">FPDF()</A>,
+<A HREF="header.htm">Header()</A>,
+<A HREF="footer.htm">Footer()</A>,
+<A HREF="setmargins.htm">SetMargins()</A>.
+<H6></H6>
+<HR>
+<DIV ALIGN="CENTER"><A HREF="index.htm">目次</A></DIV>
+</BODY>
+</HTML>

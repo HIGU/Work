@@ -1,0 +1,42 @@
+<?php
+/**
+ * patTemplate function that highlights PHP code in your templates
+ *
+ * @package     patTemplate
+ * @subpackage  Functions
+ * @author      Stephan Schmidt <schst@php.net>
+ */
+
+/**
+ * patTemplate function that highlights PHP code in your templates
+ *
+ * @package     patTemplate
+ * @subpackage  Functions
+ * @author      Stephan Schmidt <schst@php.net>
+ */
+class patTemplate_Function_Phphighlight extends patTemplate_Function
+{
+    /**
+     * name of the function
+     * @access   private
+     * @var      string
+     */
+    public $_name = 'Phphighlight';
+
+    /**
+     * call the function
+     *
+     * @access   public
+     * @param    array   parameters of the function (= attributes of the tag)
+     * @param    string  content of the tag
+     * @return   string  content to insert into the template
+     */
+    public function call($params, $content)
+    {
+        ob_start();
+        highlight_string($content);
+        $content = ob_get_contents();
+        ob_end_clean();
+        return $content;
+    }
+}

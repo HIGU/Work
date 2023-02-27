@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>機械運転日報</title>
+<LINK rel="stylesheet" href="../com/css.css" type="text/css">
+<SCRIPT language="JavaScript" SRC="../com/popup.js"></SCRIPT>
+<Script Language="JavaScript">
+function SearchItem(target) {
+    var val = ShowDialog("材料マスタ検索.html",target,600,400);
+    if(val != null  &&  typeof(val) != "undefined") {
+        target.value = val;
+    }
+}
+function test(target1,target2) {
+    if (target1.value=="999999") {
+        target2.readOnly = false;
+    }
+    else {
+        target2.readOnly = true;
+    }
+}
+</Script>
+</head>
+<body>
+    <Div class="TITLE">機械運転日報</Div>
+    <br>
+    <center>
+        <!-- レイアウトテーブル -->
+        <table class="LAYOUT">
+            <tr class="LAYOUT">
+                <td class="LAYOUT">
+                    
+                    <!-- ヘッダ情報 -->
+                    <table border="1">
+                        <tr>
+                            <td CLASS="HED" style="width:70;">
+                                運転日
+                            </td>
+                            <td align="center" style="width:130;">
+                                <input type="text" name="FromYear"  value="" size="4"class="NUM">/<input type="text" name="FromMonth" value="" size="2"class="NUM">/<input type="text" name="FromDay"   value="" size="2"class="NUM">
+                            </td>
+                            <td class="HED" style="width:70;">
+                                機械No.
+                            </td>
+                            <td style="width:130;">
+                                <input type="button" value="選択"><input type="text" size="5" class="CODE">
+                            </td>
+                            <td class="HED" style="width:70;">
+                                機械名
+                            </td>
+                            <td align="center" style="width:130;">
+                            </td>
+                            <td class="HED" style="width:70;">
+                                指示No.
+                            </td>
+                            <td align="center" style="width:130;">
+                                <input type="text" size="5" class="CODE">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="HED" style="width:70;">
+                                部品No.
+                            </td>
+                            <td align="center">
+                                <input type="button" value="選択" onClick="test(ItemCode,ItemName)"><input type="text" name="ItemCode" size="10" class="CODE">
+                            </td>
+                            <td class="HED" style="width:70;">
+                                部品名
+                            </td>
+                            <td align="center">
+                                <input type="text" name="ItemName" class="READONLY" value="" readonly>
+                            </td>
+                            <td class="HED" style="width:70;">
+                                部品材質
+                            </td>
+                            <td align="center">
+                                
+                            </td>
+                            <td class="HED" colspan="2" style="width:200;">
+                                <!-- LAYOUT AREA -->
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="HED" style="width:70;">
+                                行程No.
+                            </td>
+                            <td align="center" style="width:130;">
+                                <input type="text" size="2" class="NUM">
+                            </td>
+                            <td class="HED" style="width:70;">
+                                行程名
+                            </td>
+                            <td align="center" style="width:130;">
+                                <input type="text" size="10" class="TEXT">
+                            </td>
+                            <td class="HED" style="width:70;">
+                                納期
+                            </td>
+                            <td align="center" style="width:130;">
+                                <input type="text" name="FromYear"  value="" size="4"class="NUM">/<input type="text" name="FromMonth" value="" size="2"class="NUM">/<input type="text" name="FromDay"   value="" size="2"class="NUM">
+                            </td>
+                            <td class="HED" style="width:70;">
+                                指示数量
+                            </td>
+                            <td align="center" style="width:130;">
+                                <input type="text" size="10" class="NUM">
+                            </td>
+                            
+                        </tr>
+                    </table>
+                    
+                    <!-- 明細部 レイアウトテーブル -->
+                    <table class="LAYOUT">
+                        <tr class="LAYOUT">
+                            <td class="LAYOUT">
+                                <table border="1">
+                                    <tr>
+                                        <td class="HED" style="width:100;">
+                                            前日良品累計数
+                                        </td>
+                                        <td class="HED" style="width:100;">
+                                            当日良品数
+                                        </td>
+                                        <td class="HED" style="width:100;">
+                                            当日良品累計数
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">
+                                            <input type="text" size="10" class="NUM">
+                                        </td>
+                                        <td align="center">
+                                            <input type="text" size="10" class="NUM">
+                                        </td>
+                                        <td align="center">
+                                            <input type="text" size="10" class="NUM">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br>
+                                <table border="1">
+                                    <tr>
+                                        <td class="HED" style="width:100">
+                                            不良数
+                                        </td>
+                                        <td class="NUM" style="width:100">
+                                            <input type="text" size="10" class="NUM">
+                                        </td>
+                                        <td class="HED" style="width:100">
+                                            段取数
+                                        </td>
+                                        <td class="NUM" style="width:100">
+                                            <input type="text" size="10" class="NUM">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="HED" style="width:100">
+                                            終了区分
+                                        </td>
+                                        <td class="NUM" style="width:100">
+                                            <select>
+                                                <option></option>
+                                                <option>終了  Ｅ</option>
+                                            </select>
+                                        </td>
+                                        <td class="HED" style="width:100">
+                                            不良区分
+                                        </td>
+                                        <td class="NUM" style="width:100">
+                                            <select>
+                                                <option></option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="HED" style="width:100">
+                                            チョコ停回数
+                                        </td>
+                                        <td class="NUM" style="width:100">
+                                            <input type="text" size="10" class="NUM">
+                                        </td>
+                                        <td class="HED" style="width:100">
+                                            故障回数
+                                        </td>
+                                        <td class="NUM" style="width:100">
+                                            <input type="text" size="10" class="NUM">
+                                        </td>
+                                    </tr>
+                                </table>
+                                <br>
+                                <table border="1">
+                                    <tr>
+                                        <td class="HED" style="width:100">
+                                            作業区分
+                                        </td>
+                                        <td class="HED" style="width:150">
+                                            作業時間
+                                        </td>
+                                        <td class="HED" style="width:100">
+                                            カット時間
+                                        </td>
+                                        <td class="HED" style="width:100">
+                                            作業分
+                                        </td>
+                                    <tr>
+                                        <td align="center" style="width:100">
+                                            <select>
+                                                <option>本稼働</option>
+                                            </select>
+                                        </td>
+                                        <td align="center" style="width:150">
+                                            <input type="text" value="" size="2"class="NUM">:<input type="text" value="" size="2"class="NUM">～
+                                            <input type="text" value="" size="2"class="NUM">:<input type="text" value="" size="2"class="NUM">
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="width:100">
+                                            <select>
+                                                <option>本稼働</option>
+                                            </select>
+                                        </td>
+                                        <td align="center" style="width:150">
+                                            <input type="text" value="" size="2"class="NUM">:<input type="text" value="" size="2"class="NUM">～
+                                            <input type="text" value="" size="2"class="NUM">:<input type="text" value="" size="2"class="NUM">
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" style="width:100">
+                                            <select>
+                                                <option>本稼働</option>
+                                            </select>
+                                        </td>
+                                        <td align="center" style="width:150">
+                                            <input type="text" value="" size="2"class="NUM">:<input type="text" value="" size="2"class="NUM">～
+                                            <input type="text" value="" size="2"class="NUM">:<input type="text" value="" size="2"class="NUM">
+                                        </td>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td class="LAYOUT">
+                                <br>
+                                <table border="1">
+                                    <tr>
+                                        <td class="HED" style="width:70">
+                                            備考
+                                        </td>
+                                    </tr>
+                                </table>
+<!--
+                                <table border="1">
+                                    <tr>
+                                        <td style="width:400;height:100">
+                                        </td>
+                                    </tr>
+                                </table>
+-->
+                                <textarea cols="50" rows="10"></textarea>
+                                <br>
+                                <table border="1">
+                                    <tr>
+                                        <td class="HED" colspan="2" style="width:200">
+                                            投入材料
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="HED" style="width:100">
+                                            材料コード
+                                        </td>
+                                        <td style="width:100">
+                                            <input type="text" size="10" class="NUM">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="HED" style="width:100">
+                                            投入数
+                                        </td>
+                                        <td style="width:100">
+                                            <input type="text" size="10" class="NUM">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                        
+                    <!-- ↓ LAYOUT TABLE ↓ -->
+                </td>
+            </tr>
+        </table>
+<input type="button" value="登録" style="width:80px">
+<input type="button" value="戻る" style="width:80px" onClick="Javascript:history.back()">
+
+    </center>
+</form>
+</body>
+</html>
