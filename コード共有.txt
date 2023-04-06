@@ -13,5 +13,5 @@ https://gsmcustomeffects.hatenablog.com/entry/2017/04/03/023111
 SN74HC00N
 
 超音波
-MA40S4S
+MA40S4S/MA40S4R
 TC4467CPD
