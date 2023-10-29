@@ -41,5 +41,8 @@ int main(void){
     // 降順sort
     std::sort(a.begin(), a.end(), std::greater<int>());
 
+    std::string last_data;
+    std::cin >> last_data;
+
     return 0;
 }

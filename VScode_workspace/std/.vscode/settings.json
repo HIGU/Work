@@ -67,6 +67,21 @@
         "xlocbuf": "cpp",
         "xlocmes": "cpp",
         "thread": "cpp",
-        "stack": "cpp"
-    }
+        "stack": "cpp",
+        "atomic": "cpp",
+        "bit": "cpp",
+        "cctype": "cpp",
+        "charconv": "cpp",
+        "clocale": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "format": "cpp",
+        "forward_list": "cpp",
+        "mutex": "cpp",
+        "optional": "cpp",
+        "ranges": "cpp",
+        "span": "cpp",
+        "stop_token": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
